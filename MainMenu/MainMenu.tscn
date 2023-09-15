@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://byage0vif20wq"]
+[gd_scene load_steps=4 format=3 uid="uid://byage0vif20wq"]
 
 [ext_resource type="FontFile" uid="uid://u0sgcki4iycp" path="res://MainMenu/LiberationSans.ttf" id="1_hh0jw"]
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_qqa1l"]
+[ext_resource type="AudioStream" uid="uid://0lr8ayvuh8cv" path="res://Master/red-flowers-kidcut-main-version-02-14-12093.mp3" id="3_xc3je"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -79,6 +80,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hh0jw")
 theme_override_font_sizes/font_size = 60
 text = "BACK"
+
+[node name="MenuTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xc3je")
 
 [connection signal="pressed" from="Main/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]

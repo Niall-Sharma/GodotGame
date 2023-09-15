@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnhlvlxgmww3t"]
+[gd_scene load_steps=6 format=3 uid="uid://cnhlvlxgmww3t"]
 
+[ext_resource type="Script" path="res://Master/master.gd" id="1_ajh2t"]
 [ext_resource type="PackedScene" uid="uid://027a3lx24ol7" path="res://Level1/level_1.tscn" id="1_jscbj"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="2_jvs5w"]
 [ext_resource type="Script" path="res://Player/player.gd" id="4_r8ehg"]
+[ext_resource type="AudioStream" uid="uid://bpwxo6lax4q1j" path="res://Master/Gymnopedie_No_1.mp3" id="5_n2n4l"]
 
 [node name="Master" type="Node2D"]
+script = ExtResource("1_ajh2t")
 
 [node name="Level1" parent="." instance=ExtResource("1_jscbj")]
 
 [node name="Player" parent="." instance=ExtResource("2_jvs5w")]
 position = Vector2(-28, -15)
 script = ExtResource("4_r8ehg")
+
+[node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n2n4l")

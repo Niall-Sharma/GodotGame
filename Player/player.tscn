@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk6dssf5ifs7d"]
+[gd_scene load_steps=6 format=3 uid="uid://dk6dssf5ifs7d"]
+
+[ext_resource type="AudioStream" uid="uid://bl1ub8puk10x3" path="res://Player/fall.wav" id="1_ehdac"]
+[ext_resource type="AudioStream" uid="uid://dx2skgwghv750" path="res://Player/jump.wav" id="2_eg1wf"]
 
 [sub_resource type="CSharpScript" id="CSharpScript_8l0pe"]
 script/source = "using Godot;
@@ -63,3 +66,9 @@ shape = SubResource("RectangleShape2D_6e2g0")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_3gb7m")
+
+[node name="FallSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_ehdac")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_eg1wf")
