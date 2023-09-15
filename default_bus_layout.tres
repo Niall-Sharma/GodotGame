@@ -2,7 +2,7 @@
 
 [resource]
 bus/0/volume_db = -0.130497
-bus/1/name = &"SoundEffects"
+bus/1/name = &"Sound Effects"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
