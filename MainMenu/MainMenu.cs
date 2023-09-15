@@ -17,8 +17,7 @@ public partial class MainMenu : Control
 
 	private void _on_start_button_pressed()
 	{
-		GetNode<CanvasItem>("Main").Visible = false;
-		GetNode<CanvasItem>("LevelSelect").Visible = true;
+		GetTree().ChangeSceneToFile("res://Master/master.tscn");
 	}
 
 
