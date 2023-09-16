@@ -103,7 +103,6 @@ text = "BACK"
 
 [node name="MenuTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_xc3je")
-bus = &"Music"
 
 [connection signal="pressed" from="Main/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]
