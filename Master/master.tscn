@@ -16,6 +16,7 @@ script = ExtResource("1_ajh2t")
 position = Vector2(-28, -15)
 
 [node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("5_n2n4l")
 bus = &"Music"
 
@@ -31,6 +32,7 @@ theme = ExtResource("6_fmloo")
 text = "Menu"
 
 [node name="PauseMenuBackground" type="ColorRect" parent="GUI"]
+process_mode = 2
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,6 +42,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.341176)
 
 [node name="Pause Menu" type="VBoxContainer" parent="GUI"]
+process_mode = 2
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,6 +76,7 @@ text = "MASTER VOLUME"
 
 [node name="Master Volume" type="HSlider" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
+min_value = -20.0
 max_value = 10.0
 step = 0.1
 value = 5.0
@@ -85,6 +89,7 @@ text = "SOUND EFFECTS"
 
 [node name="SoundEffectsVolume" type="HSlider" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
+min_value = -20.0
 max_value = 10.0
 step = 0.1
 value = 5.0
@@ -97,6 +102,7 @@ text = "MUSIC VOLUME"
 
 [node name="Music Volume" type="HSlider" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
+min_value = -20.0
 max_value = 10.0
 step = 0.1
 value = 5.0
