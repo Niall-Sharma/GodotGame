@@ -13,6 +13,7 @@ func _process(_delta):
 func _on_pause_button_pressed():
 	$"GUI/Pause Menu".visible = true
 	$GUI/PauseButton.visible = false
+	$GUI/PauseMenuBackground.visible = true
 
 
 func _on_master_volume_value_changed(value):
@@ -46,3 +47,8 @@ func _on_music_volume_value_changed(value):
 func _on_back_button_pressed():
 		$GUI/PauseButton.visible = true
 		$"GUI/Pause Menu".visible = false
+		$GUI/PauseMenuBackground.visible = false
+
+
+func _on_quit_button_pressed():
+	get_tree().change_scene_to_file("res://MainMenu/MainMenu.tscn")

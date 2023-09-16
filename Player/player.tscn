@@ -53,7 +53,7 @@ zoom = Vector2(2, 2)
 [node name="Touch Controls" type="CanvasLayer" parent="."]
 
 [node name="LeftArrow" type="TouchScreenButton" parent="Touch Controls"]
-position = Vector2(60, 483)
+position = Vector2(48, 591)
 scale = Vector2(67.35, 67.35)
 texture_normal = SubResource("PlaceholderTexture2D_afgnh")
 texture_pressed = SubResource("PlaceholderTexture2D_l8642")
@@ -61,7 +61,7 @@ shape = SubResource("CircleShape2D_gkw1l")
 action = "left"
 
 [node name="RightArrow" type="TouchScreenButton" parent="Touch Controls"]
-position = Vector2(278, 479)
+position = Vector2(288, 591)
 scale = Vector2(67.35, 67.35)
 texture_normal = SubResource("PlaceholderTexture2D_5j53f")
 texture_pressed = SubResource("PlaceholderTexture2D_i8qua")
@@ -69,7 +69,7 @@ shape = SubResource("CircleShape2D_6d2br")
 action = "right"
 
 [node name="Jump" type="TouchScreenButton" parent="Touch Controls"]
-position = Vector2(170, 599)
+position = Vector2(1079, 589)
 scale = Vector2(67.35, 67.35)
 texture_normal = SubResource("PlaceholderTexture2D_oea2d")
 texture_pressed = SubResource("PlaceholderTexture2D_dh13b")
