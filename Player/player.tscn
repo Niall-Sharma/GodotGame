@@ -49,10 +49,20 @@ bus = &"Sound Effects"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_drag_margin = true
 
-[node name="Touch Controls" type="CanvasLayer" parent="."]
+[node name="PlayerGUI" type="CanvasLayer" parent="."]
 
-[node name="LeftArrow" type="TouchScreenButton" parent="Touch Controls"]
+[node name="Control" type="Control" parent="PlayerGUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftArrow" type="TouchScreenButton" parent="PlayerGUI/Control"]
 position = Vector2(48, 591)
 scale = Vector2(67.35, 67.35)
 texture_normal = SubResource("PlaceholderTexture2D_afgnh")
@@ -60,7 +70,7 @@ texture_pressed = SubResource("PlaceholderTexture2D_l8642")
 shape = SubResource("CircleShape2D_gkw1l")
 action = "left"
 
-[node name="RightArrow" type="TouchScreenButton" parent="Touch Controls"]
+[node name="RightArrow" type="TouchScreenButton" parent="PlayerGUI/Control"]
 position = Vector2(288, 591)
 scale = Vector2(67.35, 67.35)
 texture_normal = SubResource("PlaceholderTexture2D_5j53f")
@@ -68,7 +78,7 @@ texture_pressed = SubResource("PlaceholderTexture2D_i8qua")
 shape = SubResource("CircleShape2D_6d2br")
 action = "right"
 
-[node name="Jump" type="TouchScreenButton" parent="Touch Controls"]
+[node name="Jump" type="TouchScreenButton" parent="PlayerGUI/Control"]
 position = Vector2(1079, 589)
 scale = Vector2(67.35, 67.35)
 texture_normal = SubResource("PlaceholderTexture2D_oea2d")
