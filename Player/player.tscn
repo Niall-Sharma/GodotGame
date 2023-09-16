@@ -1,13 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk6dssf5ifs7d"]
+[gd_scene load_steps=15 format=3 uid="uid://dk6dssf5ifs7d"]
 
 [ext_resource type="AudioStream" uid="uid://bl1ub8puk10x3" path="res://Player/fall.wav" id="1_ehdac"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_hxat1"]
 [ext_resource type="AudioStream" uid="uid://dx2skgwghv750" path="res://Player/jump.wav" id="2_eg1wf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e2g0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3gb7m"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_afgnh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l8642"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gkw1l"]
+radius = 0.75
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5j53f"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i8qua"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6d2br"]
+radius = 0.75
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oea2d"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dh13b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6bsk"]
+radius = 0.75
+
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_hxat1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6e2g0")
@@ -23,3 +46,32 @@ bus = &"Sound Effects"
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_eg1wf")
 bus = &"Sound Effects"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Touch Controls" type="CanvasLayer" parent="."]
+
+[node name="LeftArrow" type="TouchScreenButton" parent="Touch Controls"]
+position = Vector2(60, 483)
+scale = Vector2(67.35, 67.35)
+texture_normal = SubResource("PlaceholderTexture2D_afgnh")
+texture_pressed = SubResource("PlaceholderTexture2D_l8642")
+shape = SubResource("CircleShape2D_gkw1l")
+action = "left"
+
+[node name="RightArrow" type="TouchScreenButton" parent="Touch Controls"]
+position = Vector2(278, 479)
+scale = Vector2(67.35, 67.35)
+texture_normal = SubResource("PlaceholderTexture2D_5j53f")
+texture_pressed = SubResource("PlaceholderTexture2D_i8qua")
+shape = SubResource("CircleShape2D_6d2br")
+action = "right"
+
+[node name="Jump" type="TouchScreenButton" parent="Touch Controls"]
+position = Vector2(170, 599)
+scale = Vector2(67.35, 67.35)
+texture_normal = SubResource("PlaceholderTexture2D_oea2d")
+texture_pressed = SubResource("PlaceholderTexture2D_dh13b")
+shape = SubResource("CircleShape2D_l6bsk")
+action = "jump"

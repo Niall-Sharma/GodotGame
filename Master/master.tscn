@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnhlvlxgmww3t"]
+[gd_scene load_steps=7 format=3 uid="uid://cnhlvlxgmww3t"]
 
 [ext_resource type="Script" path="res://Master/master.gd" id="1_ajh2t"]
 [ext_resource type="PackedScene" uid="uid://027a3lx24ol7" path="res://Level1/level_1.tscn" id="1_jscbj"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="2_jvs5w"]
-[ext_resource type="Script" path="res://Player/player.gd" id="4_r8ehg"]
 [ext_resource type="AudioStream" uid="uid://bpwxo6lax4q1j" path="res://Master/Gymnopedie_No_1.mp3" id="5_n2n4l"]
 [ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="6_fmloo"]
 [ext_resource type="FontFile" uid="uid://u0sgcki4iycp" path="res://MainMenu/LiberationSans.ttf" id="6_xpwen"]
@@ -15,49 +14,29 @@ script = ExtResource("1_ajh2t")
 
 [node name="Player" parent="." instance=ExtResource("2_jvs5w")]
 position = Vector2(-28, -15)
-script = ExtResource("4_r8ehg")
 
 [node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_n2n4l")
 bus = &"Music"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="GUI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="PauseButton" type="Button" parent="GUI"]
-layout_mode = 1
-offset_left = -562.0
-offset_top = -309.0
-offset_right = -503.0
-offset_bottom = -277.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 59.0
+offset_bottom = 32.0
 size_flags_horizontal = 10
 size_flags_vertical = 0
 theme = ExtResource("6_fmloo")
 text = "Menu"
-metadata/_edit_use_anchors_ = true
 
 [node name="Pause Menu" type="VBoxContainer" parent="GUI"]
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -130.0
 offset_top = -184.0
-offset_right = 130.0
+offset_right = 260.0
 offset_bottom = 184.0
-grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 30

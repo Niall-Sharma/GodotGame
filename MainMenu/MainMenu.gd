@@ -1,6 +1,4 @@
-extends Control
-
-
+extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Options.visible = false
@@ -59,4 +57,3 @@ func _on_music_volume_value_changed(value):
 		AudioServer.set_bus_mute(0, true)
 	else :
 		AudioServer.set_bus_mute(0,false)
-

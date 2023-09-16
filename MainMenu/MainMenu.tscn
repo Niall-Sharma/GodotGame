@@ -4,26 +4,19 @@
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_qqa1l"]
 [ext_resource type="AudioStream" uid="uid://0lr8ayvuh8cv" path="res://Master/red-flowers-kidcut-main-version-02-14-12093.mp3" id="3_xc3je"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_qqa1l")
 
 [node name="Main" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -39.5
-offset_top = -50.5
-offset_right = 39.5
-offset_bottom = 50.5
+offset_left = -139.5
+offset_top = -164.0
+offset_right = 139.5
+offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
@@ -49,16 +42,15 @@ text = "QUIT"
 
 [node name="Options" type="VBoxContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -142.0
-offset_top = -82.0
+offset_top = -184.0
 offset_right = 140.0
-offset_bottom = 82.0
+offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
@@ -114,9 +106,3 @@ stream = ExtResource("3_xc3je")
 bus = &"Music"
 
 [connection signal="pressed" from="Main/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="Main/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="value_changed" from="Options/VBoxContainer/Master Volume" to="." method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="Options/VBoxContainer/SoundEffectsVolume" to="." method="_on_sound_effects_volume_value_changed"]
-[connection signal="value_changed" from="Options/VBoxContainer/Music Volume" to="." method="_on_music_volume_value_changed"]
-[connection signal="pressed" from="Options/BackButton" to="." method="_on_back_button_pressed"]
