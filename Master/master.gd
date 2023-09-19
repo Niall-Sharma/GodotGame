@@ -1,9 +1,7 @@
 extends Node2D
 
-var coinsCollected = 0
 
-func _addCoin():
-	coinsCollected += 1
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,10 +41,7 @@ func _on_back_button_pressed():
 	$"GUI/Pause Menu".hide()
 	$GUI/PauseMenuBackground.hide()
 
-<<<<<<< HEAD
-=======
 
 func _on_menu_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://MainMenu/MainMenu.tscn")
->>>>>>> e37cdd31a8cabf69811d112610c59ed7e750aa3d
