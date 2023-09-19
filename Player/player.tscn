@@ -41,11 +41,9 @@ texture = SubResource("PlaceholderTexture2D_3gb7m")
 
 [node name="FallSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_ehdac")
-bus = &"Sound Effects"
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_eg1wf")
-bus = &"Sound Effects"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
