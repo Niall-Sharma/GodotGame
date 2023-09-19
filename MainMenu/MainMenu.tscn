@@ -1,11 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://byage0vif20wq"]
 
-[ext_resource type="FontFile" uid="uid://u0sgcki4iycp" path="res://MainMenu/LiberationSans.ttf" id="1_hh0jw"]
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_qqa1l"]
+[ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="2_nxljn"]
 [ext_resource type="AudioStream" uid="uid://0lr8ayvuh8cv" path="res://Master/red-flowers-kidcut-main-version-02-14-12093.mp3" id="3_xc3je"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_qqa1l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.564706, 0.952941, 1, 1)
 
 [node name="Main" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -24,19 +32,19 @@ theme_override_constants/separation = 50
 [node name="StartButton" type="Button" parent="Main"]
 layout_mode = 2
 size_flags_vertical = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "START"
 
 [node name="OptionsButton" type="Button" parent="Main"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "OPTIONS"
 
 [node name="QuitButton" type="Button" parent="Main"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "QUIT"
 
@@ -47,9 +55,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -142.0
+offset_left = -141.0
 offset_top = -184.0
-offset_right = 140.0
+offset_right = 141.0
 offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -57,47 +65,26 @@ theme_override_constants/separation = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 20
 
 [node name="MasterVolumeLabel" type="Label" parent="Options/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 30
 text = "MASTER VOLUME"
 
 [node name="Master Volume" type="HSlider" parent="Options/VBoxContainer"]
 layout_mode = 2
-max_value = 10.0
-step = 0.1
-value = 5.0
-
-[node name="SoundEffectsVolumeLabel" type="Label" parent="Options/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
-theme_override_font_sizes/font_size = 30
-text = "SOUND EFFECTS"
-
-[node name="SoundEffectsVolume" type="HSlider" parent="Options/VBoxContainer"]
-layout_mode = 2
-max_value = 10.0
-step = 0.1
-value = 5.0
-
-[node name="MusicVolumeLabel" type="Label" parent="Options/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
-theme_override_font_sizes/font_size = 30
-text = "MUSIC VOLUME"
-
-[node name="Music Volume" type="HSlider" parent="Options/VBoxContainer"]
-layout_mode = 2
-max_value = 10.0
+theme = ExtResource("2_nxljn")
+min_value = -20.0
+max_value = 20.0
 step = 0.1
 value = 5.0
 
 [node name="BackButton" type="Button" parent="Options"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "BACK"
 
@@ -108,6 +95,4 @@ stream = ExtResource("3_xc3je")
 [connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Main/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="Options/VBoxContainer/Master Volume" to="." method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="Options/VBoxContainer/SoundEffectsVolume" to="." method="_on_sound_effects_volume_value_changed"]
-[connection signal="value_changed" from="Options/VBoxContainer/Music Volume" to="." method="_on_music_volume_value_changed"]
 [connection signal="pressed" from="Options/BackButton" to="." method="_on_back_button_pressed"]
