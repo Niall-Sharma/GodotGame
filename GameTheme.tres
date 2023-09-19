@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://b8wlumbqx6y67"]
 
-[ext_resource type="FontFile" uid="uid://u0sgcki4iycp" path="res://MainMenu/LiberationSans.ttf" id="1_wnkqa"]
+[ext_resource type="FontFile" uid="uid://q1hi0bpf4xbd" path="res://Inlanders Demo.otf" id="1_fqs2y"]
 
 [resource]
-default_font = ExtResource("1_wnkqa")
+default_font = ExtResource("1_fqs2y")
 default_font_size = 20

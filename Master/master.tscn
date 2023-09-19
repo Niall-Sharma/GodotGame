@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnhlvlxgmww3t"]
+[gd_scene load_steps=6 format=3 uid="uid://cnhlvlxgmww3t"]
 
 [ext_resource type="Script" path="res://Master/master.gd" id="1_ajh2t"]
 [ext_resource type="PackedScene" uid="uid://027a3lx24ol7" path="res://Level1/level_1.tscn" id="1_jscbj"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="2_jvs5w"]
 [ext_resource type="AudioStream" uid="uid://bpwxo6lax4q1j" path="res://Master/Gymnopedie_No_1.mp3" id="5_n2n4l"]
 [ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="6_fmloo"]
-[ext_resource type="FontFile" uid="uid://u0sgcki4iycp" path="res://MainMenu/LiberationSans.ttf" id="6_xpwen"]
 
 [node name="Master" type="Node2D"]
 script = ExtResource("1_ajh2t")
@@ -62,16 +61,16 @@ theme_override_constants/separation = 20
 
 [node name="BackButton2" type="Button" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_xpwen")
+theme = ExtResource("6_fmloo")
 theme_override_font_sizes/font_size = 60
 text = "BACK"
 
 [node name="MasterVolumeLabel" type="Label" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
 theme = ExtResource("6_fmloo")
-theme_override_fonts/font = ExtResource("6_xpwen")
 theme_override_font_sizes/font_size = 30
 text = "MASTER VOLUME"
+horizontal_alignment = 1
 
 [node name="Master Volume" type="HSlider" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
@@ -84,7 +83,6 @@ value = 5.0
 [node name="Menu button" type="Button" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
 theme = ExtResource("6_fmloo")
-theme_override_fonts/font = ExtResource("6_xpwen")
 theme_override_font_sizes/font_size = 60
 text = "MENU
 "
