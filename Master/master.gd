@@ -1,5 +1,9 @@
 extends Node2D
 
+var coinsCollected = 0
+
+func _addCoin():
+	coinsCollected += 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,34 +27,26 @@ func _on_pause_button_pressed():
 
 func _on_master_volume_value_changed(value):
 
-	AudioServer.set_bus_volume_db(2,value)
-	if value == 0:
-		AudioServer.set_bus_mute(2, true)
-	else :
-		AudioServer.set_bus_mute(2,false)
-
-
-
-func _on_sound_effects_volume_value_changed(value):
-
-	AudioServer.set_bus_volume_db(1,value)
-	if value == 0:
-		AudioServer.set_bus_mute(1, true)
-	else :
-		AudioServer.set_bus_mute(1,false)
-
-
-func _on_music_volume_value_changed(value):
-
 	AudioServer.set_bus_volume_db(0,value)
-	if value == 0:
+	if value == -20:
 		AudioServer.set_bus_mute(0, true)
 	else :
 		AudioServer.set_bus_mute(0,false)
-	
+
+
+
+
 
 func _on_back_button_pressed():
 	get_tree().paused = false
 	$GUI/PauseButton.show()
 	$"GUI/Pause Menu".hide()
 	$GUI/PauseMenuBackground.hide()
+
+<<<<<<< HEAD
+=======
+
+func _on_menu_button_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://MainMenu/MainMenu.tscn")
+>>>>>>> e37cdd31a8cabf69811d112610c59ed7e750aa3d
