@@ -44,7 +44,7 @@ func _on_sound_effects_volume_value_changed(value):
 	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
 	AudioServer.set_bus_volume_db(1,value)
 	if value == 0:
-		AudioServer.set_bus_mute(1, true)
+		AudioServer.set_bus_mute(value, true)
 	else :
 		AudioServer.set_bus_mute(1,false)
 
