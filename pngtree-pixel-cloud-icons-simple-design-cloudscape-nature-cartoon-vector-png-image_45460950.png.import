@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://24gnwghykvja"
-path="res://.godot/imported/grass.PNG-fdba675b2f0d6d78ca723353b2ed0807.ctex"
+uid="uid://bsuuycs4q7xn8"
+path="res://.godot/imported/pngtree-pixel-cloud-icons-simple-design-cloudscape-nature-cartoon-vector-png-image_45460950.png-503cd6de2553189e574c134633a20310.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles/grass.PNG"
-dest_files=["res://.godot/imported/grass.PNG-fdba675b2f0d6d78ca723353b2ed0807.ctex"]
+source_file="res://pngtree-pixel-cloud-icons-simple-design-cloudscape-nature-cartoon-vector-png-image_45460950.png"
+dest_files=["res://.godot/imported/pngtree-pixel-cloud-icons-simple-design-cloudscape-nature-cartoon-vector-png-image_45460950.png-503cd6de2553189e574c134633a20310.ctex"]
 
 [params]
 
