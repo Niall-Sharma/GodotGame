@@ -43,3 +43,7 @@ func _on_master_volume_value_changed(value):
 
 
 
+
+
+func _on_credit_button_pressed():
+	get_tree().change_scene_to_file("res://CreditFolder/Credits.tscn")
