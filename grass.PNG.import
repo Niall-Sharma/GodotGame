@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brlob2dc4qky3"
-path="res://.godot/imported/hyptosis_tile-art-batch-1.png-0b1ea34226ad77c62d93e272f1434b09.ctex"
+uid="uid://40b5ku51f5uk"
+path="res://.godot/imported/grass.PNG-a9b8c579310beae2865f0da9f1569fa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hyptosis_tile-art-batch-1.png"
-dest_files=["res://.godot/imported/hyptosis_tile-art-batch-1.png-0b1ea34226ad77c62d93e272f1434b09.ctex"]
+source_file="res://grass.PNG"
+dest_files=["res://.godot/imported/grass.PNG-a9b8c579310beae2865f0da9f1569fa4.ctex"]
 
 [params]
 
