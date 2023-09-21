@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4otvnxgm0opp"]
+
+[ext_resource type="Script" path="res://CreditFolder/Credits.gd" id="1_nra0f"]
+[ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="1_s6cnu"]
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_nra0f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -38.0
+offset_top = 3.0
+offset_right = 1248.0
+offset_bottom = 722.0
+color = Color(0, 0, 0, 0.619608)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -49.0
+offset_right = 433.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_s6cnu")
+theme_override_font_sizes/font_size = 60
+text = "BACK"
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_s6cnu")
+theme_override_font_sizes/font_size = 18
+text = "CREDIT : HYPTOSIS AND ZABIN (ONLY DREW 6 FRAMES OF THE BOMB'S WICK BURNING) FROM OGA AND RESPECT TO THE LICENSE."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
