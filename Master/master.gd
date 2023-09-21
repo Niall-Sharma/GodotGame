@@ -8,7 +8,9 @@ func _ready():
 	$"GUI/Pause Menu".hide()
 	$"GUI/PauseMenuBackground".hide()
 	$MainTheme.play()
+	$"GUI/Pause Menu/Volume Sliders/Master Volume".value = 0
 	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
+	AudioServer.set_bus_volume_db(0,-20)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
