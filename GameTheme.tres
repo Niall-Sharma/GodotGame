@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://b8wlumbqx6y67"]
 
-[ext_resource type="FontFile" uid="uid://q1hi0bpf4xbd" path="res://Inlanders Demo.otf" id="1_fqs2y"]
+[ext_resource type="FontFile" uid="uid://cnvqqvc1pcfqa" path="res://Squarely.ttf" id="1_touka"]
 
 [resource]
-default_font = ExtResource("1_fqs2y")
+default_font = ExtResource("1_touka")
 default_font_size = 20
