@@ -1,8 +1,10 @@
 extends Node2D
 
+var levels = ["res://Level1/level_1.tscn"]
 
-
-
+func _change_level(x):
+	var level = load("res://Level1/level_"+str(x)+".tscn")
+	add_child(level)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	

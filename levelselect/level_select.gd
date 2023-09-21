@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var button = preload("res://levelbutton.tscn")
+var button = preload("res://LevelButton/levelbutton.tscn")
 var buttonvars = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,6 +9,7 @@ func _ready():
 		get_child(0).add_child(butject)
 		buttonvars.append(butject)
 		butject.text = "Level " + str(i+1)
+		butject.name = "Level " + str(i+1) + " Button"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
