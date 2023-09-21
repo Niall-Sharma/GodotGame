@@ -1,21 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://c03ymadcethiy"]
+[gd_scene load_steps=3 format=3 uid="uid://c03ymadcethiy"]
+
+[ext_resource type="Texture2D" uid="uid://40b5ku51f5uk" path="res://Tiles/grass.PNG" id="1_evyoy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arfwr"]
-size = Vector2(92, 10)
-
-[sub_resource type="Gradient" id="Gradient_mqwvr"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vvbd3"]
-gradient = SubResource("Gradient_mqwvr")
+size = Vector2(105.208, 24)
 
 [node name="Platform" type="StaticBody2D"]
 position = Vector2(-132, 82)
 scale = Vector2(0.959999, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.520828, 7)
 shape = SubResource("RectangleShape2D_arfwr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.48, 0.159999)
-texture = SubResource("GradientTexture2D_vvbd3")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evyoy")
