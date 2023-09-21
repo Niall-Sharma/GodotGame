@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://cwidtdk65ht38"]
+[gd_scene load_steps=2 format=3 uid="uid://cwidtdk65ht38"]
+
+[ext_resource type="Script" path="res://Randomi/randomi.gd" id="1_cmkm2"]
 
 [node name="Randomi" type="Node2D"]
+script = ExtResource("1_cmkm2")
