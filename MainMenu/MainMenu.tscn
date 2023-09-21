@@ -1,11 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://byage0vif20wq"]
 
-[ext_resource type="FontFile" uid="uid://u0sgcki4iycp" path="res://MainMenu/LiberationSans.ttf" id="1_hh0jw"]
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_qqa1l"]
+[ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="2_nxljn"]
 [ext_resource type="AudioStream" uid="uid://0lr8ayvuh8cv" path="res://Master/red-flowers-kidcut-main-version-02-14-12093.mp3" id="3_xc3je"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_qqa1l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.619608)
 
 [node name="Main" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -24,19 +32,19 @@ theme_override_constants/separation = 50
 [node name="StartButton" type="Button" parent="Main"]
 layout_mode = 2
 size_flags_vertical = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "START"
 
 [node name="OptionsButton" type="Button" parent="Main"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "OPTIONS"
 
 [node name="QuitButton" type="Button" parent="Main"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "QUIT"
 
@@ -62,12 +70,13 @@ theme_override_constants/separation = 20
 
 [node name="MasterVolumeLabel" type="Label" parent="Options/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 30
 text = "MASTER VOLUME"
 
 [node name="Master Volume" type="HSlider" parent="Options/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_nxljn")
 min_value = -20.0
 max_value = 20.0
 step = 0.1
@@ -75,9 +84,9 @@ value = 5.0
 
 [node name="BackButton" type="Button" parent="Options"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
-text = "BACK"
+text = "BACK "
 
 [node name="MenuTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_xc3je")

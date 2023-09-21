@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://b8wlumbqx6y67"]
 
-[ext_resource type="FontFile" uid="uid://u0sgcki4iycp" path="res://MainMenu/LiberationSans.ttf" id="1_wnkqa"]
+[ext_resource type="FontFile" uid="uid://bgfjchu1iv6mj" path="res://Square One.ttf" id="1_s5vsr"]
 
 [resource]
-default_font = ExtResource("1_wnkqa")
+default_font = ExtResource("1_s5vsr")
 default_font_size = 20
