@@ -86,7 +86,7 @@ value = 5.0
 layout_mode = 2
 theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
-text = "BACK"
+text = "BACK "
 
 [node name="MenuTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_xc3je")
