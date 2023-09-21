@@ -21,7 +21,7 @@ func _on_quit_button_pressed():
 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://Master/master.tscn")
+	get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
 
 
 
