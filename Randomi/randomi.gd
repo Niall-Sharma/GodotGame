@@ -9,7 +9,7 @@ func _ready():
 	
 	var land2 = land.duplicate()
 	land2.position.x = land.position.x+500
-	land2.position.y = land.position.y
+	land2.position.y = land.position.y + randf()*400+200
 	add_child(land2)
 
 
