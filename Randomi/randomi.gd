@@ -31,7 +31,7 @@ func _process(delta):
 		land2.position.y = ry + randf()*300-150
 		'''
 		while ry > 700 or ry < 100:
-			land2.position.y = ry + randf()*300-150
+			land2.position.y = ry + randf()*200-100
 		'''
 		add_child(land2)
 		rx = land2.position.x
