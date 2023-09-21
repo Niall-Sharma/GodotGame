@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmwp3u2hg1jgv"]
+
+[ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="1_k8od3"]
+
+[node name="LevelSelect" type="CanvasLayer"]
+
+[node name="Grid" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.5
+offset_top = -15.5
+offset_right = 10.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Button" type="Button" parent="Grid"]
+layout_mode = 2
+theme = ExtResource("1_k8od3")
+text = "Level 1"
+
+[node name="Button2" type="Button" parent="Grid"]
+layout_mode = 2
+theme = ExtResource("1_k8od3")
+text = "Level 2"
+
+[node name="Button3" type="Button" parent="Grid"]
+layout_mode = 2
+theme = ExtResource("1_k8od3")
+text = "Level 3"
+
+[node name="Button4" type="Button" parent="Grid"]
+layout_mode = 2
+theme = ExtResource("1_k8od3")
+text = "Level 4"
+
+[node name="Button5" type="Button" parent="Grid"]
+layout_mode = 2
+theme = ExtResource("1_k8od3")
+text = "Level 5"
+
+[node name="Button6" type="Button" parent="Grid"]
+layout_mode = 2
+theme = ExtResource("1_k8od3")
+text = "Level 6"
+
+[node name="Button7" type="Button" parent="Grid"]
+layout_mode = 2
+theme = ExtResource("1_k8od3")
+text = "Level 7"
+
+[node name="Button8" type="Button" parent="Grid"]
+layout_mode = 2
+theme = ExtResource("1_k8od3")
+text = "Level 8"
+
+[node name="Button9" type="Button" parent="Grid"]
+layout_mode = 2
+theme = ExtResource("1_k8od3")
+text = "Level 9"
+
+[node name="Button10" type="Button" parent="Grid"]
+layout_mode = 2
+theme = ExtResource("1_k8od3")
+text = "Level 10"
