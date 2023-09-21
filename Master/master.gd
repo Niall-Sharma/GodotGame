@@ -5,6 +5,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	$"GUI/Pause Menu".hide()
 	$"GUI/PauseMenuBackground".hide()
 	$MainTheme.play()
