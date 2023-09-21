@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqh5kafbwwvmm"]
+
+[ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="1_f800w"]
+
+[node name="Button" type="Button"]
+theme = ExtResource("1_f800w")
+text = "Level 1"
