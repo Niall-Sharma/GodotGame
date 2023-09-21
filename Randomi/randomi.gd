@@ -1,12 +1,17 @@
 extends Node2D
-@export var land_scene: PackedScene
-
+@export var land: PackedScene
+var scene = preload("res://land.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var scene = load("res://land.tscn")
+
 	var land = scene.instantiate()
-	land.initialize(500,500)
 	add_child(land)
+	
+	var land2 = land.duplicate()
+	land2.position.x = land.position.x+500
+	land2.position.y = land.position.y
+	add_child(land2)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
