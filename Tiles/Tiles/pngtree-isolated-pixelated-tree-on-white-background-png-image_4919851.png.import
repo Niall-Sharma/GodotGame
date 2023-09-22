@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhwkqqiv86ije"
-path="res://.godot/imported/Assets.png-ae16721b5ea0e2666d1329955e8ebdfa.ctex"
+uid="uid://jxchsvf1jjt2"
+path="res://.godot/imported/pngtree-isolated-pixelated-tree-on-white-background-png-image_4919851.png-f2b76e2d1524867363aa799c1f956e64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles/Tiles/Assets/Assets.png"
-dest_files=["res://.godot/imported/Assets.png-ae16721b5ea0e2666d1329955e8ebdfa.ctex"]
+source_file="res://Tiles/Tiles/pngtree-isolated-pixelated-tree-on-white-background-png-image_4919851.png"
+dest_files=["res://.godot/imported/pngtree-isolated-pixelated-tree-on-white-background-png-image_4919851.png-f2b76e2d1524867363aa799c1f956e64.ctex"]
 
 [params]
 

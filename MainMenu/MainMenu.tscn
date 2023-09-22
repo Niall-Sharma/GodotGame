@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://byage0vif20wq"]
+[gd_scene load_steps=7 format=3 uid="uid://byage0vif20wq"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_qqa1l"]
 [ext_resource type="Texture2D" uid="uid://c1olw0r4rs7qf" path="res://grass.PNG" id="2_8d1jo"]
 [ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="2_nxljn"]
 [ext_resource type="AudioStream" uid="uid://0lr8ayvuh8cv" path="res://Master/red-flowers-kidcut-main-version-02-14-12093.mp3" id="3_xc3je"]
 [ext_resource type="Texture2D" uid="uid://bsuuycs4q7xn8" path="res://pngtree-pixel-cloud-icons-simple-design-cloudscape-nature-cartoon-vector-png-image_45460950.png" id="4_rylfj"]
+[ext_resource type="Texture2D" uid="uid://byqbj56igbb2c" path="res://pngtree-isolated-pixelated-tree-on-white-background-png-image_4919851.png" id="5_3lo1a"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_qqa1l")
@@ -31,31 +32,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="Sprite2D2" type="Sprite2D" parent="Main"]
-position = Vector2(-389.5, 511)
-texture = ExtResource("2_8d1jo")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Main"]
-position = Vector2(265.5, 511)
-texture = ExtResource("2_8d1jo")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Main"]
-position = Vector2(482.5, 511)
-texture = ExtResource("2_8d1jo")
-
-[node name="Sprite2D6" type="Sprite2D" parent="Main"]
-position = Vector2(686.5, 511)
-scale = Vector2(0.860731, 1)
-texture = ExtResource("2_8d1jo")
-
-[node name="Sprite2D" type="Sprite2D" parent="Main"]
-position = Vector2(-171.5, 511)
-texture = ExtResource("2_8d1jo")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Main"]
-position = Vector2(47.5, 511)
-texture = ExtResource("2_8d1jo")
-
 [node name="StartButton" type="Button" parent="Main"]
 layout_mode = 2
 size_flags_vertical = 2
@@ -81,14 +57,6 @@ theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "CREDITS
 "
-
-[node name="Cloud" type="Sprite2D" parent="Main"]
-position = Vector2(-270.5, -39)
-texture = ExtResource("4_rylfj")
-
-[node name="Cloud2" type="Sprite2D" parent="Main"]
-position = Vector2(557.5, -46)
-texture = ExtResource("4_rylfj")
 
 [node name="Options" type="VBoxContainer" parent="."]
 visible = false
@@ -132,6 +100,49 @@ text = "BACK "
 
 [node name="MenuTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_xc3je")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Cloud" type="Sprite2D" parent="Node2D"]
+position = Vector2(230, 108)
+texture = ExtResource("4_rylfj")
+
+[node name="Cloud2" type="Sprite2D" parent="Node2D"]
+position = Vector2(1058, 101)
+texture = ExtResource("4_rylfj")
+
+[node name="Tree" type="Sprite2D" parent="Node2D"]
+position = Vector2(144, 426)
+texture = ExtResource("5_3lo1a")
+
+[node name="Tree2" type="Sprite2D" parent="Node2D"]
+position = Vector2(1104, 425)
+texture = ExtResource("5_3lo1a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+position = Vector2(111, 658)
+texture = ExtResource("2_8d1jo")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D"]
+position = Vector2(766, 658)
+texture = ExtResource("2_8d1jo")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D"]
+position = Vector2(983, 658)
+texture = ExtResource("2_8d1jo")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node2D"]
+position = Vector2(1187, 658)
+scale = Vector2(0.860731, 1)
+texture = ExtResource("2_8d1jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(329, 658)
+texture = ExtResource("2_8d1jo")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D"]
+position = Vector2(548, 658)
+texture = ExtResource("2_8d1jo")
 
 [connection signal="pressed" from="Main/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]
