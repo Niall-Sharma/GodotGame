@@ -1,18 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwidtdk65ht38"]
+[gd_scene load_steps=5 format=3 uid="uid://cwidtdk65ht38"]
 
 [ext_resource type="Script" path="res://Randomi/randomi.gd" id="1_22ysv"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="2_18sd5"]
 [ext_resource type="Texture2D" uid="uid://doh81ln1281d0" path="res://Randomi/backg.jpg" id="2_ysfyw"]
+[ext_resource type="Script" path="res://Randomi/back.gd" id="3_nchfv"]
 
 [node name="Randomi" type="Node2D"]
 script = ExtResource("1_22ysv")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="back" type="Sprite2D" parent="."]
+position = Vector2(704, 358)
 texture = ExtResource("2_ysfyw")
+script = ExtResource("3_nchfv")
 
 [node name="Player" parent="." instance=ExtResource("2_18sd5")]
 position = Vector2(82, 285)
