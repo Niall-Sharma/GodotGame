@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://027a3lx24ol7"]
+[gd_scene load_steps=4 format=3 uid="uid://027a3lx24ol7"]
 
 [ext_resource type="PackedScene" uid="uid://c03ymadcethiy" path="res://Platforms/platform.tscn" id="1_8kel7"]
+[ext_resource type="Texture2D" uid="uid://clfdlkee3xeqt" path="res://LevelDesignTiles/imgbin_concept-art-platform-game-tile-based-video-game-2d-computer-graphics-png.png" id="2_7sp5u"]
 
 [sub_resource type="TileSet" id="TileSet_o0fto"]
 
@@ -21,3 +22,8 @@ position = Vector2(-7, 49)
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_o0fto")
 format = 2
+
+[node name="ImgbinConcept-art-platform-game-tile-based-video-game-2d-computer-graphics-png" type="Sprite2D" parent="."]
+position = Vector2(-138.25, 109)
+scale = Vector2(1.32278, 0.846154)
+texture = ExtResource("2_7sp5u")
