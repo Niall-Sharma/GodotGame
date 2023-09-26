@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dk6dssf5ifs7d"]
+[gd_scene load_steps=17 format=3 uid="uid://dk6dssf5ifs7d"]
 
 [ext_resource type="AudioStream" uid="uid://bl1ub8puk10x3" path="res://Player/fall.wav" id="1_ehdac"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_hxat1"]
@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e2g0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3gb7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhwna"]
+size = Vector2(1.55, 1.5)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_afgnh"]
 
@@ -29,6 +32,8 @@ radius = 0.75
 [sub_resource type="CircleShape2D" id="CircleShape2D_l6bsk"]
 radius = 0.75
 
+[sub_resource type="Theme" id="Theme_bkc84"]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hxat1")
 
@@ -38,6 +43,12 @@ shape = SubResource("RectangleShape2D_6e2g0")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_3gb7m")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(-0.025, -0.0499992)
+shape = SubResource("RectangleShape2D_dhwna")
 
 [node name="FallSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_ehdac")
@@ -85,3 +96,19 @@ texture_normal = SubResource("PlaceholderTexture2D_oea2d")
 texture_pressed = SubResource("PlaceholderTexture2D_dh13b")
 shape = SubResource("CircleShape2D_l6bsk")
 action = "jump"
+
+[node name="HealthBar" type="ProgressBar" parent="PlayerGUI"]
+layout_direction = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_bkc84")
+value = 100.0
+fill_mode = 1
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

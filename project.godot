@@ -62,6 +62,11 @@ jump={
 
 pointing/emulate_touch_from_mouse=true
 
+[layer_names]
+
+2d_render/layer_1="player_group"
+2d_physics/layer_1="player_group"
+
 [rendering]
 
 renderer/rendering_method="mobile"
