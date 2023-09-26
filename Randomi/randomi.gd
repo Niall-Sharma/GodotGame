@@ -17,22 +17,24 @@ func _ready():
 	land2.position.y = land.position.y + randf()*300-150
 	add_child(land2)
 	'''
-	
+	rx = landi.position.x
+	ry = landi.position.y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	
+	var pos = $Player.position
 
-	var size = get_viewport_rect().size
-
-	if rx < size.x - 1000:
+	if rx < pos.x + 1000:
 		var land2 = landi.duplicate()
-		land2.position.x = rx+300
-		land2.position.y = ry + randf()*300-150
-		'''
-		while ry > 700 or ry < 100:
-			land2.position.y = ry + randf()*200-100
-		'''
+		land2.position.x = rx+50
+		land2.position.y = ry + randf()*150-75
+		
+		while ry > 900 or ry < 400:
+			land2.position.y = ry + randf()*150-75
+			ry = land2.position.y
+		
 		add_child(land2)
 		rx = land2.position.x
 		ry = land2.position.y
