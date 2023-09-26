@@ -14,7 +14,7 @@ script = ExtResource("1_ajh2t")
 [node name="Level1" parent="." instance=ExtResource("1_jscbj")]
 
 [node name="Player" parent="." instance=ExtResource("2_jvs5w")]
-position = Vector2(-28, -15)
+position = Vector2(-54, -110)
 
 [node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
