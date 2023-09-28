@@ -1,20 +1,23 @@
 extends Node2D
-
-var levels = ["res://Level1/level_1.tscn"]
+var testvar =  preload("res://Level1/level_1.tscn")
+var levels = [preload("res://Level1/level_1.tscn")]
 
 func _change_level(x):
-	var level = load("res://Level1/level_"+str(x)+".tscn")
+	var level = levels[x].instantiate()
 	add_child(level)
+	level.position.x = 0
+	level.position.y = 0
+
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	$"GUI/Pause Menu".hide()
 	$"GUI/PauseMenuBackground".hide()
 	$MainTheme.play()
 	$"GUI/Pause Menu/Volume Sliders/Master Volume".value = 0
 	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
 	AudioServer.set_bus_volume_db(0,-20)
-	
+	_change_level(Globalvars.getLevel())
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass

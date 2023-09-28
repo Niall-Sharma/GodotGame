@@ -13,7 +13,7 @@ func _ready():
 		butject.text = "Level " + str(i+1)
 		butject.name = "Level " + str(i+1) + " Button"
 		butject.lvl_num = i
-		print(butject)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
