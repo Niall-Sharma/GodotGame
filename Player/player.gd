@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterBody2D 
 
 
 const SPEED = 300.0
@@ -6,10 +6,12 @@ const JUMP_VELOCITY = -400.0
 var hasLanded = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var health = 10
+var health = 100
 
 func _ready():
 	$Camera2D.make_current()
+	$PlayerGUI/HealthBar.modulate=Color(0,2,0)
+	#connect("enemy_collision", self, "_on_enemy_collision")
 	
 func _physics_process(delta):
 	# Add the gravity.
@@ -39,3 +41,41 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+
+
+
+
+
+ # Initialize the character's health
+
+
+
+
+
+func take_damage(damage):
+	health -= damage
+	$PlayerGUI/HealthBar.value = health
+	if health<=60:
+		$PlayerGUI/HealthBar.modulate = Color(1, 1, 0)
+	if health<=30:
+		$PlayerGUI/HealthBar.modulate = Color("ff4500")
+	if health <=10:
+		$PlayerGUI/HealthBar.modulate = Color(1, 0, 0)
+	if health <= 0:
+		die()  # If health reaches zero or below, character dies
+
+func die():
+	get_tree().queue_delete(self)
+
+
+
+func _on_area_2d_body_entered(body):
+	if body.name == "enemy":
+		take_damage(10)
+		print(health);
+		
+		
+
+
+		
+		
