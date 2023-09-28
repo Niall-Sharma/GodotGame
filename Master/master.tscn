@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnhlvlxgmww3t"]
+[gd_scene load_steps=9 format=3 uid="uid://cnhlvlxgmww3t"]
 
 [ext_resource type="Script" path="res://Master/master.gd" id="1_ajh2t"]
 [ext_resource type="PackedScene" uid="uid://027a3lx24ol7" path="res://Level1/level_1.tscn" id="1_jscbj"]
@@ -6,15 +6,14 @@
 [ext_resource type="AudioStream" uid="uid://bpwxo6lax4q1j" path="res://Master/Gymnopedie_No_1.mp3" id="5_n2n4l"]
 [ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="6_fmloo"]
 [ext_resource type="FontFile" uid="uid://u0sgcki4iycp" path="res://MainMenu/LiberationSans.ttf" id="6_xpwen"]
-[ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="7_ymck6"]
 [ext_resource type="Script" path="res://Master/Collectable.gd" id="7_dmadi"]
+[ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="7_ymck6"]
 
 [node name="Master" type="Node2D"]
 script = ExtResource("1_ajh2t")
 
 [node name="Level1" parent="." instance=ExtResource("1_jscbj")]
 visible = false
-position = Vector2(0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_jvs5w")]
 position = Vector2(-54, -110)

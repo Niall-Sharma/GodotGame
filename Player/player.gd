@@ -71,6 +71,7 @@ func die():
 
 func _on_area_2d_body_entered(body):
 	if body.name == "enemy":
+		$AttackSound.play()
 		take_damage(10)
 		print(health);
 		
