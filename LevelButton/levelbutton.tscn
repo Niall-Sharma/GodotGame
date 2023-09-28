@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqh5kafbwwvmm"]
+
+[ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="1_t0e2n"]
+[ext_resource type="Script" path="res://LevelButton/levelbutton.gd" id="2_fowrr"]
+
+[node name="LevelButton" type="Button"]
+theme = ExtResource("1_t0e2n")
+text = "Level 1"
+script = ExtResource("2_fowrr")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

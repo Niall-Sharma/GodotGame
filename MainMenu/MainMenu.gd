@@ -21,7 +21,7 @@ func _on_quit_button_pressed():
 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://Master/master.tscn")
+	get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
 
 
 
@@ -32,28 +32,18 @@ func _on_back_button_pressed():
 
 func _on_master_volume_value_changed(value):
 	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
-	AudioServer.set_bus_volume_db(2,value)
-	if value == 0:
-		AudioServer.set_bus_mute(2, true)
-	else :
-		AudioServer.set_bus_mute(2,false)
-
-
-
-func _on_sound_effects_volume_value_changed(value):
-	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
-	AudioServer.set_bus_volume_db(1,value)
-	if value == 0:
-		AudioServer.set_bus_mute(1, true)
-	else :
-		AudioServer.set_bus_mute(1,false)
-
-
-
-func _on_music_volume_value_changed(value):
-	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
 	AudioServer.set_bus_volume_db(0,value)
-	if value == 0:
+	if value == -20:
 		AudioServer.set_bus_mute(0, true)
 	else :
 		AudioServer.set_bus_mute(0,false)
+
+
+
+
+
+
+
+
+func _on_credit_button_pressed():
+	get_tree().change_scene_to_file("res://CreditFolder/Credits.tscn")

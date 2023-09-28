@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://027a3lx24ol7"]
+[gd_scene load_steps=3 format=3 uid="uid://027a3lx24ol7"]
 
 [ext_resource type="PackedScene" uid="uid://c03ymadcethiy" path="res://Platforms/platform.tscn" id="1_8kel7"]
 
+[sub_resource type="TileSet" id="TileSet_o0fto"]
+
 [node name="Level1" type="Node2D"]
+position = Vector2(655, 390)
 
 [node name="Platform" parent="." instance=ExtResource("1_8kel7")]
 
@@ -15,3 +18,11 @@ scale = Vector2(1.52, 1)
 
 [node name="Platform4" parent="." instance=ExtResource("1_8kel7")]
 position = Vector2(-7, 49)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_o0fto")
+format = 2
+
+[node name="ImgbinConcept-art-platform-game-tile-based-video-game-2d-computer-graphics-png" type="Sprite2D" parent="."]
+position = Vector2(-138.25, 109)
+scale = Vector2(1.32278, 0.846154)

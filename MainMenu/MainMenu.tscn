@@ -1,11 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://byage0vif20wq"]
+[gd_scene load_steps=7 format=3 uid="uid://byage0vif20wq"]
 
-[ext_resource type="FontFile" uid="uid://u0sgcki4iycp" path="res://MainMenu/LiberationSans.ttf" id="1_hh0jw"]
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_qqa1l"]
+[ext_resource type="Texture2D" uid="uid://c1olw0r4rs7qf" path="res://grass.PNG" id="2_8d1jo"]
+[ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="2_nxljn"]
 [ext_resource type="AudioStream" uid="uid://0lr8ayvuh8cv" path="res://Master/red-flowers-kidcut-main-version-02-14-12093.mp3" id="3_xc3je"]
+[ext_resource type="Texture2D" uid="uid://bsuuycs4q7xn8" path="res://pngtree-pixel-cloud-icons-simple-design-cloudscape-nature-cartoon-vector-png-image_45460950.png" id="4_rylfj"]
+[ext_resource type="Texture2D" uid="uid://byqbj56igbb2c" path="res://pngtree-isolated-pixelated-tree-on-white-background-png-image_4919851.png" id="5_3lo1a"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_qqa1l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.898039, 0.901961, 1)
 
 [node name="Main" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -24,21 +35,28 @@ theme_override_constants/separation = 50
 [node name="StartButton" type="Button" parent="Main"]
 layout_mode = 2
 size_flags_vertical = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "START"
 
 [node name="OptionsButton" type="Button" parent="Main"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "OPTIONS"
 
 [node name="QuitButton" type="Button" parent="Main"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "QUIT"
+
+[node name="CreditButton" type="Button" parent="Main"]
+layout_mode = 2
+theme = ExtResource("2_nxljn")
+theme_override_font_sizes/font_size = 60
+text = "CREDITS
+"
 
 [node name="Options" type="VBoxContainer" parent="."]
 visible = false
@@ -47,9 +65,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -142.0
+offset_left = -141.0
 offset_top = -184.0
-offset_right = 140.0
+offset_right = 141.0
 offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -57,57 +75,78 @@ theme_override_constants/separation = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 20
 
 [node name="MasterVolumeLabel" type="Label" parent="Options/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 30
 text = "MASTER VOLUME"
 
 [node name="Master Volume" type="HSlider" parent="Options/VBoxContainer"]
 layout_mode = 2
-max_value = 10.0
-step = 0.1
-value = 5.0
-
-[node name="SoundEffectsVolumeLabel" type="Label" parent="Options/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
-theme_override_font_sizes/font_size = 30
-text = "SOUND EFFECTS"
-
-[node name="SoundEffectsVolume" type="HSlider" parent="Options/VBoxContainer"]
-layout_mode = 2
-max_value = 10.0
-step = 0.1
-value = 5.0
-
-[node name="MusicVolumeLabel" type="Label" parent="Options/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
-theme_override_font_sizes/font_size = 30
-text = "MUSIC VOLUME"
-
-[node name="Music Volume" type="HSlider" parent="Options/VBoxContainer"]
-layout_mode = 2
-max_value = 10.0
+theme = ExtResource("2_nxljn")
+min_value = -20.0
+max_value = 20.0
 step = 0.1
 value = 5.0
 
 [node name="BackButton" type="Button" parent="Options"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_hh0jw")
+theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
-text = "BACK"
+text = "BACK "
 
 [node name="MenuTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_xc3je")
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Cloud" type="Sprite2D" parent="Node2D"]
+position = Vector2(230, 108)
+texture = ExtResource("4_rylfj")
+
+[node name="Cloud2" type="Sprite2D" parent="Node2D"]
+position = Vector2(1058, 101)
+texture = ExtResource("4_rylfj")
+
+[node name="Tree" type="Sprite2D" parent="Node2D"]
+position = Vector2(144, 426)
+texture = ExtResource("5_3lo1a")
+
+[node name="Tree2" type="Sprite2D" parent="Node2D"]
+position = Vector2(1104, 425)
+texture = ExtResource("5_3lo1a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+position = Vector2(111, 658)
+texture = ExtResource("2_8d1jo")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D"]
+position = Vector2(766, 658)
+texture = ExtResource("2_8d1jo")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D"]
+position = Vector2(983, 658)
+texture = ExtResource("2_8d1jo")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node2D"]
+position = Vector2(1187, 658)
+scale = Vector2(0.860731, 1)
+texture = ExtResource("2_8d1jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(329, 658)
+texture = ExtResource("2_8d1jo")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D"]
+position = Vector2(548, 658)
+texture = ExtResource("2_8d1jo")
+
 [connection signal="pressed" from="Main/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Main/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Main/CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="value_changed" from="Options/VBoxContainer/Master Volume" to="." method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="Options/VBoxContainer/SoundEffectsVolume" to="." method="_on_sound_effects_volume_value_changed"]
-[connection signal="value_changed" from="Options/VBoxContainer/Music Volume" to="." method="_on_music_volume_value_changed"]
 [connection signal="pressed" from="Options/BackButton" to="." method="_on_back_button_pressed"]
