@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://72wdxuxbsb4w"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_fcme5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dedyu"]
+light_mode = 1
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ovkln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vjfl"]
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_fcme5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_dedyu")
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_ovkln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5vjfl")
+debug_color = Color(0, 0, 0, 0.419608)
