@@ -14,7 +14,7 @@ scale = Vector2(0.70977, 0.70977)
 script = ExtResource("3_qei1s")
 
 [node name="Sprite2D" type="Sprite2D" parent="Backg"]
-position = Vector2(297.279, -5.63573)
+position = Vector2(-121.166, 19.7246)
 scale = Vector2(0.908907, 0.908907)
 texture = ExtResource("3_xkywe")
 

@@ -28,7 +28,7 @@ func _process(delta):
 
 	if rx < pos.x + 1000:
 		var land2 = landi.duplicate()
-		land2.position.x = rx+300
+		land2.position.x = rx+270
 		land2.position.y = ry + randf()*150-75
 
 		add_child(land2)
