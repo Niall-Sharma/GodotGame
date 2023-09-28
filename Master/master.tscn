@@ -13,6 +13,8 @@
 script = ExtResource("1_ajh2t")
 
 [node name="Level1" parent="." instance=ExtResource("1_jscbj")]
+visible = false
+position = Vector2(0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_jvs5w")]
 position = Vector2(-54, -110)

@@ -11,4 +11,5 @@ func _process(delta):
 
 
 func _on_pressed():
-	get_tree().change_scene_to_file("res://Level1/level_1.tscn")
+	get_tree().change_scene_to_file("res://Master/master.tscn")
+	Globalvars.setLevel(lvl_num)

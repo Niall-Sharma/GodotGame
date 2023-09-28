@@ -756,7 +756,6 @@ texture = ExtResource("2_0sopy")
 sources/0 = SubResource("TileSetAtlasSource_eeghg")
 
 [node name="Level1" type="Node2D"]
-position = Vector2(655, 390)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -653.0
