@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://d331gm2vd7a5c"]
+[gd_scene load_steps=3 format=3 uid="uid://d331gm2vd7a5c"]
+
+[ext_resource type="Script" path="res://Infinite/randomi.gd" id="1_44dsb"]
+[ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="2_gu4lb"]
 
 [node name="test" type="Node2D"]
+script = ExtResource("1_44dsb")
+
+[node name="Player" parent="." instance=ExtResource("2_gu4lb")]
+position = Vector2(107, 66)
