@@ -1,7 +1,7 @@
 extends Node2D
 @export var land: PackedScene
 var scene = preload("res://land.tscn")
-var scener = preload("res://Infinite/InfiniteLevel.tscn")
+var scener = preload("res://Infinite/test.tscn")
 var landi = scene.instantiate()
 var rx = landi.position.x
 var ry = landi.position.y
