@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d331gm2vd7a5c"]
+[gd_scene load_steps=3 format=3 uid="uid://mf4migsxyf6v"]
 
 [ext_resource type="Script" path="res://Infinite/randomi.gd" id="1_44dsb"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="2_gu4lb"]
