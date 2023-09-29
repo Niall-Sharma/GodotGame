@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djkapp6hctnha"
-path="res://.godot/imported/land.PNG-6da106f6542bac64e842e2ac269f8a59.ctex"
+path="res://.godot/imported/land.PNG-873a7e47952654671022f1d46e37d730.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Randomi/land.PNG"
-dest_files=["res://.godot/imported/land.PNG-6da106f6542bac64e842e2ac269f8a59.ctex"]
+source_file="res://Infinite/land.PNG"
+dest_files=["res://.godot/imported/land.PNG-873a7e47952654671022f1d46e37d730.ctex"]
 
 [params]
 
