@@ -9,7 +9,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-	self.position.x = get_parent().get_node("Player").get_child(4).get_screen_center_position().x
+	self.position.x = get_parent().get_node("Player").get_child(5).get_screen_center_position().x
 	
-	self.position.y = get_parent().get_node("Player").get_child(4).get_screen_center_position().y
+	self.position.y = get_parent().get_node("Player").get_child(5).get_screen_center_position().y
 
