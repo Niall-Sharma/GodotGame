@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://3lm2yujkpik3"]
+[gd_scene load_steps=5 format=3 uid="uid://3lm2yujkpik3"]
+
+[ext_resource type="Script" path="res://Infinite/randomi.gd" id="1_8ahrm"]
+[ext_resource type="Script" path="res://Infinite/Backg.gd" id="2_r3fxd"]
+[ext_resource type="Texture2D" uid="uid://doh81ln1281d0" path="res://Infinite/backg.jpg" id="3_4wyvo"]
+[ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="4_ip76g"]
 
 [node name="InfiniteLevel" type="Node2D"]
+script = ExtResource("1_8ahrm")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_r3fxd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(249, 12)
+scale = Vector2(0.685345, 0.685345)
+texture = ExtResource("3_4wyvo")
+
+[node name="Player" parent="." instance=ExtResource("4_ip76g")]
+position = Vector2(123, 309)
