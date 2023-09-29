@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://027a3lx24ol7"]
+[gd_scene load_steps=5 format=3 uid="uid://027a3lx24ol7"]
 
 [ext_resource type="Texture2D" uid="uid://b3j1g0a3ypvw3" path="res://imgbin_concept-art-platform-game-tile-based-video-game-2d-computer-graphics-png (1).png" id="2_0sopy"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_70j8p"]
+tile_data = PackedInt32Array(0, 393216, 17, 4, 786432, 17, 8, 1114112, 17)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeghg"]
 texture = ExtResource("2_0sopy")
@@ -44,12 +47,12 @@ texture = ExtResource("2_0sopy")
 12:17/0 = 0
 12:17/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:17/0/physics_layer_0/angular_velocity = 0.0
-12:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.8805, -32.1734, 32.8805, -32.1734, 31.8198, 21.2132, 0.353554, 22.6274, -31.4663, 21.5668)
+12:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.8805, -32.1734, 32.75, -32, 31.8198, 21.2132, 0.353554, 22.6274, -31.4663, 21.5668)
 17:17/size_in_atlas = Vector2i(5, 4)
 17:17/0 = 0
 17:17/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:17/0/physics_layer_0/angular_velocity = 0.0
-17:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-39.9515, -31.8198, 31.8198, -31.8198, 33.9411, -21.9203, 30.4056, -9.54594, 19.799, -0.353554, 8, -1.76777, -1.06066, 8, -21.5668, 20.8596, -39.2444, 24.7487)
+17:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40.5, -31.75, 32, -31.75, 33.9411, -21.9203, 30.4056, -9.54594, 19.799, -0.353554, 8, -1.76777, -1.06066, 8, -4.06586, 12.286, -8.04334, 13.6118, -21.5668, 20.8596, -39.2444, 24.7487)
 28:2/size_in_atlas = Vector2i(4, 3)
 28:2/0 = 0
 28:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -79,19 +82,25 @@ texture = ExtResource("2_0sopy")
 45:19/0 = 0
 45:19/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 45:19/0/physics_layer_0/angular_velocity = 0.0
+39:7/size_in_atlas = Vector2i(10, 10)
+39:7/0 = 0
+39:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+39:7/0/physics_layer_0/angular_velocity = 0.0
+39:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -72.5, 4, -77, 8, 3.5, 10.5, 65, 29.5, 77.5, -15, 82.5, -6.5, 55, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_o0fto"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_eeghg")
+pattern_0 = SubResource("TileMapPattern_70j8p")
 
 [node name="Level1" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -2
-offset_left = -653.0
-offset_top = -393.0
-offset_right = 621.0
-offset_bottom = 331.0
+offset_left = -3498.0
+offset_top = -2180.0
+offset_right = 3070.0
+offset_bottom = 2476.0
 color = Color(0.443137, 1, 1, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -100,7 +109,7 @@ scale = Vector2(1.00149, 1.151)
 tile_set = SubResource("TileSet_o0fto")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(-65521, 393216, 1, -65517, 786432, 1, -65513, 786432, 1, -65509, 786432, 1, -65505, 786432, 1, -65501, 786432, 1, -65497, 1114112, 1, -196562, 393216, 17, -196558, 786432, 17, -196554, 1114112, 17, -458718, 393216, 17, -458714, 786432, 17, -458710, 1114112, 17, -655326, 1835008, 2)
+layer_0/tile_data = PackedInt32Array(-65521, 393216, 1, -65517, 786432, 1, -65513, 786432, 1, -65509, 786432, 1, -65505, 786432, 1, -65501, 786432, 1, -524273, 2555904, 7, -65497, 786432, 1, -65493, 786432, 1, -65489, 786432, 1, -65485, 786432, 1, -65481, 786432, 1, 65597, 393216, 17, 65601, 786432, 17, 65605, 1114112, 17, -262070, 393216, 17, -262066, 786432, 17, -262062, 1114112, 17, -458662, 393216, 17, -458658, 786432, 17, -458654, 1114112, 17, -720792, 393216, 17, -720788, 786432, 17, -720784, 1114112, 17, -393142, 1966080, 19, 131147, 1114112, 17)
 layer_1/name = "Water"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
