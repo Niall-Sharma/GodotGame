@@ -65,12 +65,13 @@ func take_damage(damage):
 		die()  # If health reaches zero or below, character dies
 
 func die():
-	get_tree().queue_delete(self)
+	queue_free()
 
 
 
 func _on_area_2d_body_entered(body):
 	if body.name == "enemy":
+		$AttackSound.play()
 		take_damage(10)
 		print(health);
 		

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dk6dssf5ifs7d"]
+[gd_scene load_steps=18 format=3 uid="uid://dk6dssf5ifs7d"]
 
 [ext_resource type="AudioStream" uid="uid://bl1ub8puk10x3" path="res://Player/fall.wav" id="1_ehdac"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_hxat1"]
 [ext_resource type="AudioStream" uid="uid://dx2skgwghv750" path="res://Player/jump.wav" id="2_eg1wf"]
+[ext_resource type="AudioStream" uid="uid://22xmyiwlvpey" path="res://mixkit-boxing-punch-2051.wav" id="4_c8kr2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e2g0"]
 
@@ -55,6 +56,9 @@ stream = ExtResource("1_ehdac")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_eg1wf")
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_c8kr2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
