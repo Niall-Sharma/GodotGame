@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://belb2i0oktt77"]
+[gd_scene load_steps=2 format=3 uid="uid://belb2i0oktt77"]
+
+[ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="1_11q2p"]
 
 [node name="LevelButton" type="Button"]
+theme = ExtResource("1_11q2p")
+theme_override_font_sizes/font_size = 100
+text = "PLACEHOLDER"
