@@ -60,13 +60,6 @@ stream = ExtResource("2_eg1wf")
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_c8kr2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-position_smoothing_speed = 10.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-editor_draw_drag_margin = true
-
 [node name="PlayerGUI" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="PlayerGUI"]

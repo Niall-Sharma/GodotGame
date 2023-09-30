@@ -9,7 +9,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health = 100
 
 func _ready():
-	$Camera2D.make_current()
 	$PlayerGUI/HealthBar.modulate=Color(0,2,0)
 	#connect("enemy_collision", self, "_on_enemy_collision")
 	
