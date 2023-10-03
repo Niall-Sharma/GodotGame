@@ -8,9 +8,11 @@ var hasLanded = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health = 100
 
+@onready var animationTree = $AnimationTree
+
 func _ready():
 	$PlayerGUI/HealthBar.modulate=Color(0,2,0)
-	#connect("enemy_collision", self, "_on_enemy_collision")
+	animationTree.active = true
 	
 func _physics_process(delta):
 	# Add the gravity.
