@@ -59,3 +59,6 @@ func _on_menu_button_pressed():
 
 func _addscore():
 	coinscore += 1
+
+func _printscore():
+	print(coinscore)

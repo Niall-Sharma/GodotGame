@@ -16,3 +16,5 @@ func _leave():
 		child.queue_free()
 		print(child)
 	queue_free()
+	$/root/Master._addscore()
+	$/root/Master._printscore()
