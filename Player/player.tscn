@@ -78,11 +78,11 @@ graph_offset = Vector2(-3.44776e-05, 47.64)
 [sub_resource type="Animation" id="Animation_rog4e"]
 resource_name = "Idle"
 
-[sub_resource type="Animation" id="Animation_0gp27"]
-resource_name = "Run"
-
 [sub_resource type="Animation" id="Animation_s1n0g"]
 resource_name = "Jump"
+
+[sub_resource type="Animation" id="Animation_0gp27"]
+resource_name = "Run"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3p2k3"]
 _data = {
