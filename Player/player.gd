@@ -96,3 +96,5 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_area_entered(area):
 	if area.name == "coin_area":
 		print("coin")
+		var coin_holder = area.get_parent().get_parent()
+		coin_holder._leave()
