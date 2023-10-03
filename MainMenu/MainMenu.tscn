@@ -5,13 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://0lr8ayvuh8cv" path="res://Master/red-flowers-kidcut-main-version-02-14-12093.mp3" id="3_xc3je"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6lqkn"]
-load_path = "res://.godot/imported/pngtree-pixel-cloud-icons-simple-design-cloudscape-nature-cartoon-vector-png-image_45460950.png-503cd6de2553189e574c134633a20310.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ioi4c"]
-load_path = "res://.godot/imported/pngtree-isolated-pixelated-tree-on-white-background-png-image_4919851.png-799168a7cb91489549798791e20648e1.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kmx3s"]
-load_path = "res://.godot/imported/grass.PNG-a9b8c579310beae2865f0da9f1569fa4.ctex"
 
 [node name="MenuNode" type="Node"]
 

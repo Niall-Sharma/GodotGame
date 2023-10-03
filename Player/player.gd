@@ -47,8 +47,12 @@ func _physics_process(delta):
 	animationTree.set("parameters/Run/blend_position", direction)
 	move_and_slide()
 
-
-
+	if direction < 0:
+		$Sprite2D.flip_h = true
+		
+	if direction > 0:
+		$Sprite2D.flip_h = false
+		
 
 
 
@@ -72,7 +76,7 @@ func take_damage(damage):
 		die()  # If health reaches zero or below, character dies
 
 func die():
-	queue_free()
+	get_tree().change_scene_to_file("res://DeathScene/Death.tscn") 
 
 
 

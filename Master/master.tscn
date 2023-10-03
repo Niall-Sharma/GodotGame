@@ -27,7 +27,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenuBackground" type="ColorRect" parent="GUI"]
 process_mode = 2
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,10 +41,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -130.0
-offset_top = -199.0
-offset_right = 130.0
-offset_bottom = 199.0
+offset_left = -87.0
+offset_top = -105.5
+offset_right = 87.0
+offset_bottom = 105.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -53,19 +52,21 @@ theme_override_constants/separation = 30
 
 [node name="Volume Sliders" type="VBoxContainer" parent="GUI/Pause Menu"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 20
 
 [node name="BackButton2" type="Button" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_xpwen")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 40
 text = "BACK"
 
 [node name="MasterVolumeLabel" type="Label" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_xpwen")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "MASTER VOLUME"
+horizontal_alignment = 1
 
 [node name="Master Volume" type="HSlider" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
@@ -77,7 +78,7 @@ value = 5.0
 [node name="Menu button" type="Button" parent="GUI/Pause Menu/Volume Sliders"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_xpwen")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 40
 text = "MENU
 "
 
