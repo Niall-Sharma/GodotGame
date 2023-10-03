@@ -1,10 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://027a3lx24ol7"]
 
-[ext_resource type="Texture2D" path="res://origbig.png" id="1_500sv"]
 [ext_resource type="Texture2D" uid="uid://b3j1g0a3ypvw3" path="res://imgbin_concept-art-platform-game-tile-based-video-game-2d-computer-graphics-png (1).png" id="2_0sopy"]
 [ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="3_a3nat"]
 [ext_resource type="Texture2D" uid="uid://qrb7lw00b84t" path="res://Pixel_Platformer_Tileset_Pack/Asset_01/pixel_platform_01_tileset_final.png" id="3_ele6s"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="4_soht5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p8qp2"]
+load_path = "res://.godot/imported/origbig.png-68a1f5aa37380889857c232a2a11cbc0.ctex"
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_70j8p"]
 tile_data = PackedInt32Array(0, 393216, 17, 4, 786432, 17, 8, 1114112, 17)
@@ -948,7 +950,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_500sv")
+texture = SubResource("CompressedTexture2D_p8qp2")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-344, 4)
