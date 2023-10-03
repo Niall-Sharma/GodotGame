@@ -19,6 +19,10 @@ func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		hasLanded = false
+		animationTree.set("parameters/conditions/inAir", true)
+
+	if is_on_floor():
+		animationTree.set("parameters/conditions/inAir", false)
 
 	if !hasLanded and is_on_floor():
 		$FallSound.play()
@@ -39,6 +43,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	animationTree.set("parameters/Run/blend_position", direction)
 	move_and_slide()
 
 

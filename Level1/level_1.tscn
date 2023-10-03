@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://027a3lx24ol7"]
 
-[ext_resource type="Texture2D" uid="uid://dd7rm0p6u2rvv" path="res://origbig.png" id="1_500sv"]
+[ext_resource type="Texture2D" path="res://origbig.png" id="1_500sv"]
 [ext_resource type="Texture2D" uid="uid://b3j1g0a3ypvw3" path="res://imgbin_concept-art-platform-game-tile-based-video-game-2d-computer-graphics-png (1).png" id="2_0sopy"]
 [ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="3_a3nat"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="4_soht5"]
