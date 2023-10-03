@@ -41,24 +41,32 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("2_nxljn")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "START"
 
 [node name="OptionsButton" type="Button" parent="MainMenu/Main"]
 layout_mode = 2
 theme = ExtResource("2_nxljn")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "OPTIONS"
 
 [node name="QuitButton" type="Button" parent="MainMenu/Main"]
 layout_mode = 2
 theme = ExtResource("2_nxljn")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "QUIT"
 
 [node name="CreditButton" type="Button" parent="MainMenu/Main"]
 layout_mode = 2
 theme = ExtResource("2_nxljn")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "CREDITS
 "
