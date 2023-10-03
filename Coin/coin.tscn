@@ -13,20 +13,20 @@ height = 1
 size = Vector2(5.5, 5.5)
 
 [node name="Coin" type="StaticBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_vhete")
 
 [node name="coin_sprite" type="Sprite2D" parent="."]
-position = Vector2(2.25, 2.25)
 scale = Vector2(10, 10)
 texture = SubResource("GradientTexture2D_jxbrx")
 
 [node name="coin_area" type="Area2D" parent="coin_sprite"]
+scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coin_sprite/coin_area"]
-scale = Vector2(0.19, 0.19)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_mtim6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.25, 2.25)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_mtim6")
