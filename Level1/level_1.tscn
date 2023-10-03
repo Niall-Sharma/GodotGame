@@ -988,3 +988,4 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(234, -85)
 
 [node name="Coin" parent="." instance=ExtResource("5_cjro1")]
+visible = false
