@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://bsuuycs4q7xn8" path="res://pngtree-pixel-cloud-icons-simple-design-cloudscape-nature-cartoon-vector-png-image_45460950.png" id="4_rylfj"]
 [ext_resource type="Texture2D" uid="uid://byqbj56igbb2c" path="res://pngtree-isolated-pixelated-tree-on-white-background-png-image_4919851.png" id="5_3lo1a"]
 
-[node name="MainMenu" type="CanvasLayer"]
+[node name="MenuNode" type="Node"]
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
 script = ExtResource("1_qqa1l")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="MainMenu"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,47 +20,47 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.129412, 0.898039, 0.901961, 1)
 
-[node name="Main" type="VBoxContainer" parent="."]
+[node name="Main" type="VBoxContainer" parent="MainMenu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -139.5
-offset_top = -164.0
+offset_top = -213.0
 offset_right = 139.5
-offset_bottom = 164.0
+offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="StartButton" type="Button" parent="Main"]
+[node name="StartButton" type="Button" parent="MainMenu/Main"]
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "START"
 
-[node name="OptionsButton" type="Button" parent="Main"]
+[node name="OptionsButton" type="Button" parent="MainMenu/Main"]
 layout_mode = 2
 theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "OPTIONS"
 
-[node name="QuitButton" type="Button" parent="Main"]
+[node name="QuitButton" type="Button" parent="MainMenu/Main"]
 layout_mode = 2
 theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "QUIT"
 
-[node name="CreditButton" type="Button" parent="Main"]
+[node name="CreditButton" type="Button" parent="MainMenu/Main"]
 layout_mode = 2
 theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "CREDITS
 "
 
-[node name="Options" type="VBoxContainer" parent="."]
+[node name="Options" type="VBoxContainer" parent="MainMenu"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,18 +75,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Options"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
 
-[node name="MasterVolumeLabel" type="Label" parent="Options/VBoxContainer"]
+[node name="MasterVolumeLabel" type="Label" parent="MainMenu/Options/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 30
 text = "MASTER VOLUME"
 
-[node name="Master Volume" type="HSlider" parent="Options/VBoxContainer"]
+[node name="Master Volume" type="HSlider" parent="MainMenu/Options/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_nxljn")
 min_value = -20.0
@@ -92,61 +94,64 @@ max_value = 20.0
 step = 0.1
 value = 5.0
 
-[node name="BackButton" type="Button" parent="Options"]
+[node name="BackButton" type="Button" parent="MainMenu/Options"]
 layout_mode = 2
 theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 60
 text = "BACK "
 
-[node name="MenuTheme" type="AudioStreamPlayer2D" parent="."]
+[node name="MenuTheme" type="AudioStreamPlayer2D" parent="MainMenu"]
 stream = ExtResource("3_xc3je")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="MainMenu"]
+visible = false
 
-[node name="Cloud" type="Sprite2D" parent="Node2D"]
+[node name="Cloud" type="Sprite2D" parent="MainMenu/Node2D"]
 position = Vector2(230, 108)
 texture = ExtResource("4_rylfj")
 
-[node name="Cloud2" type="Sprite2D" parent="Node2D"]
+[node name="Cloud2" type="Sprite2D" parent="MainMenu/Node2D"]
 position = Vector2(1058, 101)
 texture = ExtResource("4_rylfj")
 
-[node name="Tree" type="Sprite2D" parent="Node2D"]
+[node name="Tree" type="Sprite2D" parent="MainMenu/Node2D"]
 position = Vector2(144, 426)
 texture = ExtResource("5_3lo1a")
 
-[node name="Tree2" type="Sprite2D" parent="Node2D"]
+[node name="Tree2" type="Sprite2D" parent="MainMenu/Node2D"]
 position = Vector2(1104, 425)
 texture = ExtResource("5_3lo1a")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+[node name="Sprite2D2" type="Sprite2D" parent="MainMenu/Node2D"]
 position = Vector2(111, 658)
 texture = ExtResource("2_8d1jo")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Node2D"]
+[node name="Sprite2D4" type="Sprite2D" parent="MainMenu/Node2D"]
 position = Vector2(766, 658)
 texture = ExtResource("2_8d1jo")
 
-[node name="Sprite2D5" type="Sprite2D" parent="Node2D"]
+[node name="Sprite2D5" type="Sprite2D" parent="MainMenu/Node2D"]
 position = Vector2(983, 658)
 texture = ExtResource("2_8d1jo")
 
-[node name="Sprite2D6" type="Sprite2D" parent="Node2D"]
+[node name="Sprite2D6" type="Sprite2D" parent="MainMenu/Node2D"]
 position = Vector2(1187, 658)
 scale = Vector2(0.860731, 1)
 texture = ExtResource("2_8d1jo")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="Sprite2D" type="Sprite2D" parent="MainMenu/Node2D"]
 position = Vector2(329, 658)
 texture = ExtResource("2_8d1jo")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Node2D"]
+[node name="Sprite2D3" type="Sprite2D" parent="MainMenu/Node2D"]
 position = Vector2(548, 658)
 texture = ExtResource("2_8d1jo")
 
-[connection signal="pressed" from="Main/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="Main/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Main/CreditButton" to="." method="_on_credit_button_pressed"]
-[connection signal="value_changed" from="Options/VBoxContainer/Master Volume" to="." method="_on_master_volume_value_changed"]
-[connection signal="pressed" from="Options/BackButton" to="." method="_on_back_button_pressed"]
+[node name="Camera2D" type="Camera2D" parent="MainMenu"]
+
+[connection signal="pressed" from="MainMenu/Main/StartButton" to="MainMenu" method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/Main/OptionsButton" to="MainMenu" method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainMenu/Main/QuitButton" to="MainMenu" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenu/Main/CreditButton" to="MainMenu" method="_on_credit_button_pressed"]
+[connection signal="value_changed" from="MainMenu/Options/VBoxContainer/Master Volume" to="MainMenu" method="_on_master_volume_value_changed"]
+[connection signal="pressed" from="MainMenu/Options/BackButton" to="MainMenu" method="_on_back_button_pressed"]
