@@ -76,7 +76,7 @@ func take_damage(damage):
 		die()  # If health reaches zero or below, character dies
 
 func die():
-	queue_free()
+	get_tree().change_scene_to_file("res://DeathScene/Death.tscn") 
 
 
 
