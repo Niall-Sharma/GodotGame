@@ -1,13 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://dk6dssf5ifs7d"]
+[gd_scene load_steps=32 format=3 uid="uid://dk6dssf5ifs7d"]
 
 [ext_resource type="AudioStream" uid="uid://bl1ub8puk10x3" path="res://Player/fall.wav" id="1_ehdac"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_hxat1"]
+[ext_resource type="Texture2D" uid="uid://ckiaiyalhc6oe" path="res://Player/Assets/DinoSprites - doux.png" id="2_2jdig"]
 [ext_resource type="AudioStream" uid="uid://dx2skgwghv750" path="res://Player/jump.wav" id="2_eg1wf"]
 [ext_resource type="AudioStream" uid="uid://22xmyiwlvpey" path="res://mixkit-boxing-punch-2051.wav" id="4_c8kr2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e2g0"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3gb7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhwna"]
 size = Vector2(1.55, 1.5)
@@ -77,6 +76,44 @@ graph_offset = Vector2(-3.44776e-05, 47.64)
 
 [sub_resource type="Animation" id="Animation_rog4e"]
 resource_name = "Idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2jdig")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
 [sub_resource type="Animation" id="Animation_s1n0g"]
 resource_name = "Jump"
@@ -84,10 +121,26 @@ resource_name = "Jump"
 [sub_resource type="Animation" id="Animation_0gp27"]
 resource_name = "Run"
 
+[sub_resource type="Animation" id="Animation_tle4n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3p2k3"]
 _data = {
 "Idle": SubResource("Animation_rog4e"),
 "Jump": SubResource("Animation_s1n0g"),
+"RESET": SubResource("Animation_tle4n"),
 "Run": SubResource("Animation_0gp27")
 }
 
@@ -98,8 +151,9 @@ script = ExtResource("1_hxat1")
 shape = SubResource("RectangleShape2D_6e2g0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_3gb7m")
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_2jdig")
+hframes = 24
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 
