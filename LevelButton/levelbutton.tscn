@@ -4,11 +4,16 @@
 [ext_resource type="Script" path="res://LevelButton/levelbutton.gd" id="2_fowrr"]
 
 [node name="LevelButton" type="Button"]
+offset_right = 290.0
+offset_bottom = 85.0
 theme = ExtResource("1_t0e2n")
-theme_override_colors/font_color = Color(0.211765, 0.560784, 0.513726, 1)
-theme_override_colors/font_outline_color = Color(0.843137, 0.517647, 0.321569, 1)
+theme_override_colors/font_color = Color(0.486275, 0.776471, 0.94902, 1)
+theme_override_colors/font_hover_color = Color(0.329412, 0.996078, 0.137255, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.484375, 0.773438, 0.945313, 1)
+theme_override_colors/font_outline_color = Color(0.328125, 0.992188, 0.136719, 1)
 theme_override_colors/icon_normal_color = Color(0.682353, 0.368627, 0.894118, 1)
-theme_override_font_sizes/font_size = 90
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
 text = "Level 1"
 script = ExtResource("2_fowrr")
 
