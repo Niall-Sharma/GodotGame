@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dk6dssf5ifs7d"]
+[gd_scene load_steps=31 format=3 uid="uid://dk6dssf5ifs7d"]
 
 [ext_resource type="AudioStream" uid="uid://bl1ub8puk10x3" path="res://Player/fall.wav" id="1_ehdac"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_hxat1"]
@@ -34,6 +34,62 @@ radius = 0.75
 radius = 0.75
 
 [sub_resource type="Theme" id="Theme_bkc84"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7btmv"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t6dmj"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wk8kg"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o8upn"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_j3esx"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_t6dmj")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_wk8kg")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_o8upn")
+blend_point_2/pos = 0.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w4s6k"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6s8ry"]
+advance_mode = 2
+advance_condition = &"inAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_64gfo"]
+advance_mode = 2
+advance_condition = &"inAir"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hxxtw"]
+states/Jump/node = SubResource("AnimationNodeAnimation_7btmv")
+states/Jump/position = Vector2(340.5, 196.64)
+states/Run/node = SubResource("AnimationNodeBlendSpace1D_j3esx")
+states/Run/position = Vector2(356, 100.196)
+states/Start/position = Vector2(200.5, 100.785)
+transitions = ["Start", "Run", SubResource("AnimationNodeStateMachineTransition_w4s6k"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_6s8ry"), "Jump", "Run", SubResource("AnimationNodeStateMachineTransition_64gfo")]
+graph_offset = Vector2(-3.44776e-05, 47.64)
+
+[sub_resource type="Animation" id="Animation_rog4e"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_0gp27"]
+resource_name = "Run"
+
+[sub_resource type="Animation" id="Animation_s1n0g"]
+resource_name = "Jump"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3p2k3"]
+_data = {
+"Idle": SubResource("Animation_rog4e"),
+"Jump": SubResource("Animation_s1n0g"),
+"Run": SubResource("Animation_0gp27")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hxat1")
@@ -105,5 +161,16 @@ size_flags_vertical = 1
 theme = SubResource("Theme_bkc84")
 value = 100.0
 fill_mode = 1
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_hxxtw")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/inAir = false
+parameters/Run/blend_position = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3p2k3")
+}
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

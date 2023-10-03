@@ -8,15 +8,22 @@ var hasLanded = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health = 100
 
+@onready var animationTree = $AnimationTree
+@onready var heatlhBar = $PlayerGUI/HealthBar
+
 func _ready():
-	$PlayerGUI/HealthBar.modulate=Color(0,2,0)
-	#connect("enemy_collision", self, "_on_enemy_collision")
+	heatlhBar.modulate=Color(0,2,0)
+	animationTree.active = true
 	
 func _physics_process(delta):
 	# Add the gravity.
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		hasLanded = false
+		animationTree.set("parameters/conditions/inAir", true)
+
+	if is_on_floor():
+		animationTree.set("parameters/conditions/inAir", false)
 
 	if !hasLanded and is_on_floor():
 		$FallSound.play()
@@ -37,6 +44,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	animationTree.set("parameters/Run/blend_position", direction)
 	move_and_slide()
 
 
@@ -53,13 +61,13 @@ func _physics_process(delta):
 
 func take_damage(damage):
 	health -= damage
-	$PlayerGUI/HealthBar.value = health
+	heatlhBar.value = health
 	if health<=60:
-		$PlayerGUI/HealthBar.modulate = Color(1, 1, 0)
+		heatlhBar.modulate = Color(1, 1, 0)
 	if health<=30:
-		$PlayerGUI/HealthBar.modulate = Color("ff4500")
+		heatlhBar.modulate = Color("ff4500")
 	if health <=10:
-		$PlayerGUI/HealthBar.modulate = Color(1, 0, 0)
+		heatlhBar.modulate = Color(1, 0, 0)
 	if health <= 0:
 		die()  # If health reaches zero or below, character dies
 
