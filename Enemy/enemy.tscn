@@ -7,6 +7,7 @@
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vjfl"]
+size = Vector2(20, 17)
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_e1r1v"]
 
@@ -159,13 +160,13 @@ script = ExtResource("1_fcme5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_dedyu")
-scale = Vector2(20, 20)
 texture = ExtResource("2_vhwep")
 hframes = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_5vjfl")
-debug_color = Color(0, 0, 0, 0.419608)
+debug_color = Color(0, 0, 0.596078, 0.305882)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_e1r1v")
