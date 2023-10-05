@@ -896,7 +896,7 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(-1638262, 786433, 6, -1572726, 786433, 7, -1638261, 851969, 6, -1572725, 851969, 7, -1638266, 655361, 0, -1572730, 655361, 1, -1638265, 720897, 0, -1572729, 720897, 1)
+layer_2/tile_data = PackedInt32Array()
 
 [node name="enemy" parent="." instance=ExtResource("3_a3nat")]
 position = Vector2(18, -93)
