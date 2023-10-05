@@ -25,7 +25,7 @@ func _process(delta):
 	
 	
 	var pos = $Player.position
-	print(pos)
+
 
 	if rx < pos.x + 1000:
 		var land2 = landi.duplicate()
