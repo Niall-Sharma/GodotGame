@@ -211,6 +211,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="LeftArrow" type="TouchScreenButton" parent="PlayerGUI/Control"]
 position = Vector2(48, 591)
@@ -249,6 +250,7 @@ size_flags_vertical = 1
 theme = SubResource("Theme_bkc84")
 value = 100.0
 fill_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_hxxtw")
