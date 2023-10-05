@@ -1,7 +1,7 @@
 extends Node2D
 @export var land: PackedScene
 var scene = preload("res://Infinite/land.tscn")
-var scener = preload("res://Infinite/randi.tscn")
+var scener = preload("res://Infinite/clarice.tscn")
 var landi = scene.instantiate()
 var rx = landi.position.x
 var ry = landi.position.y
@@ -25,7 +25,7 @@ func _process(delta):
 	
 	
 	var pos = $Player.position
-	print(pos)
+
 
 	if rx < pos.x + 1000:
 		var land2 = landi.duplicate()
