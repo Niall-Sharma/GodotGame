@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwh3uhb553b24"]
 
-[ext_resource type="Texture2D" uid="uid://djkapp6hctnha" path="res://Infinite/land.PNG" id="1_e5bun"]
+[ext_resource type="Texture2D" uid="uid://djkapp6hctnha" path="res://Infinite/land.PNG" id="1_h3d2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqqhk"]
 size = Vector2(300.016, 51.2766)
@@ -12,7 +12,7 @@ scale = Vector2(0.979943, 1.40415)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(479.11, 322.615)
 scale = Vector2(0.630289, 0.241871)
-texture = ExtResource("1_e5bun")
+texture = ExtResource("1_h3d2u")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(479.11, 322.615)
