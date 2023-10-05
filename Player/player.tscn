@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://dk6dssf5ifs7d"]
+[gd_scene load_steps=31 format=3 uid="uid://dk6dssf5ifs7d"]
 
 [ext_resource type="AudioStream" uid="uid://bl1ub8puk10x3" path="res://Player/fall.wav" id="1_ehdac"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_hxat1"]
 [ext_resource type="Texture2D" uid="uid://ckiaiyalhc6oe" path="res://Player/Assets/DinoSprites - doux.png" id="2_2jdig"]
 [ext_resource type="AudioStream" uid="uid://dx2skgwghv750" path="res://Player/jump.wav" id="2_eg1wf"]
 [ext_resource type="AudioStream" uid="uid://22xmyiwlvpey" path="res://mixkit-boxing-punch-2051.wav" id="4_c8kr2"]
+[ext_resource type="AudioStream" uid="uid://d4wq7hwh2aiv" path="res://Player/PickupSound.wav" id="6_m0e12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e2g0"]
 size = Vector2(20, 15)
@@ -195,10 +196,10 @@ texture = ExtResource("2_2jdig")
 hframes = 24
 frame = 17
 
-[node name="FallSound" type="AudioStreamPlayer2D" parent="."]
+[node name="FallSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_ehdac")
 
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_eg1wf")
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
@@ -211,7 +212,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
 
 [node name="LeftArrow" type="TouchScreenButton" parent="PlayerGUI/Control"]
 position = Vector2(48, 591)
@@ -250,7 +250,6 @@ size_flags_vertical = 1
 theme = SubResource("Theme_bkc84")
 value = 100.0
 fill_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_hxxtw")
@@ -261,6 +260,10 @@ parameters/Run/blend_position = 0
 libraries = {
 "": SubResource("AnimationLibrary_3p2k3")
 }
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_m0e12")
+volume_db = 1.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

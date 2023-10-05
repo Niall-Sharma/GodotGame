@@ -87,3 +87,4 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_area_entered(area):
 	if area.name == "coin_area":
 		area.get_parent()._leave()
+		$PickupSound.play()
