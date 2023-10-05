@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmwp3u2hg1jgv"]
+[gd_scene load_steps=3 format=3 uid="uid://cmwp3u2hg1jgv"]
 
 [ext_resource type="Script" path="res://levelselect/level_select.gd" id="1_52d12"]
+[ext_resource type="Texture2D" uid="uid://bxr08e2hcsoew" path="res://levelselect/backgrounf for level select.png" id="2_561ig"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,3 +25,8 @@ theme_override_constants/v_separation = 20
 columns = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BackgrounfForLevelSelect" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(0.429844, 0.445833)
+texture = ExtResource("2_561ig")
