@@ -196,10 +196,10 @@ texture = ExtResource("2_2jdig")
 hframes = 24
 frame = 17
 
-[node name="FallSound" type="AudioStreamPlayer2D" parent="."]
+[node name="FallSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_ehdac")
 
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_eg1wf")
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
