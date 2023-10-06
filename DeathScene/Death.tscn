@@ -1,18 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://br44rcjhri7h6"]
+[gd_scene load_steps=4 format=3 uid="uid://br44rcjhri7h6"]
 
 [ext_resource type="Script" path="res://DeathScene/Death.gd" id="1_p2c2p"]
 [ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="2_4u4s4"]
+[ext_resource type="Texture2D" uid="uid://doe30b2scjn5y" path="res://DeathScene/skull.PNG" id="2_c1djm"]
 
 [node name="DeathMenu" type="CanvasLayer"]
 script = ExtResource("1_p2c2p")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -377.0
+offset_top = -217.0
+offset_right = 377.0
+offset_bottom = 217.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_c1djm")
+expand_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -20,10 +28,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -573.5
-offset_top = -144.0
-offset_right = 573.5
-offset_bottom = 144.0
+offset_left = -219.0
+offset_top = -99.5
+offset_right = 219.0
+offset_bottom = 99.5
 grow_horizontal = 2
 grow_vertical = 2
 
