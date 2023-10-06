@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b2glpj4maftwt"]
+
+[node name="CoinDisplay" type="Node2D"]
