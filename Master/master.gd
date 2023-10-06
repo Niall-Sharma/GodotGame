@@ -61,3 +61,10 @@ func _on_restart_button_pressed():
 	get_tree().reload_current_scene()
 	get_tree().paused = false
 	_change_level(Globalvars.getLevel())
+
+
+
+
+func _add_coin():
+	coinCounter += 1
+	
