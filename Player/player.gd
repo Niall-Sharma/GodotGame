@@ -90,3 +90,4 @@ func _on_area_2d_area_entered(area):
 	if area.name == "coin_area":
 		area.get_parent()._leave()
 		$PickupSound.play()
+		$/root/Master._add_coin()
