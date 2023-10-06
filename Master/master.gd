@@ -1,6 +1,7 @@
 extends Node2D
 var testvar =  preload("res://Level1/level_1.tscn")
 var levels = [preload("res://Level1/level_1.tscn")]
+var coinCounter
 
 func _change_level(x):
 	var level = levels[x].instantiate()
@@ -18,6 +19,7 @@ func _ready():
 	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
 	AudioServer.set_bus_volume_db(0,-20)
 	_change_level(Globalvars.getLevel())
+	coinCounter = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
@@ -53,3 +55,16 @@ func _on_back_button_pressed():
 func _on_menu_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://MainMenu/MainMenu.tscn")
+
+
+func _on_restart_button_pressed():
+	get_tree().reload_current_scene()
+	get_tree().paused = false
+	_change_level(Globalvars.getLevel())
+
+
+
+
+func _add_coin():
+	coinCounter += 1
+	
