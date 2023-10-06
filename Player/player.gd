@@ -83,7 +83,7 @@ func _on_area_2d_body_entered(body):
 		$AttackSound.play()
 		take_damage(10)
 		print(health);
-	if body.name=="acid":
+	if body.name=="spikes":
 		die()
 
 func _on_area_2d_area_entered(area):
