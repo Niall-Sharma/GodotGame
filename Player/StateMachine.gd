@@ -11,10 +11,9 @@ func _ready():
 		if child is PlayerState:
 			states.append(child)
 			child.character = character
-			
 		else:
 			push_warning("Child " + child.name + " Is Not A State")
-		
+			
 func _physics_process(_delta):
 	if(currentState.nextState != null):
 		switchState(currentState.nextState)
@@ -23,6 +22,9 @@ func _physics_process(_delta):
 	
 func checkCanMove():
 	return currentState.canMove
+
+func checkIsVulnerable():
+	return currentState.isVulnerable
 
 func switchState(nextState : PlayerState):
 	if(currentState != null):
@@ -33,5 +35,8 @@ func switchState(nextState : PlayerState):
 	
 	currentState.onEnter()
 	
+func changeNextState(state : PlayerState):
+	currentState.nextState = state
+
 func _input(event : InputEvent):
 	currentState.state_input(event)
