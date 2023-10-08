@@ -4,8 +4,8 @@ class_name PlayerState
 
 var character : CharacterBody2D
 @export var canMove : bool = true
-@export var animationTree : AnimationTree
 @export var isVulnerable : bool = true
+@export var animationTree : AnimationTree
 
 var nextState : PlayerState = null
 

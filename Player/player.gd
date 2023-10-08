@@ -7,7 +7,7 @@ var health = 100
 @onready var animationTree = $AnimationTree
 @onready var heatlhBar = $PlayerGUI/HealthBar
 @onready var PlayerStateMachine : StateMachine = $StateMachine
-@onready var HURT_STATE : PlayerState = $StateMachine/Hurt
+
 
 
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -27,7 +27,7 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
 	animationTree.set("parameters/Run/blend_position", direction)
 	move_and_slide()
 
@@ -58,7 +58,7 @@ func die():
 func _on_area_2d_body_entered(body):
 	if body.name == "enemy" and PlayerStateMachine.checkIsVulnerable():
 		take_damage(10)
-		PlayerStateMachine.changeNextState(HURT_STATE)
+		PlayerStateMachine.changeNextState(PlayerStateMachine.states[2])
 	if body.name=="spikes":
 		die()
 
