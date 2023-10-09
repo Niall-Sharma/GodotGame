@@ -9,7 +9,7 @@ var character : CharacterBody2D
 
 var nextState : PlayerState = null
 
-func state_input(event):
+func state_input(_event):
 	pass
 
 func onEnter():

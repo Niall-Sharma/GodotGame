@@ -16,10 +16,10 @@ func _ready():
 	heatlhBar.modulate=Color(0,2,0)
 	animationTree.active = true
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	#Add Gravity
 	if(!is_on_floor()):
-		velocity.y += GRAVITY * delta
+		velocity.y += GRAVITY * _delta
 	
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("left", "right")
@@ -30,13 +30,13 @@ func _physics_process(delta):
 	
 	animationTree.set("parameters/Run/blend_position", direction)
 	move_and_slide()
-
-	if direction < 0:
-		$Sprite2D.flip_h = true
-		
-	if direction > 0:
-		$Sprite2D.flip_h = false
-		
+	if PlayerStateMachine.checkCanMove():
+		if direction < 0:
+			$Sprite2D.flip_h = true
+			
+		if direction > 0:
+			$Sprite2D.flip_h = false
+			
 
 func take_damage(damage):
 	health -= damage
