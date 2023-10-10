@@ -6,11 +6,11 @@
 [ext_resource type="AudioStream" uid="uid://dx2skgwghv750" path="res://Player/jump.wav" id="2_eg1wf"]
 [ext_resource type="AudioStream" uid="uid://22xmyiwlvpey" path="res://mixkit-boxing-punch-2051.wav" id="4_c8kr2"]
 [ext_resource type="AudioStream" uid="uid://d4wq7hwh2aiv" path="res://Player/PickupSound.wav" id="6_m0e12"]
-[ext_resource type="Script" path="res://Player/StateMachine.gd" id="7_icuif"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="7_q4dwg"]
 [ext_resource type="Script" path="res://Player/States/AirState.gd" id="8_57qd7"]
 [ext_resource type="Script" path="res://Player/States/GroundState.gd" id="8_use2a"]
-[ext_resource type="Script" path="res://Player/StateDebugLabel.gd" id="10_bc5gb"]
 [ext_resource type="Script" path="res://Player/States/HurtState.gd" id="10_m2vwb"]
+[ext_resource type="Script" path="res://StateMachine/StateDebugLabel.gd" id="11_41ul6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e2g0"]
 size = Vector2(20, 15)
@@ -355,7 +355,7 @@ libraries = {
 }
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "currentState")]
-script = ExtResource("7_icuif")
+script = ExtResource("7_q4dwg")
 character = NodePath("..")
 currentState = NodePath("Ground")
 
@@ -388,7 +388,7 @@ offset_right = 64.0
 offset_bottom = -11.0
 text = "STATE: "
 horizontal_alignment = 1
-script = ExtResource("10_bc5gb")
+script = ExtResource("11_41ul6")
 stateMachine = NodePath("../StateMachine")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

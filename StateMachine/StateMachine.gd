@@ -3,12 +3,12 @@ extends Node
 class_name StateMachine
 
 @export var character: CharacterBody2D
-var states : Array[PlayerState]
-@export var currentState : PlayerState
+var states : Array[State]
+@export var currentState : State
 
 func _ready():
 	for child in get_children():
-		if child is PlayerState:
+		if child is State:
 			states.append(child)
 			child.character = character
 		else:
@@ -26,7 +26,7 @@ func checkCanMove():
 func checkIsVulnerable():
 	return currentState.isVulnerable
 
-func switchState(nextState : PlayerState):
+func switchState(nextState : State):
 	if(currentState != null):
 		currentState.onExit()
 		currentState.nextState = null
@@ -35,7 +35,7 @@ func switchState(nextState : PlayerState):
 	
 	currentState.onEnter()
 	
-func changeNextState(state : PlayerState):
+func changeNextState(state : State):
 	currentState.nextState = state
 
 func _input(event : InputEvent):
