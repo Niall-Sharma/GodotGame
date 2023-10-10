@@ -369,9 +369,11 @@ script = ExtResource("8_use2a")
 jumpSoundEffect = NodePath("../../JumpSound")
 animationTree = NodePath("../../AnimationTree")
 
-[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("hurtSound", "animationTree")]
+[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("hurtSound", "playerSprite", "animationTree")]
 script = ExtResource("10_m2vwb")
 hurtSound = NodePath("../../AttackSound")
+knockback_amount = Vector2(1000, 1000)
+playerSprite = NodePath("../../Sprite2D")
 canMove = false
 isVulnerable = false
 animationTree = NodePath("../../AnimationTree")
