@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dk6dssf5ifs7d"]
+[gd_scene load_steps=35 format=3 uid="uid://dk6dssf5ifs7d"]
 
 [ext_resource type="AudioStream" uid="uid://bl1ub8puk10x3" path="res://Player/fall.wav" id="1_ehdac"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_hxat1"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://Player/States/AirState.gd" id="8_57qd7"]
 [ext_resource type="Script" path="res://Player/States/GroundState.gd" id="8_use2a"]
 [ext_resource type="Script" path="res://Player/StateDebugLabel.gd" id="10_bc5gb"]
-[ext_resource type="Script" path="res://Player/States/HurtState.gd" id="10_m2vwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e2g0"]
 size = Vector2(20, 15)
@@ -41,8 +40,8 @@ radius = 0.75
 
 [sub_resource type="Theme" id="Theme_bkc84"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ow3d1"]
-animation = &"Hurt"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7btmv"]
+animation = &"Jump"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t6dmj"]
 animation = &"Run"
@@ -64,97 +63,14 @@ blend_point_2/pos = 0.0
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w4s6k"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ef5k"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nx0ov"]
-advance_mode = 0
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hxxtw"]
-states/Hurt/node = SubResource("AnimationNodeAnimation_ow3d1")
-states/Hurt/position = Vector2(356, 184.64)
+states/Jump/node = SubResource("AnimationNodeAnimation_7btmv")
+states/Jump/position = Vector2(340.5, 196.64)
 states/Run/node = SubResource("AnimationNodeBlendSpace1D_j3esx")
 states/Run/position = Vector2(356, 100.196)
 states/Start/position = Vector2(200.5, 100.785)
-transitions = ["Start", "Run", SubResource("AnimationNodeStateMachineTransition_w4s6k"), "Run", "Hurt", SubResource("AnimationNodeStateMachineTransition_4ef5k"), "Hurt", "Run", SubResource("AnimationNodeStateMachineTransition_nx0ov")]
-graph_offset = Vector2(-96, 64.64)
-
-[sub_resource type="Animation" id="Animation_v5dic"]
-resource_name = "Airborne"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_2jdig")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [24]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-
-[sub_resource type="Animation" id="Animation_sbv0r"]
-resource_name = "Hurt"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_2jdig")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [24]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [14, 15, 16]
-}
+transitions = ["Start", "Run", SubResource("AnimationNodeStateMachineTransition_w4s6k")]
+graph_offset = Vector2(-3.44776e-05, 47.64)
 
 [sub_resource type="Animation" id="Animation_rog4e"]
 resource_name = "Idle"
@@ -197,6 +113,9 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+
+[sub_resource type="Animation" id="Animation_s1n0g"]
+resource_name = "Jump"
 
 [sub_resource type="Animation" id="Animation_l2qiv"]
 length = 0.001
@@ -256,9 +175,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3p2k3"]
 _data = {
-"Airborne": SubResource("Animation_v5dic"),
-"Hurt": SubResource("Animation_sbv0r"),
 "Idle": SubResource("Animation_rog4e"),
+"Jump": SubResource("Animation_s1n0g"),
 "RESET": SubResource("Animation_l2qiv"),
 "Run": SubResource("Animation_0gp27")
 }
@@ -359,25 +277,17 @@ script = ExtResource("7_icuif")
 character = NodePath("..")
 currentState = NodePath("Ground")
 
-[node name="Air" type="Node" parent="StateMachine" node_paths=PackedStringArray("landSoundEffect", "animationTree")]
+[node name="Air" type="Node" parent="StateMachine" node_paths=PackedStringArray("GROUND_STATE", "animationTree")]
 script = ExtResource("8_57qd7")
-landSoundEffect = NodePath("../../FallSound")
+GROUND_STATE = NodePath("../Ground")
 animationTree = NodePath("../../AnimationTree")
 
-[node name="Ground" type="Node" parent="StateMachine" node_paths=PackedStringArray("jumpSoundEffect", "animationTree")]
+[node name="Ground" type="Node" parent="StateMachine" node_paths=PackedStringArray("AIR_STATE", "landSoundEffect", "jumpSoundEffect", "animationTree")]
 script = ExtResource("8_use2a")
+AIR_STATE = NodePath("../Air")
+landSoundEffect = NodePath("../../FallSound")
 jumpSoundEffect = NodePath("../../JumpSound")
 animationTree = NodePath("../../AnimationTree")
-
-[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("hurtSound", "animationTree")]
-script = ExtResource("10_m2vwb")
-hurtSound = NodePath("../../AttackSound")
-canMove = false
-isVulnerable = false
-animationTree = NodePath("../../AnimationTree")
-
-[node name="HurtTimer" type="Timer" parent="StateMachine/Hurt"]
-wait_time = 0.5
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("stateMachine")]
 offset_left = -53.0
@@ -391,4 +301,3 @@ stateMachine = NodePath("../StateMachine")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]

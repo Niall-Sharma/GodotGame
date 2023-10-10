@@ -67,4 +67,9 @@ func _on_restart_button_pressed():
 
 func _add_coin():
 	coinCounter += 1
+	print("pickup")
 	
+func _get_coin_counter():
+	print(coinCounter)
+	print("Oi")
+	return coinCounter
