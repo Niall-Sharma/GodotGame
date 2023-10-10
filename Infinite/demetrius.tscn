@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciriqrhbrawf6"]
+
+[ext_resource type="Script" path="res://Infinite/randomi.gd" id="1_5m8m1"]
+
+[node name="demetrius" type="Node2D"]
+script = ExtResource("1_5m8m1")
