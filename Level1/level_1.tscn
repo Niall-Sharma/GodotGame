@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://027a3lx24ol7"]
+[gd_scene load_steps=12 format=3 uid="uid://027a3lx24ol7"]
 
 [ext_resource type="Texture2D" uid="uid://clxm7kxgap4rf" path="res://Pixel_Platformer_Tileset_Pack/Background/single_background.png" id="1_hbrf7"]
 [ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="3_a3nat"]
 [ext_resource type="Texture2D" uid="uid://qrb7lw00b84t" path="res://Pixel_Platformer_Tileset_Pack/Asset_01/pixel_platform_01_tileset_final.png" id="3_ele6s"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="4_soht5"]
 [ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://Coin/coin.tscn" id="5_rpn03"]
-[ext_resource type="PackedScene" uid="uid://b2glpj4maftwt" path="res://Coin_Display/coin_display.tscn" id="6_xdngo"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_70j8p"]
 tile_data = PackedInt32Array(0, 393216, 17, 4, 786432, 17, 8, 1114112, 17)
@@ -938,5 +937,3 @@ shape = SubResource("RectangleShape2D_yjces")
 [node name="spikes" type="CollisionShape2D" parent="spikes"]
 position = Vector2(1560.5, 22.5)
 shape = SubResource("RectangleShape2D_yjces")
-
-[node name="CoinDisplay" parent="." instance=ExtResource("6_xdngo")]
