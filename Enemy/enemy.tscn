@@ -1,7 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://72wdxuxbsb4w"]
+[gd_scene load_steps=22 format=3 uid="uid://72wdxuxbsb4w"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_fcme5"]
 [ext_resource type="Texture2D" uid="uid://vkhgbfabdgia" path="res://Enemy/Assets/DinoSprites - vita.png" id="2_vhwep"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_gpbbn"]
+[ext_resource type="Script" path="res://Enemy/States/StandbyState.gd" id="4_y1bkd"]
+[ext_resource type="Script" path="res://StateMachine/StateDebugLabel.gd" id="5_y1trd"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dedyu"]
 light_mode = 1
@@ -211,3 +214,21 @@ parameters/Move/blend_position = -0.00107294
 libraries = {
 "": SubResource("AnimationLibrary_4k8dj")
 }
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "currentState")]
+script = ExtResource("3_gpbbn")
+character = NodePath("..")
+currentState = NodePath("Standby")
+
+[node name="Standby" type="Node" parent="StateMachine"]
+script = ExtResource("4_y1bkd")
+
+[node name="StatemachineLabel" type="Label" parent="StateMachine" node_paths=PackedStringArray("stateMachine")]
+offset_left = -70.0
+offset_top = -37.0
+offset_right = 69.0
+offset_bottom = -11.0
+text = "STATE"
+horizontal_alignment = 1
+script = ExtResource("5_y1trd")
+stateMachine = NodePath("..")
