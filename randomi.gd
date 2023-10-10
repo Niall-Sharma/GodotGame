@@ -23,12 +23,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	'''
+	
 	var pos = $Player.position
-	'''
-	var pos = 300
 
-	if rx < pos + 1000:
+
+	if rx < pos.x + 1000:
 		var land2 = landi.duplicate()
 		land2.position.x = rx+270
 		land2.position.y = ry + randf()*150-75
