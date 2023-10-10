@@ -13,6 +13,7 @@ func _process(_delta):
 
 
 func _on_restart_button_pressed():
+	#$/root/Master.
 	get_tree().change_scene_to_file("res://Master/master.tscn") 
 	
  

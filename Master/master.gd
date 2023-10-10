@@ -73,3 +73,6 @@ func _get_coin_counter():
 	print(coinCounter)
 	print("Oi")
 	return coinCounter
+
+func _set_counter(set_to):
+	coinCounter = set_to
