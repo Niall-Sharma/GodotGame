@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://027a3lx24ol7"]
+[gd_scene load_steps=15 format=3 uid="uid://027a3lx24ol7"]
 
 [ext_resource type="Texture2D" uid="uid://clxm7kxgap4rf" path="res://Pixel_Platformer_Tileset_Pack/Background/single_background.png" id="1_hbrf7"]
 [ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="3_a3nat"]
 [ext_resource type="Texture2D" uid="uid://qrb7lw00b84t" path="res://Pixel_Platformer_Tileset_Pack/Asset_01/pixel_platform_01_tileset_final.png" id="3_ele6s"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="4_soht5"]
 [ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://Coin/coin.tscn" id="5_rpn03"]
+[ext_resource type="Texture2D" uid="uid://q5kyq7hvqmrx" path="res://Screenshot 2023-10-11 at 10.09.56 AM.png" id="6_hi7nv"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_70j8p"]
 tile_data = PackedInt32Array(0, 393216, 17, 4, 786432, 17, 8, 1114112, 17)
@@ -903,7 +904,7 @@ size = Vector2(2351.5, 57.375)
 size = Vector2(87, 39.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0e0n"]
-size = Vector2(1192, 574)
+size = Vector2(2663, 412)
 
 [node name="Level1" type="Node2D"]
 
@@ -986,6 +987,13 @@ shape = SubResource("RectangleShape2D_gy32e")
 
 [node name="finishlevel1" type="CharacterBody2D" parent="."]
 
-[node name="finishline" type="CollisionShape2D" parent="finishlevel1"]
-position = Vector2(5270, 299)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finishlevel1"]
+position = Vector2(6017.5, 292)
 shape = SubResource("RectangleShape2D_b0e0n")
+
+[node name="TextureRect" type="TextureRect" parent="finishlevel1/CollisionShape2D"]
+offset_left = -1354.5
+offset_top = -211.0
+offset_right = 331.5
+offset_bottom = 355.0
+texture = ExtResource("6_hi7nv")
