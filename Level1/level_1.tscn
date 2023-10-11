@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://027a3lx24ol7"]
+[gd_scene load_steps=14 format=3 uid="uid://027a3lx24ol7"]
 
 [ext_resource type="Texture2D" uid="uid://clxm7kxgap4rf" path="res://Pixel_Platformer_Tileset_Pack/Background/single_background.png" id="1_hbrf7"]
 [ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="3_a3nat"]
@@ -902,6 +902,9 @@ size = Vector2(2351.5, 57.375)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gy32e"]
 size = Vector2(87, 39.75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0e0n"]
+size = Vector2(1192, 574)
+
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="CanvasLayer" parent="."]
@@ -973,6 +976,16 @@ position = Vector2(3584, -616)
 position = Vector2(1680.5, 22.5)
 shape = SubResource("RectangleShape2D_yjces")
 
+[node name="spikes3" type="CollisionShape2D" parent="spikes"]
+position = Vector2(-102, 304)
+shape = SubResource("RectangleShape2D_yjces")
+
 [node name="spikes2" type="CollisionShape2D" parent="spikes"]
 position = Vector2(3225.5, -595.125)
 shape = SubResource("RectangleShape2D_gy32e")
+
+[node name="finishlevel1" type="CharacterBody2D" parent="."]
+
+[node name="finishline" type="CollisionShape2D" parent="finishlevel1"]
+position = Vector2(5270, 299)
+shape = SubResource("RectangleShape2D_b0e0n")
