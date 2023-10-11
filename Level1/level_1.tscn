@@ -904,7 +904,7 @@ size = Vector2(2351.5, 57.375)
 size = Vector2(87, 39.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0e0n"]
-size = Vector2(2663, 412)
+size = Vector2(1789, 500)
 
 [node name="Level1" type="Node2D"]
 
@@ -988,12 +988,12 @@ shape = SubResource("RectangleShape2D_gy32e")
 [node name="finishlevel1" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="finishlevel1"]
-position = Vector2(6017.5, 292)
+position = Vector2(5566.5, 248)
 shape = SubResource("RectangleShape2D_b0e0n")
 
 [node name="TextureRect" type="TextureRect" parent="finishlevel1/CollisionShape2D"]
-offset_left = -1354.5
-offset_top = -211.0
-offset_right = 331.5
-offset_bottom = 355.0
+offset_left = -902.0
+offset_top = -254.0
+offset_right = 937.0
+offset_bottom = 373.0
 texture = ExtResource("6_hi7nv")
