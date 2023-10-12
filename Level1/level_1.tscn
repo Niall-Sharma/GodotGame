@@ -953,6 +953,9 @@ position = Vector2(234, -85)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
+[node name="CoinDisplay" parent="Player" instance=ExtResource("7_labk5")]
+position = Vector2(-233, -188)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(234, -85)
 position_smoothing_speed = 10.0
@@ -998,6 +1001,3 @@ offset_top = -254.0
 offset_right = 937.0
 offset_bottom = 373.0
 texture = ExtResource("6_hi7nv")
-
-[node name="CoinDisplay" parent="." instance=ExtResource("7_labk5")]
-position = Vector2(509, -101)
