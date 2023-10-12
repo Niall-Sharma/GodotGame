@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://027a3lx24ol7"]
+[gd_scene load_steps=15 format=3 uid="uid://027a3lx24ol7"]
 
 [ext_resource type="Texture2D" uid="uid://clxm7kxgap4rf" path="res://Pixel_Platformer_Tileset_Pack/Background/single_background.png" id="1_hbrf7"]
 [ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="3_a3nat"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="4_soht5"]
 [ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://Coin/coin.tscn" id="5_rpn03"]
 [ext_resource type="Texture2D" uid="uid://q5kyq7hvqmrx" path="res://Screenshot 2023-10-11 at 10.09.56 AM.png" id="6_hi7nv"]
-[ext_resource type="PackedScene" uid="uid://b2glpj4maftwt" path="res://Coin_Display/coin_display.tscn" id="7_labk5"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_70j8p"]
 tile_data = PackedInt32Array(0, 393216, 17, 4, 786432, 17, 8, 1114112, 17)
