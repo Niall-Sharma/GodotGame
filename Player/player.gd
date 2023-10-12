@@ -7,7 +7,6 @@ var level1complete : bool = false
 var isHighJumping = false
 var highJumpVelocity = 750
 
-
 @onready var animationTree = $AnimationTree
 @onready var heatlhBar = $PlayerGUI/HealthBar
 @onready var PlayerStateMachine : StateMachine = $StateMachine
@@ -19,7 +18,9 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	heatlhBar.modulate=Color(0,2,0)
 	animationTree.active = true
-	print(level1complete)
+	
+
+
 	
 func _physics_process(_delta):
 	#Add Gravity
@@ -67,16 +68,20 @@ func _on_area_2d_body_entered(body):
 		PlayerStateMachine.changeNextState(PlayerStateMachine.states[2])
 	if body.name=="spikes":
 		die()
-	if body.name=="finishlevel1":
+	if body.name=="finishlevel":
 		get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
 		level1complete = true
 		print(level1complete)
+    
 	if body.name=="Trampoline":
 		print("Trampoline collision detected")
 		print("isHighJumping: ", isHighJumping)
 		print("highJumpVelocity: ", highJumpVelocity)
 		highJump()
 	
+		Globalvars.poop()
+		Globalvars.addlevel(0)
+		Globalvars.shit()
 		
 
 func _on_area_2d_area_entered(area):
