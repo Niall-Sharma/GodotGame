@@ -3,8 +3,9 @@ extends CharacterBody2D
 const SPEED = 300.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var health = 100
-
-
+var level1complete : bool = false
+var isHighJumping = false
+var highJumpVelocity = 750
 
 @onready var animationTree = $AnimationTree
 @onready var heatlhBar = $PlayerGUI/HealthBar
@@ -25,6 +26,7 @@ func _physics_process(_delta):
 	#Add Gravity
 	if(!is_on_floor()):
 		velocity.y += GRAVITY * _delta
+
 	
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("left", "right")
@@ -68,10 +70,18 @@ func _on_area_2d_body_entered(body):
 		die()
 	if body.name=="finishlevel":
 		get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
+		level1complete = true
+		print(level1complete)
+    
+	if body.name=="Trampoline":
+		print("Trampoline collision detected")
+		print("isHighJumping: ", isHighJumping)
+		print("highJumpVelocity: ", highJumpVelocity)
+		highJump()
+	
 		Globalvars.poop()
 		Globalvars.addlevel(0)
 		Globalvars.shit()
-
 		
 
 func _on_area_2d_area_entered(area):
@@ -79,4 +89,8 @@ func _on_area_2d_area_entered(area):
 		area.get_parent()._leave()
 		$PickupSound.play()
 		$/root/Master._add_coin()
+		
+func highJump():
+	isHighJumping = true
+	velocity.y = -highJumpVelocity
 
