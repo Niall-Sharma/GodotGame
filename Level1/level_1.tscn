@@ -1000,4 +1000,4 @@ offset_bottom = 373.0
 texture = ExtResource("6_hi7nv")
 
 [node name="CoinDisplay" parent="." instance=ExtResource("7_labk5")]
-position = Vector2(297, -147)
+position = Vector2(509, -101)
