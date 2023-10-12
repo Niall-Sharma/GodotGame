@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var health = 100
-var level1complete : bool = false
+
 
 
 @onready var animationTree = $AnimationTree
@@ -17,7 +17,9 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	heatlhBar.modulate=Color(0,2,0)
 	animationTree.active = true
-	print(level1complete)
+	
+
+
 	
 func _physics_process(_delta):
 	#Add Gravity
@@ -64,10 +66,12 @@ func _on_area_2d_body_entered(body):
 		PlayerStateMachine.changeNextState(PlayerStateMachine.states[2])
 	if body.name=="spikes":
 		die()
-	if body.name=="finishlevel1":
+	if body.name=="finishlevel":
 		get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
-		level1complete = true
-		print(level1complete)
+		Globalvars.poop()
+		Globalvars.addlevel(0)
+		Globalvars.shit()
+
 		
 
 func _on_area_2d_area_entered(area):
