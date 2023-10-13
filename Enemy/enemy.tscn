@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://72wdxuxbsb4w"]
+[gd_scene load_steps=28 format=3 uid="uid://72wdxuxbsb4w"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_fcme5"]
 [ext_resource type="Texture2D" uid="uid://vkhgbfabdgia" path="res://Enemy/Assets/DinoSprites - vita.png" id="2_vhwep"]
@@ -35,6 +35,10 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5yu6i"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dud11"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7kqj3"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_e1r1v"]
 states/Attack/node = SubResource("AnimationNodeAnimation_vdrej")
 states/Attack/position = Vector2(437, 64)
@@ -43,7 +47,7 @@ states/Idle/position = Vector2(292, 63)
 states/Run/node = SubResource("AnimationNodeAnimation_hw6w6")
 states/Run/position = Vector2(294, 150.5)
 states/Start/position = Vector2(197.5, 66.25)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4xpjg"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_0bgjh"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_jw523"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_4msws"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_5yu6i")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4xpjg"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_0bgjh"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_jw523"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_4msws"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_5yu6i"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_dud11"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_7kqj3")]
 
 [sub_resource type="Animation" id="Animation_7nics"]
 resource_name = "Attack"
@@ -189,6 +193,9 @@ _data = {
 "Run": SubResource("Animation_et4cg")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqchy"]
+size = Vector2(20, 17)
+
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_fcme5")
 
@@ -211,8 +218,6 @@ libraries = {
 "": SubResource("AnimationLibrary_4k8dj")
 }
 
-[node name="Node" type="Node" parent="AnimationPlayer"]
-
 [node name="StatemachineLabel" type="Label" parent="." node_paths=PackedStringArray("stateMachine")]
 offset_left = -70.0
 offset_top = -37.0
@@ -229,18 +234,14 @@ character = NodePath("..")
 currentState = NodePath("Standby")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="Standby" type="Node" parent="StateMachine" node_paths=PackedStringArray("RayCastForward", "RayCastDiagonal", "FOLLOW_STATE", "animationTree")]
+[node name="Standby" type="Node" parent="StateMachine" node_paths=PackedStringArray("FOLLOW_STATE", "animationTree")]
 script = ExtResource("4_y1bkd")
-RayCastForward = NodePath("../../RayCast2D Forward")
-RayCastDiagonal = NodePath("../../RayCast2D2 Diagonal")
 FOLLOW_STATE = NodePath("../Follow")
 canMove = false
 animationTree = NodePath("../../AnimationTree")
 
-[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("RayCastForward", "RayCastDiagonal", "STANDBY_STATE", "animationTree")]
+[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE", "animationTree")]
 script = ExtResource("6_10yl6")
-RayCastForward = NodePath("../../RayCast2D Forward")
-RayCastDiagonal = NodePath("../../RayCast2D2 Diagonal")
 STANDBY_STATE = NodePath("../Standby")
 animationTree = NodePath("../../AnimationTree")
 
@@ -249,13 +250,21 @@ script = ExtResource("7_lljpj")
 canMove = false
 isVulnerable = false
 animationTree = NodePath("../../AnimationTree")
-animationState = null
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
 script = ExtResource("8_u68ss")
+STANDBY_STATE = NodePath("../Standby")
+canMove = false
+isVulnerable = false
 
-[node name="RayCast2D Forward" type="RayCast2D" parent="."]
-target_position = Vector2(183, 0)
+[node name="AttackTimer" type="Timer" parent="StateMachine/Attack"]
+wait_time = 0.4
 
-[node name="RayCast2D2 Diagonal" type="RayCast2D" parent="."]
-target_position = Vector2(168, -21)
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gqchy")
+
+[connection signal="timeout" from="StateMachine/Attack/AttackTimer" to="StateMachine/Attack" method="_on_attack_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -2,8 +2,6 @@ extends State
 
 class_name StandbyState
 
-@export var RayCastForward: RayCast2D
-@export var RayCastDiagonal: RayCast2D
 @export var FOLLOW_STATE : State
 @export var FOLLOW_DISTANCE : float = 200
 @onready var Player : CharacterBody2D = $"../../../Player"
