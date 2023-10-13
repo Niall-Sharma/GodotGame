@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dk6dssf5ifs7d"]
+[gd_scene load_steps=40 format=3 uid="uid://dk6dssf5ifs7d"]
 
 [ext_resource type="AudioStream" uid="uid://bl1ub8puk10x3" path="res://Player/fall.wav" id="1_ehdac"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_hxat1"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://22xmyiwlvpey" path="res://mixkit-boxing-punch-2051.wav" id="4_c8kr2"]
 [ext_resource type="AudioStream" uid="uid://d4wq7hwh2aiv" path="res://Player/PickupSound.wav" id="6_m0e12"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="7_q4dwg"]
+[ext_resource type="PackedScene" uid="uid://b2glpj4maftwt" path="res://Coin_Display/coin_display.tscn" id="7_xejc4"]
 [ext_resource type="Script" path="res://Player/States/AirState.gd" id="8_57qd7"]
 [ext_resource type="Script" path="res://Player/States/GroundState.gd" id="8_use2a"]
 [ext_resource type="Script" path="res://Player/States/HurtState.gd" id="10_m2vwb"]
@@ -343,6 +344,14 @@ size_flags_vertical = 1
 theme = SubResource("Theme_bkc84")
 value = 100.0
 fill_mode = 1
+
+[node name="CoinDisplay" parent="PlayerGUI" instance=ExtResource("7_xejc4")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -29.0
+offset_right = 0.0
+grow_horizontal = 0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_hxxtw")

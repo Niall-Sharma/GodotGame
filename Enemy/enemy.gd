@@ -8,10 +8,17 @@ var direction = Vector2.ZERO
 @onready var animationTree : AnimationTree = $AnimationTree
 @onready var sprite : Sprite2D = $Sprite2D
 
+var health = 100
+
 func  _ready():
 	animationTree.active = true
 	
 	
+	'''
+	ouch(100)
+	'''
+
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -29,3 +36,8 @@ func _physics_process(delta):
 		velocity.x = 0
 		
 	move_and_slide()
+
+func ouch(damage):
+	health -= damage
+	if health<=0:
+		get_tree().queue_delete(self)
