@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://72wdxuxbsb4w"]
+[gd_scene load_steps=25 format=3 uid="uid://72wdxuxbsb4w"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_fcme5"]
 [ext_resource type="Texture2D" uid="uid://vkhgbfabdgia" path="res://Enemy/Assets/DinoSprites - vita.png" id="2_vhwep"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://StateMachine/StateDebugLabel.gd" id="5_y1trd"]
 [ext_resource type="Script" path="res://Enemy/States/Follow.gd" id="6_10yl6"]
 [ext_resource type="Script" path="res://Enemy/States/Hurt.gd" id="7_lljpj"]
+[ext_resource type="Script" path="res://Enemy/States/Attack.gd" id="8_u68ss"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dedyu"]
 light_mode = 1
@@ -14,41 +15,35 @@ light_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vjfl"]
 size = Vector2(20, 17)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o1kqa"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vdrej"]
 animation = &"Attack"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_11i1b"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pq8x4"]
 animation = &"Idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_22hk7"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hw6w6"]
 animation = &"Run"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aaxq6"]
-animation = &"Run"
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_4htex"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_11i1b")
-blend_point_0/pos = 0.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_22hk7")
-blend_point_1/pos = -1.0
-blend_point_2/node = SubResource("AnimationNodeAnimation_aaxq6")
-blend_point_2/pos = 1.0
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c70id"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4xpjg"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ccrp"]
-advance_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0bgjh"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uo0xt"]
-advance_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jw523"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4msws"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5yu6i"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_e1r1v"]
-states/Attack/node = SubResource("AnimationNodeAnimation_o1kqa")
-states/Attack/position = Vector2(373, 128.5)
-states/Move/node = SubResource("AnimationNodeBlendSpace1D_4htex")
-states/Move/position = Vector2(332.5, 52)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_c70id"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_1ccrp"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_uo0xt")]
+states/Attack/node = SubResource("AnimationNodeAnimation_vdrej")
+states/Attack/position = Vector2(437, 64)
+states/Idle/node = SubResource("AnimationNodeAnimation_pq8x4")
+states/Idle/position = Vector2(292, 63)
+states/Run/node = SubResource("AnimationNodeAnimation_hw6w6")
+states/Run/position = Vector2(294, 150.5)
+states/Start/position = Vector2(197.5, 66.25)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4xpjg"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_0bgjh"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_jw523"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_4msws"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_5yu6i")]
 
 [sub_resource type="Animation" id="Animation_7nics"]
 resource_name = "Attack"
@@ -210,12 +205,13 @@ debug_color = Color(0, 0, 0.596078, 0.305882)
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_e1r1v")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Move/blend_position = -0.00107294
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4k8dj")
 }
+
+[node name="Node" type="Node" parent="AnimationPlayer"]
 
 [node name="StatemachineLabel" type="Label" parent="." node_paths=PackedStringArray("stateMachine")]
 offset_left = -70.0
@@ -227,10 +223,11 @@ horizontal_alignment = 1
 script = ExtResource("5_y1trd")
 stateMachine = NodePath("../StateMachine")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "currentState")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "currentState", "animation_tree")]
 script = ExtResource("3_gpbbn")
 character = NodePath("..")
 currentState = NodePath("Standby")
+animation_tree = NodePath("../AnimationTree")
 
 [node name="Standby" type="Node" parent="StateMachine" node_paths=PackedStringArray("RayCastForward", "RayCastDiagonal", "FOLLOW_STATE", "animationTree")]
 script = ExtResource("4_y1bkd")
@@ -240,17 +237,25 @@ FOLLOW_STATE = NodePath("../Follow")
 canMove = false
 animationTree = NodePath("../../AnimationTree")
 
-[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("RayCastForward", "RayCastDiagonal", "STANDBY_STATE")]
+[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("RayCastForward", "RayCastDiagonal", "STANDBY_STATE", "animationTree")]
 script = ExtResource("6_10yl6")
 RayCastForward = NodePath("../../RayCast2D Forward")
 RayCastDiagonal = NodePath("../../RayCast2D2 Diagonal")
 STANDBY_STATE = NodePath("../Standby")
+animationTree = NodePath("../../AnimationTree")
 
-[node name="Hurt" type="Node" parent="StateMachine"]
+[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("animationTree")]
 script = ExtResource("7_lljpj")
+canMove = false
+isVulnerable = false
+animationTree = NodePath("../../AnimationTree")
+animationState = null
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("8_u68ss")
 
 [node name="RayCast2D Forward" type="RayCast2D" parent="."]
-target_position = Vector2(82, 0)
+target_position = Vector2(183, 0)
 
 [node name="RayCast2D2 Diagonal" type="RayCast2D" parent="."]
-target_position = Vector2(79, -14)
+target_position = Vector2(168, -21)
