@@ -72,7 +72,7 @@ func _on_area_2d_body_entered(body):
 		get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
 		level1complete = true
 		print(level1complete)
-    
+	
 	if body.name=="Trampoline":
 		print("Trampoline collision detected")
 		print("isHighJumping: ", isHighJumping)
