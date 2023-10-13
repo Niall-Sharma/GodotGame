@@ -19,7 +19,7 @@ func _physics_process(_delta):
 		switchState(currentState.nextState)
 	if(currentState != null):
 		currentState.stateProcess(_delta)
-	
+		
 func checkCanMove():
 	return currentState.canMove
 

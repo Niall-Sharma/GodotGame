@@ -232,11 +232,25 @@ script = ExtResource("3_gpbbn")
 character = NodePath("..")
 currentState = NodePath("Standby")
 
-[node name="Standby" type="Node" parent="StateMachine"]
+[node name="Standby" type="Node" parent="StateMachine" node_paths=PackedStringArray("RayCastForward", "RayCastDiagonal", "FOLLOW_STATE", "animationTree")]
 script = ExtResource("4_y1bkd")
+RayCastForward = NodePath("../../RayCast2D Forward")
+RayCastDiagonal = NodePath("../../RayCast2D2 Diagonal")
+FOLLOW_STATE = NodePath("../Follow")
+canMove = false
+animationTree = NodePath("../../AnimationTree")
 
-[node name="Follow" type="Node" parent="StateMachine"]
+[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("RayCastForward", "RayCastDiagonal", "STANDBY_STATE")]
 script = ExtResource("6_10yl6")
+RayCastForward = NodePath("../../RayCast2D Forward")
+RayCastDiagonal = NodePath("../../RayCast2D2 Diagonal")
+STANDBY_STATE = NodePath("../Standby")
 
 [node name="Hurt" type="Node" parent="StateMachine"]
 script = ExtResource("7_lljpj")
+
+[node name="RayCast2D Forward" type="RayCast2D" parent="."]
+target_position = Vector2(82, 0)
+
+[node name="RayCast2D2 Diagonal" type="RayCast2D" parent="."]
+target_position = Vector2(79, -14)
