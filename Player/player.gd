@@ -72,6 +72,9 @@ func _on_area_2d_body_entered(body):
 		get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
 		level1complete = true
 		print(level1complete)
+		Globalvars.poop()
+		Globalvars.addlevel(0)
+		Globalvars.shit()
 	
 	if body.name=="Trampoline":
 		print("Trampoline collision detected")
@@ -79,9 +82,7 @@ func _on_area_2d_body_entered(body):
 		print("highJumpVelocity: ", highJumpVelocity)
 		highJump()
 	
-		Globalvars.poop()
-		Globalvars.addlevel(0)
-		Globalvars.shit()
+		
 		
 
 func _on_area_2d_area_entered(area):
