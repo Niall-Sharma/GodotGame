@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmfm7dawmtous"]
+[gd_scene load_steps=3 format=3 uid="uid://cmfm7dawmtous"]
 
+[ext_resource type="Script" path="res://Infinite/ran.gd" id="1_o2epb"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="1_yea3v"]
 
 [node name="ran" type="Node2D"]
+script = ExtResource("1_o2epb")
 
 [node name="Player" parent="." instance=ExtResource("1_yea3v")]
 position = Vector2(234, -85)

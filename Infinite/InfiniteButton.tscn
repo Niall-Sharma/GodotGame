@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b67ceres3jjya"]
+
+[ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="1_1pmjs"]
+[ext_resource type="Script" path="res://Infinite/InfiniteButton.gd" id="2_quu80"]
+
+[node name="InfiniteButton" type="Button"]
+anchors_preset = -1
+anchor_left = 0.859
+anchor_top = 0.521
+anchor_right = 0.859
+anchor_bottom = 0.521
+offset_left = 0.47998
+offset_top = -0.120026
+offset_right = 125.48
+offset_bottom = 57.88
+theme = ExtResource("1_1pmjs")
+text = "Infinite"
+script = ExtResource("2_quu80")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
