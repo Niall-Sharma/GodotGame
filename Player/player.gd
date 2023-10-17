@@ -97,7 +97,8 @@ func _on_area_2d_area_entered(area):
 	if area.name == "heart-area":
 		area.get_parent()._leave()
 		$PickupSound.play()
-		take_health(10)
+		if(health<100):
+			take_health(10)
 		
 func highJump():
 	isHighJumping = true
