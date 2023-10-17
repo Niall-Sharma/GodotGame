@@ -303,9 +303,11 @@ script = ExtResource("6_10yl6")
 STANDBY_STATE = NodePath("../Standby")
 animationTree = NodePath("../../AnimationTree")
 
-[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE", "animationTree")]
+[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE", "enemySprite", "animationTree")]
 script = ExtResource("7_lljpj")
 STANDBY_STATE = NodePath("../Standby")
+knockback_amount = Vector2(2000, 1000)
+enemySprite = NodePath("../../Sprite2D")
 canMove = false
 isVulnerable = false
 animationTree = NodePath("../../AnimationTree")
