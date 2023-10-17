@@ -1000,3 +1000,7 @@ offset_bottom = 563.0
 texture = ExtResource("6_hi7nv")
 
 [node name="Heart" parent="." instance=ExtResource("7_taqkw")]
+position = Vector2(344, -84)
+
+[node name="Heart2" parent="." instance=ExtResource("7_taqkw")]
+position = Vector2(873, -76)
