@@ -363,11 +363,10 @@ libraries = {
 "": SubResource("AnimationLibrary_3p2k3")
 }
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "currentState", "animation_tree")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "currentState")]
 script = ExtResource("7_q4dwg")
 character = NodePath("..")
 currentState = NodePath("Ground")
-animation_tree = NodePath("../AnimationTree")
 
 [node name="Air" type="Node" parent="StateMachine" node_paths=PackedStringArray("landSoundEffect", "animationTree")]
 script = ExtResource("8_57qd7")
