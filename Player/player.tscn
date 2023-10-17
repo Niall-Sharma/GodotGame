@@ -446,8 +446,14 @@ animationTree = NodePath("../../AnimationTree")
 [node name="HurtTimer" type="Timer" parent="StateMachine/Hurt"]
 wait_time = 0.5
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attackTimer")]
 script = ExtResource("12_deh06")
+attackTimer = NodePath("AttackTimer")
+canMove = false
+isVulnerable = false
+
+[node name="AttackTimer" type="Timer" parent="StateMachine/Attack"]
+wait_time = 0.3
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("stateMachine")]
 offset_left = -53.0
@@ -461,5 +467,5 @@ stateMachine = NodePath("../StateMachine")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Attack" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Attack/AttackTimer" to="StateMachine/Attack" method="_on_attack_timer_timeout"]
