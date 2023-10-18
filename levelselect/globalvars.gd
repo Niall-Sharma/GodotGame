@@ -7,7 +7,7 @@ var lc = [true,false,false,false,false,false,false,false,false,false]
 func check_lock():
 	for i in range(len(lc)):
 		if lc[i] == true:
-			get_tree().change_scene_to_file("res.//Master/master.tscn")
+			get_tree().change_scene_to_file("res://Master/master.tscn")
 		elif lc[i] == false:
 			print ("Locked")
 			get_tree().change_scene_to_file("res://levelselect/level_select.tscn")

@@ -11,7 +11,7 @@ func _process(_sdelta):
 
 
 func _on_pressed():
-	Globalvars.check_lock()
+#	Globalvars.check_lock()
 	get_tree().change_scene_to_file("res://Master/master.tscn")
 	Globalvars.setLevel(lvl_num)
 	

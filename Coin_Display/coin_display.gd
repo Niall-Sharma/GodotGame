@@ -9,7 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	string_version = str($/root/Master._get_coin_counter())
 	if(text != string_version):
 		text = string_version
