@@ -44,5 +44,5 @@ func _on_area_2d_area_entered(area):
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
 
 func _on_area_2d_collision_shape_2d_entered(shape):
-	if(shape.get_parent().name == "Spikes"):
+	if(shape.get_parent().name == "spikes"):
 		takeDamage(100)
