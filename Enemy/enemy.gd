@@ -42,3 +42,15 @@ func takeDamage(damage):
 func _on_area_2d_area_entered(area):
 	if(area.get_parent().name == "Player"):
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
+
+
+
+
+func _on_area_2d_body_entered(body):
+	if(body.get_parent().name == "spikes" or body.name == "spikes"):
+		takeDamage(100)
+		print("augh")
+
+
+
+
