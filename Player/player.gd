@@ -70,10 +70,7 @@ func _on_area_2d_body_entered(body):
 		die()
 	if body.name=="finishlevel":
 		get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
-		
-		
 		Globalvars.addlevel(1)
-		Globalvars.lcprint()
 		
 	
 	if body.name=="Trampoline":
