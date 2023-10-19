@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://bswubndaw32m0"]
+[gd_scene load_steps=4 format=3 uid="uid://bswubndaw32m0"]
 
-[ext_resource type="Script" path="res://Heart/Heart.gd" id="1_5euo0"]
 [ext_resource type="Texture2D" uid="uid://j138ve7yly5b" path="res://Heart/heart pixel art 16x16.png" id="2_as4vd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tc7h"]
@@ -8,7 +7,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekcgr"]
 
 [node name="Heart" type="StaticBody2D"]
-script = ExtResource("1_5euo0")
 
 [node name="heart-area" type="Area2D" parent="."]
 
