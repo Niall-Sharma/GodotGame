@@ -104,3 +104,9 @@ func highJump():
 	isHighJumping = true
 	velocity.y = -highJumpVelocity
 
+
+
+func _on_attack_area_body_entered(body):
+	if body.name == "enemy":
+		PlayerStateMachine.changeNextState(PlayerStateMachine.states[3])
+		body.takeDamage(1)

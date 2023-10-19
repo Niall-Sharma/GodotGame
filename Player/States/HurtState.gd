@@ -7,13 +7,11 @@ class_name HurtState
 @export var knockback_amount : Vector2
 @export var playerSprite : Sprite2D
 
-var animationPlayback : AnimationNodeStateMachinePlayback
 func onEnter():
 	hurtSound.play()
 	$HurtTimer.wait_time = stateDuration
 	$HurtTimer.start()
-	animationPlayback = animationTree["parameters/playback"]
-	animationPlayback.travel("Hurt")
+	animationState.travel("Hurt")
 	if playerSprite.flip_h == true:
 		character.velocity+= knockback_amount
 	else:
@@ -25,7 +23,7 @@ func onEnter():
 	
 func onExit():
 	$HurtTimer.stop()
-	animationPlayback.travel("Start")
+	animationState.travel("Start")
 
 
 func _on_hurt_timer_timeout():
