@@ -51,9 +51,8 @@ func _on_area_2d_area_entered(area):
 func _on_area_2d_body_entered(body):
 	if(body.get_parent().name == "spikes" or body.name == "spikes"):
 		takeDamage(100)
+		print("augh")
 
 
 
-func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	if(body.get_parent().name == "spikes" or body.name == "spikes"):
-		takeDamage(100)
+
