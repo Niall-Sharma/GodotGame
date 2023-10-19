@@ -43,6 +43,11 @@ func _on_area_2d_area_entered(area):
 	if(area.get_parent().name == "Player"):
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
 
-func _on_collision_shape_2d_area_entered(shape):
-	if(shape.get_parent().name == "spikes"):
+#func _on_body_entered(shape):
+	#if(shape.get_parent().name == "spikes" or shape.name == "spikes"):
+	#	takeDamage(100)
+
+
+func _on_area_2d_body_entered(body):
+	if(body.get_parent().name == "spikes" or body.name == "spikes"):
 		takeDamage(100)
