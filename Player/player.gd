@@ -56,6 +56,10 @@ func take_damage(damage):
 		heatlhBar.modulate = Color(1, 0, 0)
 	if health <= 0:
 		die()  # If health reaches zero or below, character dies
+		
+func take_health(damage):
+	health += damage
+	heatlhBar.value = health
 
 func die():
 	get_tree().change_scene_to_file("res://DeathScene/Death.tscn") 
@@ -90,12 +94,19 @@ func _on_area_2d_area_entered(area):
 		area.get_parent()._leave()
 		$PickupSound.play()
 		$/root/Master._add_coin()
-	if area.name == "health-area":
+	if area.name == "heart-area":
 		area.get_parent()._leave()
 		$PickupSound.play()
-		health=health+10
+		if(health<100):
+			take_health(10)
 		
 func highJump():
 	isHighJumping = true
 	velocity.y = -highJumpVelocity
 
+
+
+func _on_attack_area_body_entered(body):
+	if body.name == "enemy":
+		PlayerStateMachine.changeNextState(PlayerStateMachine.states[3])
+		body.takeDamage(1)
