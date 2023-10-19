@@ -13,7 +13,7 @@ func onEnter():
 	attackTimer.start()
 	if playerSprite.flip_h == true:
 		character.velocity+= knockback_amount
-	else:
+	else:	
 		character.velocity.x += -knockback_amount.x
 		character.velocity.y += knockback_amount.y
 	character.move_and_slide()

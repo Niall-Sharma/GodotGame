@@ -18,12 +18,12 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+	#Flip sprite depending on which way the enemy is moving
 	if direction.x > 0:
 		sprite.flip_h = true
 	else:
 		sprite.flip_h = false
-		
+	#Only move if state boolean canMove returns true	
 	if STATE_MACHINE.checkCanMove():
 		direction = (global_position - PLAYER.global_position).normalized()
 		velocity.x = direction.x*SPEED
