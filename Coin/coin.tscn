@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://do3fhm161ket3"]
+[gd_scene load_steps=20 format=3 uid="uid://do3fhm161ket3"]
 
+[ext_resource type="Script" path="res://Coin/coin.gd" id="1_q8vpn"]
 [ext_resource type="Texture2D" uid="uid://0in2viadasyx" path="res://Coin/coin1_16x16.png" id="2_221ku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtim6"]
@@ -119,6 +120,7 @@ animations = [{
 }]
 
 [node name="Coin" type="StaticBody2D"]
+script = ExtResource("1_q8vpn")
 
 [node name="coin_area" type="Area2D" parent="."]
 position = Vector2(2.25, 2.25)
