@@ -10,7 +10,6 @@ func _ready():
 		var butject = button.instantiate()
 		get_child(0).add_child(butject)
 		buttonvars.append(butject)
-		butnums.append(i+1)
 		butject.text = "Level " + str(i+1)
 		butject.name = "Level " + str(i+1) + " Button"
 		butject.lvl_num = i
@@ -21,6 +20,5 @@ func _ready():
 	infi.text = "Infinite"
 	infi.name = "InfiniteButton"
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+	for buttonvar in buttonvars:
+		buttonvar.enabled = Globalvars.getlc(buttonvar.lvl_num)

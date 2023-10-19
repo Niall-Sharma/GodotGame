@@ -22,7 +22,7 @@ func _ready():
 	ry = landi.position.y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	
 	var pos = $Player.position
