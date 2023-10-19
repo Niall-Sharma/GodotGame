@@ -17,7 +17,7 @@ func _ready():
 	var infi = infinitebutton.instantiate()
 	
 	get_child(0).add_child(infi)
-	infi.set_icon_alignment(2)
+	
 	infi.text = "Infinite"
 	infi.name = "InfiniteButton"
 	

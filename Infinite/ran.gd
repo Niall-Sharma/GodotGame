@@ -2,13 +2,16 @@ extends Node2D
 @export var land: PackedScene
 var scene = preload("res://Infinite/land.tscn")
 var scener = preload("res://Infinite/clarice.tscn")
+var coiner = preload("res://Infinite/InfinityCoin/coin.tscn")
 var landi = scene.instantiate()
+var coini = coiner.instantiate()
 var rx = landi.position.x
 var ry = landi.position.y
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
 	add_child(landi)
+
 
 	'''
 	var land2 = landi.duplicate()
@@ -29,9 +32,15 @@ func _process(delta):
 
 	if rx < pos.x + 1000:
 		var land2 = landi.duplicate()
+
 		land2.position.x = rx+270
 		land2.position.y = ry + randf()*150-75
 
 		add_child(land2)
 		rx = land2.position.x
 		ry = land2.position.y
+		
+		var coin2 = coini.duplicate()
+		coin2.position.x = rx
+		coin2.position.y = ry -30
+		add_child(coin2)
