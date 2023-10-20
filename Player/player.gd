@@ -75,7 +75,7 @@ func _on_area_2d_body_entered(body):
 	#If spikes enters area2d then call die function
 	if body.name=="spikes":
 		die()
-	#If finish flag enters area2d then go back to level select, set level to complete, 
+	#If finish flag enters area2d then go back to level select, set level to ocmplete, 
 	if body.name=="finishlevel":
 		get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
 		Globalvars.addlevel(1)
