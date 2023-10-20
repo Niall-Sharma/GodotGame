@@ -46,17 +46,19 @@ func _physics_process(_delta):
 
 #Player loses health when called
 func take_damage(damage):
-	health -= damage
-	#Set healthbar value to health and change healthbar color depending on how much health is left
-	heatlhBar.value = health
-	if health<=60:
-		heatlhBar.modulate = Color(1, 1, 0)
-	if health<=30:
-		heatlhBar.modulate = Color("ff4500")
-	if health <=10:
-		heatlhBar.modulate = Color(1, 0, 0)
-	if health <= 0:
-		die()  # If health reaches zero or below, character dies
+	if PlayerStateMachine.checkIsVulnerable():
+		health -= damage
+		PlayerStateMachine.changeNextState(PlayerStateMachine.states[2])
+		#Set healthbar value to health and change healthbar color depending on how much health is left
+		heatlhBar.value = health
+		if health<=60:
+			heatlhBar.modulate = Color(1, 1, 0)
+		if health<=30:
+			heatlhBar.modulate = Color("ff4500")
+		if health <=10:
+			heatlhBar.modulate = Color(1, 0, 0)
+		if health <= 0:
+			die()  # If health reaches zero or below, character dies
 
 #Add player health and change healthbar value to health when called		
 func take_health(damage):
@@ -70,10 +72,6 @@ func die():
 
 #Called when body enters Player's area2d
 func _on_area_2d_body_entered(body):
-	#If enemy enters area2d then call take damage and set the players state to Hurt
-	if body.name == "enemy" and PlayerStateMachine.checkIsVulnerable():
-		take_damage(10)
-		PlayerStateMachine.changeNextState(PlayerStateMachine.states[2])
 	#If spikes enters area2d then call die function
 	if body.name=="spikes":
 		die()
@@ -110,9 +108,5 @@ func _on_area_2d_area_entered(area):
 func highJump():
 	velocity.y = -highJumpVelocity
 
-
-#If enemy is in the attack area then player state is set to attack state and enemy's takeDamage function is called
-func _on_attack_area_body_entered(body):
-	if body.name == "enemy":
-		PlayerStateMachine.changeNextState(PlayerStateMachine.states[3])
-		body.takeDamage(1)
+func isHealthMax():
+	return health < 100

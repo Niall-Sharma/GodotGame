@@ -6,18 +6,17 @@ class_name PlayerAttackState
 @export var attackTimer : Timer
 @export var knockback_amount : Vector2
 @export var playerSprite : Sprite2D
+@export var attackHitbox : Area2D
+var bodiesInAttack
 
 func onEnter():
 	animationState.travel("Attack")
 	attackTimer.wait_time = attackTime
 	attackTimer.start()
-	if playerSprite.flip_h == true:
-		character.velocity+= knockback_amount
-	else:	
-		character.velocity.x += -knockback_amount.x
-		character.velocity.y += knockback_amount.y
-	character.move_and_slide()
-	
+	bodiesInAttack = attackHitbox.get_overlapping_bodies()
+	for body in bodiesInAttack:
+		if "enemy" in body.name:
+			body.takeDamage(1)
 
 func onExit():
 	attackTimer.stop()

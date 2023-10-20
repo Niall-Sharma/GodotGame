@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://do3fhm161ket3"]
+[gd_scene load_steps=21 format=3 uid="uid://do3fhm161ket3"]
 
-[ext_resource type="Script" path="res://Coin/coin.gd" id="1_q8vpn"]
-[ext_resource type="Texture2D" uid="uid://0in2viadasyx" path="res://Coin/coin1_16x16.png" id="2_221ku"]
+[ext_resource type="Script" path="res://Coin/coin.gd" id="1_6lmnv"]
+2D" uid="uid://0in2viadasyx" path="res://Coin/coin1_16x16.png" id="2_221ku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtim6"]
-size = Vector2(5.5, 5.5)
+size = Vector2(6.31579, 6.31579)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kerx3"]
 atlas = ExtResource("2_221ku")
@@ -119,20 +119,18 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scypd"]
+
 [node name="Coin" type="StaticBody2D"]
-script = ExtResource("1_q8vpn")
+script = ExtResource("1_6lmnv")
 
 [node name="coin_area" type="Area2D" parent="."]
 position = Vector2(2.25, 2.25)
 scale = Vector2(10, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coin_area"]
+position = Vector2(-0.025, -0.0249999)
 scale = Vector2(0.19, 0.19)
-shape = SubResource("RectangleShape2D_mtim6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.25, 2.25)
-scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_mtim6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -141,3 +139,9 @@ scale = Vector2(0.875, 0.875)
 sprite_frames = SubResource("SpriteFrames_fv4w6")
 autoplay = "default"
 frame_progress = 0.731633
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_scypd")
+disabled = true
+
+[connection signal="body_entered" from="coin_area" to="." method="_on_coin_area_body_entered"]
