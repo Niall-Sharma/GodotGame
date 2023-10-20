@@ -21,6 +21,7 @@ func _ready():
 	infi.text = "Infinite"
 	infi.name = "InfiniteButton"
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+	for buttonvar in buttonvars:
+		buttonvar.enabled = Globalvars.getlc(buttonvar.lvl_num)
+		print("TEST LOG IN LEVEL SELECT GD")
+
