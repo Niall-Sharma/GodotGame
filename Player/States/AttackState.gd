@@ -14,7 +14,6 @@ func onEnter():
 	attackTimer.wait_time = attackTime
 	attackTimer.start()
 	bodiesInAttack = attackHitbox.get_overlapping_bodies()
-	print(bodiesInAttack)
 	for body in bodiesInAttack:
 		if "enemy" in body.name:
 			body.takeDamage(1)
