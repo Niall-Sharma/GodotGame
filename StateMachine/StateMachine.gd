@@ -33,6 +33,9 @@ func checkCanMove():
 func checkIsVulnerable():
 	return currentState.isVulnerable
 
+func checkCanAttack():
+	return currentState.canAttack
+
 #Takes a state as a parameter. Called whenever nextState != null
 func switchState(nextState : State):
 	#If currentState exists run currentState's onExit() then set it's nextState = null 

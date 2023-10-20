@@ -9,7 +9,7 @@ var direction = Vector2.ZERO
 @onready var PLAYER : CharacterBody2D = $"../Player"
 @onready var animationTree : AnimationTree = $AnimationTree
 @onready var sprite : Sprite2D = $Sprite2D
-var health = 10
+@export var health = 5
 
 func  _ready():
 	animationTree.active = true
@@ -39,6 +39,8 @@ func takeDamage(damage):
 		get_tree().queue_delete(self)
 
 
-func _on_area_2d_area_entered(area):
-	if(area.get_parent().name == "Player"):
+func _on_area_2d_body_entered(body):
+	if(body.name == "Player") and STATE_MACHINE.checkCanAttack():
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
+		body.take_damage(10)
+
