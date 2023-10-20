@@ -9,7 +9,7 @@ var direction = Vector2.ZERO
 @onready var PLAYER : CharacterBody2D = $"../Player"
 @onready var animationTree : AnimationTree = $AnimationTree
 @onready var sprite : Sprite2D = $Sprite2D
-var health = 10
+@export var health = 5
 
 func  _ready():
 	animationTree.active = true
@@ -18,12 +18,12 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+	#Flip sprite depending on which way the enemy is moving
 	if direction.x > 0:
 		sprite.flip_h = true
 	else:
 		sprite.flip_h = false
-		
+	#Only move if state boolean canMove returns true	
 	if STATE_MACHINE.checkCanMove():
 		direction = (global_position - PLAYER.global_position).normalized()
 		velocity.x = direction.x*SPEED
@@ -39,6 +39,8 @@ func takeDamage(damage):
 		get_tree().queue_delete(self)
 
 
-func _on_area_2d_area_entered(area):
-	if(area.get_parent().name == "Player"):
+func _on_area_2d_body_entered(body):
+	if(body.name == "Player") and STATE_MACHINE.checkCanAttack():
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
+		body.take_damage(10)
+

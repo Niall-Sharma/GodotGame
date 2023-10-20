@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://byage0vif20wq"]
+[gd_scene load_steps=8 format=3 uid="uid://byage0vif20wq"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_qqa1l"]
+[ext_resource type="Texture2D" uid="uid://cc4gxad1du50g" path="res://levelselect/arcade-game-world-pixel-scene_24640-45908.jpg" id="2_hnaw5"]
 [ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="2_nxljn"]
 [ext_resource type="AudioStream" uid="uid://0lr8ayvuh8cv" path="res://Master/red-flowers-kidcut-main-version-02-14-12093.mp3" id="3_xc3je"]
 
@@ -16,12 +17,29 @@
 script = ExtResource("1_qqa1l")
 
 [node name="ColorRect" type="ColorRect" parent="MainMenu"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.129412, 0.898039, 0.901961, 1)
+color = Color(0.505882, 0.839216, 0.843137, 1)
+
+[node name="BackgroundForMainMenu" type="TextureRect" parent="MainMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -215.0
+offset_right = 901.0
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.715, 0.658349)
+texture = ExtResource("2_hnaw5")
+expand_mode = 2
 
 [node name="Main" type="VBoxContainer" parent="MainMenu"]
 anchors_preset = 8

@@ -252,7 +252,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqchy"]
-size = Vector2(20, 17)
+size = Vector2(24, 17)
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_fcme5")
@@ -303,11 +303,14 @@ script = ExtResource("6_10yl6")
 STANDBY_STATE = NodePath("../Standby")
 animationTree = NodePath("../../AnimationTree")
 
-[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE", "animationTree")]
+[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE", "enemySprite", "animationTree")]
 script = ExtResource("7_lljpj")
 STANDBY_STATE = NodePath("../Standby")
+knockback_amount = Vector2(4000, 1000)
+enemySprite = NodePath("../../Sprite2D")
 canMove = false
 isVulnerable = false
+canAttack = false
 animationTree = NodePath("../../AnimationTree")
 
 [node name="HurtTimer" type="Timer" parent="StateMachine/Hurt"]
@@ -330,4 +333,4 @@ shape = SubResource("RectangleShape2D_gqchy")
 
 [connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/AttackTimer" to="StateMachine/Attack" method="_on_attack_timer_timeout"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

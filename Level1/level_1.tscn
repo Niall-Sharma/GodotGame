@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://027a3lx24ol7"]
+[gd_scene load_steps=15 format=3 uid="uid://027a3lx24ol7"]
 
 [ext_resource type="Texture2D" uid="uid://clxm7kxgap4rf" path="res://Pixel_Platformer_Tileset_Pack/Background/single_background.png" id="1_hbrf7"]
 [ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="3_a3nat"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="4_soht5"]
 [ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://Coin/coin.tscn" id="5_rpn03"]
 [ext_resource type="Texture2D" uid="uid://q5kyq7hvqmrx" path="res://Screenshot 2023-10-11 at 10.09.56 AM.png" id="6_hi7nv"]
+[ext_resource type="PackedScene" uid="uid://bjg80mtxasonb" path="res://DeathObject.tscn" id="6_l8q1b"]
 [ext_resource type="PackedScene" uid="uid://bswubndaw32m0" path="res://Heart/Heart.tscn" id="7_taqkw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_70j8p"]
@@ -898,12 +899,6 @@ pattern_0 = SubResource("TileMapPattern_70j8p")
 pattern_1 = SubResource("TileMapPattern_w4jgm")
 pattern_2 = SubResource("TileMapPattern_58cjy")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjces"]
-size = Vector2(2351.5, 57.375)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy32e"]
-size = Vector2(87, 39.75)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0e0n"]
 size = Vector2(865, 518)
 
@@ -972,19 +967,15 @@ position = Vector2(1860, -435)
 [node name="Coin3" parent="." instance=ExtResource("5_rpn03")]
 position = Vector2(3584, -616)
 
-[node name="spikes" type="CharacterBody2D" parent="."]
+[node name="DeathAreas" type="CharacterBody2D" parent="."]
 
-[node name="spikes" type="CollisionShape2D" parent="spikes"]
-position = Vector2(1680.5, 22.5)
-shape = SubResource("RectangleShape2D_yjces")
+[node name="DeathObject" parent="DeathAreas" instance=ExtResource("6_l8q1b")]
+position = Vector2(-109, 166)
+scale = Vector2(44.3427, 2.87564)
 
-[node name="spikes3" type="CollisionShape2D" parent="spikes"]
-position = Vector2(-102, 304)
-shape = SubResource("RectangleShape2D_yjces")
-
-[node name="spikes2" type="CollisionShape2D" parent="spikes"]
-position = Vector2(3225.5, -595.125)
-shape = SubResource("RectangleShape2D_gy32e")
+[node name="DeathObject2" parent="DeathAreas" instance=ExtResource("6_l8q1b")]
+position = Vector2(1591, 30)
+scale = Vector2(121.377, 1.48038)
 
 [node name="finishlevel" type="CharacterBody2D" parent="."]
 
@@ -1000,3 +991,7 @@ offset_bottom = 563.0
 texture = ExtResource("6_hi7nv")
 
 [node name="Heart" parent="." instance=ExtResource("7_taqkw")]
+position = Vector2(344, -84)
+
+[node name="Heart2" parent="." instance=ExtResource("7_taqkw")]
+position = Vector2(873, -76)

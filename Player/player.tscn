@@ -17,9 +17,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e2g0"]
 size = Vector2(20, 15)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhwna"]
-size = Vector2(1.55, 1.5)
-
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_afgnh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l8642"]
@@ -319,19 +316,16 @@ _data = {
 "Run": SubResource("Animation_0gp27")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyfx2"]
+size = Vector2(44.9999, 19)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hxat1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.905185, 1.28718)
 shape = SubResource("RectangleShape2D_6e2g0")
-
-[node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(20, 20)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1.86265e-09, 0)
-shape = SubResource("RectangleShape2D_dhwna")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_2jdig")
@@ -441,13 +435,22 @@ knockback_amount = Vector2(1000, 1000)
 playerSprite = NodePath("../../Sprite2D")
 canMove = false
 isVulnerable = false
+canAttack = false
 animationTree = NodePath("../../AnimationTree")
 
 [node name="HurtTimer" type="Timer" parent="StateMachine/Hurt"]
 wait_time = 0.5
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attackTimer", "playerSprite", "attackHitbox")]
 script = ExtResource("12_deh06")
+attackTimer = NodePath("AttackTimer")
+knockback_amount = Vector2(1, -500)
+playerSprite = NodePath("../../Sprite2D")
+attackHitbox = NodePath("../../AttackArea")
+canMove = false
+
+[node name="AttackTimer" type="Timer" parent="StateMachine/Attack"]
+wait_time = 0.3
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("stateMachine")]
 offset_left = -53.0
@@ -459,7 +462,13 @@ horizontal_alignment = 1
 script = ExtResource("11_41ul6")
 stateMachine = NodePath("../StateMachine")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Attack" method="_on_animation_player_animation_finished"]
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(19, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-1, -1)
+scale = Vector2(0.400001, 1)
+shape = SubResource("RectangleShape2D_uyfx2")
+
 [connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Attack/AttackTimer" to="StateMachine/Attack" method="_on_attack_timer_timeout"]

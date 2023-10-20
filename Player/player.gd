@@ -4,7 +4,6 @@ const SPEED = 300.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var health = 100
 var level1complete : bool = false
-var isHighJumping = false
 var highJumpVelocity = 750
 
 @onready var animationTree = $AnimationTree
@@ -45,54 +44,57 @@ func _physics_process(_delta):
 			$Sprite2D.flip_h = false
 			
 
+#Player loses health when called
 func take_damage(damage):
-	health -= damage
-	heatlhBar.value = health
-	if health<=60:
-		heatlhBar.modulate = Color(1, 1, 0)
-	if health<=30:
-		heatlhBar.modulate = Color("ff4500")
-	if health <=10:
-		heatlhBar.modulate = Color(1, 0, 0)
-	if health <= 0:
-		die()  # If health reaches zero or below, character dies
+	if PlayerStateMachine.checkIsVulnerable():
+		health -= damage
+		PlayerStateMachine.changeNextState(PlayerStateMachine.states[2])
+		#Set healthbar value to health and change healthbar color depending on how much health is left
+		heatlhBar.value = health
+		if health<=60:
+			heatlhBar.modulate = Color(1, 1, 0)
+		if health<=30:
+			heatlhBar.modulate = Color("ff4500")
+		if health <=10:
+			heatlhBar.modulate = Color(1, 0, 0)
+		if health <= 0:
+			die()  # If health reaches zero or below, character dies
 
+#Add player health and change healthbar value to health when called		
+func take_health(damage):
+	health += damage
+	heatlhBar.value = health
+
+#When called change scene to death scene
 func die():
 	get_tree().change_scene_to_file("res://DeathScene/Death.tscn") 
 
 
-
+#Called when body enters Player's area2d
 func _on_area_2d_body_entered(body):
-	if body.name == "enemy" and PlayerStateMachine.checkIsVulnerable():
-		take_damage(10)
-		PlayerStateMachine.changeNextState(PlayerStateMachine.states[2])
+	#If spikes enters area2d then call die function
 	if body.name=="spikes":
 		die()
+	#If finish flag enters area2d then go back to level select, set level to ocmplete, 
 	if body.name=="finishlevel":
 		get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
-		Globalvars.addlevel(1)
-		
+		level1complete = true
+		print(level1complete)
+		Globalvars.poop()
+		Globalvars.addlevel(0)
+		Globalvars.shit()
 	
+	#If trampoline enters area2d call highJump function
 	if body.name=="Trampoline":
-		print("Trampoline collision detected")
-		print("isHighJumping: ", isHighJumping)
-		print("highJumpVelocity: ", highJumpVelocity)
 		highJump()
 	
 		
 		
+#Called when an area2d enters player's area2d
 
-func _on_area_2d_area_entered(area):
-	if area.name == "coin_area":
-		area.get_parent()._leave()
-		$PickupSound.play()
-		$/root/Master._add_coin()
-	if area.name == "health-area":
-		area.get_parent()._leave()
-		$PickupSound.play()
-		health=health+10
-		
+#When player encounters trampoline this function is called. Launches the player up in the air when called
 func highJump():
-	isHighJumping = true
 	velocity.y = -highJumpVelocity
 
+func isHealthMax():
+	return health < 100
