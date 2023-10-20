@@ -75,14 +75,11 @@ func _on_area_2d_body_entered(body):
 	#If spikes enters area2d then call die function
 	if body.name=="spikes":
 		die()
-	#If finish flag enters area2d then go back to level select, set level to ocmplete, 
+	#If finish flag enters area2d then go back to level select, set level to complete, 
 	if body.name=="finishlevel":
 		get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
-		level1complete = true
-		print(level1complete)
-		Globalvars.poop()
-		Globalvars.addlevel(0)
-		Globalvars.shit()
+		Globalvars.addlevel(1)
+		
 	
 	#If trampoline enters area2d call highJump function
 	if body.name=="Trampoline":
@@ -91,7 +88,22 @@ func _on_area_2d_body_entered(body):
 		
 		
 #Called when an area2d enters player's area2d
-
+func _on_area_2d_area_entered(area):
+	#If coin_area enters area2d call _leave() function from coin_area parent, play coin pickup sound, run function add_coin() from master
+	if area.name == "coin_area":
+		get_tree().queue_delete(area.get_parent())
+		$PickupSound.play()
+		$/root/Master._add_coin()
+	#If heart_area enters area2d call _leave() function from coin_area
+	if area.name == "heart-area":
+		get_tree().queue_delete(area.get_parent())
+		$PickupSound.play()
+		if(health<100):
+			take_health(10)
+	if area.name == "InfiniteLand":
+		get_tree().queue_delete(area.get_parent())
+		$/root/Master._add_coin()
+		
 #When player encounters trampoline this function is called. Launches the player up in the air when called
 func highJump():
 	velocity.y = -highJumpVelocity
