@@ -21,10 +21,6 @@ func _ready():
 	AudioServer.set_bus_volume_db(0,-20)
 	_change_level(Globalvars.getLevel())
 	coinCounter = 0
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 
 func _on_pause_button_pressed():
 	get_tree().paused = true
@@ -64,11 +60,8 @@ func _on_restart_button_pressed():
 	_change_level(Globalvars.getLevel())
 
 
-
-
 func _add_coin():
 	coinCounter += 1
-	print("pickup")
 	
 func _get_coin_counter():
 	return coinCounter

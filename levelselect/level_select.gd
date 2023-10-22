@@ -22,4 +22,3 @@ func _ready():
 
 	for buttonvar in buttonvars:
 		buttonvar.enabled = Globalvars.getlc(buttonvar.lvl_num)
-		print("TEST LOG IN LEVEL SELECT GD")
