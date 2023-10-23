@@ -10,6 +10,7 @@ func _ready():
 
 	add_child(landi)
 
+
 	'''
 	var land2 = landi.duplicate()
 	land2.position.x = landi.position.x+150
@@ -21,7 +22,7 @@ func _ready():
 	ry = landi.position.y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	
 	var pos = $Player.position
@@ -29,9 +30,11 @@ func _process(delta):
 
 	if rx < pos.x + 1000:
 		var land2 = landi.duplicate()
+
 		land2.position.x = rx+270
 		land2.position.y = ry + randf()*150-75
 
 		add_child(land2)
 		rx = land2.position.x
 		ry = land2.position.y
+

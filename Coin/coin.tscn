@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://do3fhm161ket3"]
 
 [ext_resource type="Script" path="res://Coin/coin.gd" id="1_6lmnv"]
-[ext_resource type="Texture2D" uid="uid://0in2viadasyx" path="res://Coin/coin1_16x16.png" id="2_221ku"]
+2D" uid="uid://0in2viadasyx" path="res://Coin/coin1_16x16.png" id="2_221ku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtim6"]
 size = Vector2(6.31579, 6.31579)
