@@ -317,12 +317,12 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyfx2"]
-size = Vector2(44.9999, 19)
+size = Vector2(173.125, 19)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hxat1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerShape" type="CollisionShape2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.905185, 1.28718)
 shape = SubResource("RectangleShape2D_6e2g0")
@@ -463,10 +463,9 @@ script = ExtResource("11_41ul6")
 stateMachine = NodePath("../StateMachine")
 
 [node name="AttackArea" type="Area2D" parent="."]
-position = Vector2(19, 1)
+position = Vector2(25, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(-1, -1)
 scale = Vector2(0.400001, 1)
 shape = SubResource("RectangleShape2D_uyfx2")
 
