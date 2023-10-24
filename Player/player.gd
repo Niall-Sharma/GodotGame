@@ -100,7 +100,7 @@ func _on_area_2d_area_entered(area):
 		$PickupSound.play()
 		if(health<100):
 			take_health(10)
-	if area.name == "InfiniteLand":
+	if area.name == "land_area":
 		get_tree().queue_delete(area.get_parent())
 		$/root/Master._add_coin()
 		
