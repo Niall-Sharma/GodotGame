@@ -22,8 +22,3 @@ func _ready():
 	
 	for buttonvar in buttonvars:
 		buttonvar.enabled = Globalvars.getlc(buttonvar.lvl_num)
-<<<<<<< HEAD
-		print("TEST LOG IN LEVEL SELECT GD")
-
-=======
->>>>>>> parent of c1970c2 (Merge pull request #17 from Niall-Sharma/13-downwards-player-interactions)
