@@ -10,9 +10,13 @@ var direction = Vector2.ZERO
 @onready var animationTree : AnimationTree = $AnimationTree
 @onready var sprite : Sprite2D = $Sprite2D
 @export var health = 5
+var JUMP_VELOCITY = -300
 
 func  _ready():
 	animationTree.active = true
+
+func jump():
+	velocity.y = JUMP_VELOCITY
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -27,6 +31,9 @@ func _physics_process(delta):
 	if STATE_MACHINE.checkCanMove():
 		direction = (global_position - PLAYER.global_position).normalized()
 		velocity.x = direction.x*SPEED
+		var yDiff = PLAYER.global_position.y - global_position.y
+		if (yDiff < -1 or yDiff > 1) and is_on_floor():
+			jump()
 	else:
 		velocity.x = 0
 		
