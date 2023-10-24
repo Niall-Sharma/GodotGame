@@ -10,18 +10,20 @@ func _ready():
 		var butject = button.instantiate()
 		get_child(0).add_child(butject)
 		buttonvars.append(butject)
-		butnums.append(i+1)
 		butject.text = "Level " + str(i+1)
 		butject.name = "Level " + str(i+1) + " Button"
 		butject.lvl_num = i
 	var infi = infinitebutton.instantiate()
 	
 	get_child(0).add_child(infi)
-	infi.set_icon_alignment(2)
+	
 	infi.text = "Infinite"
 	infi.name = "InfiniteButton"
 	
 	for buttonvar in buttonvars:
 		buttonvar.enabled = Globalvars.getlc(buttonvar.lvl_num)
+<<<<<<< HEAD
 		print("TEST LOG IN LEVEL SELECT GD")
 
+=======
+>>>>>>> parent of c1970c2 (Merge pull request #17 from Niall-Sharma/13-downwards-player-interactions)
