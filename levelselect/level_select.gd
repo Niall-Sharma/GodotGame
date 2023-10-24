@@ -19,6 +19,6 @@ func _ready():
 	
 	infi.text = "Infinite"
 	infi.name = "InfiniteButton"
-	
+	infi.lvl_num = 11
 	for buttonvar in buttonvars:
 		buttonvar.enabled = Globalvars.getlc(buttonvar.lvl_num)
