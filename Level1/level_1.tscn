@@ -972,7 +972,7 @@ position = Vector2(-109, 166)
 scale = Vector2(44.3427, 2.87564)
 
 [node name="DeathObject2" parent="DeathAreas" instance=ExtResource("6_52k7o")]
-position = Vector2(1591, 30)
+position = Vector2(1595, 27)
 scale = Vector2(121.377, 1.48038)
 
 [node name="Heart" parent="." instance=ExtResource("7_taqkw")]
