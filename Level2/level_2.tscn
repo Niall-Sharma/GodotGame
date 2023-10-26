@@ -1,7 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://bekkvv0mmdluk"]
 
 [ext_resource type="Texture2D" uid="uid://bt2emm7bs7pva" path="res://Cave Tileset/Background.png" id="1_5uvgm"]
-[ext_resource type="Texture2D" uid="uid://bfcrjr1vu64fo" path="res://Cave Tileset/Bat.png" id="2_4ylxk"]
 [ext_resource type="Texture2D" uid="uid://cevnig7x6bg2e" path="res://Cave Tileset/Coin.png" id="3_nxyxi"]
 [ext_resource type="Texture2D" uid="uid://blkomul5ym2r3" path="res://Cave Tileset/Spikes.png" id="4_teg3e"]
 [ext_resource type="Texture2D" uid="uid://ceerityy82cop" path="res://Cave Tileset/Tiles.png" id="5_umh5c"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="8_d7lj8"]
 [ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://Coin/coin.tscn" id="9_wef3r"]
 [ext_resource type="PackedScene" uid="uid://bjg80mtxasonb" path="res://DeathObject/DeathObject.tscn" id="10_co16r"]
+[ext_resource type="PackedScene" uid="uid://ccmuarpbgct5g" path="res://BatEnemy/enemy_bat.tscn" id="10_ux1fs"]
 [ext_resource type="PackedScene" uid="uid://qypibu87bio3" path="res://MovingBlock/movingblocks.tscn" id="11_4phqc"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_2nw8m"]
@@ -282,42 +282,6 @@ size = Vector2(47.25, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at5ch"]
 size = Vector2(49.5, 21)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vrbnd"]
-atlas = ExtResource("2_4ylxk")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vc3ya"]
-atlas = ExtResource("2_4ylxk")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5rsqu"]
-atlas = ExtResource("2_4ylxk")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5qa85"]
-atlas = ExtResource("2_4ylxk")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_y8b7a"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vrbnd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vc3ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5rsqu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5qa85")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
 [node name="level_2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -476,12 +440,8 @@ position = Vector2(752, 48)
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_at5ch")
 
-[node name="Bat" type="AnimatedSprite2D" parent="."]
-position = Vector2(1263, 144)
-scale = Vector2(2.375, 1.9375)
-sprite_frames = SubResource("SpriteFrames_y8b7a")
-autoplay = "default"
-frame_progress = 0.181726
+[node name="enemyBat" parent="." instance=ExtResource("10_ux1fs")]
+position = Vector2(1227, 137)
 
 [node name="AnimatableBody2D" parent="." instance=ExtResource("11_4phqc")]
 position = Vector2(1958, 232)
