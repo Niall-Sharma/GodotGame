@@ -310,7 +310,6 @@ knockback_amount = Vector2(4000, 1000)
 enemySprite = NodePath("../../Sprite2D")
 canMove = false
 isVulnerable = false
-canAttack = false
 animationTree = NodePath("../../AnimationTree")
 
 [node name="HurtTimer" type="Timer" parent="StateMachine/Hurt"]
