@@ -37,7 +37,6 @@ func _physics_process(delta):
 		if (yDiff < -1 or yDiff > 1) and is_on_floor() and canJump:
 			jump()
 			jumpTimer.start()
-			print(canJump)
 			canJump = false
 	else:
 		velocity.x = 0
