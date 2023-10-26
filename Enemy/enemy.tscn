@@ -256,6 +256,7 @@ size = Vector2(24, 17)
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_fcme5")
+knockbackAmount = Vector2(1000, 400)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_dedyu")

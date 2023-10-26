@@ -10,6 +10,7 @@ var direction = Vector2.ZERO
 @onready var animationTree : AnimationTree = $AnimationTree
 @onready var sprite : Sprite2D = $Sprite2D
 @export var health = 5
+@export var knockbackAmount : Vector2
 
 func  _ready():
 	animationTree.active = true
@@ -42,5 +43,5 @@ func takeDamage(damage):
 func _on_area_2d_body_entered(body):
 	if(body.name == "Player"):
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
-		body.take_damage(10)
+		body.take_damage(10, knockbackAmount)
 
