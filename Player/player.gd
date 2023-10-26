@@ -42,7 +42,11 @@ func _physics_process(_delta):
 			
 		if direction > 0:
 			$Sprite2D.flip_h = false
-			
+	
+	if direction>0 and $AttackArea.position.x < $PlayerShape.position.x:
+		$AttackArea.position.x+=50
+	if direction<0 and $AttackArea.position.x > $PlayerShape.position.x:
+		$AttackArea.position.x-=50
 
 #Player loses health when called
 func take_damage(damage : float, knockbackAmount : Vector2):
@@ -101,7 +105,7 @@ func _on_area_2d_area_entered(area):
 		$PickupSound.play()
 		if(health<100):
 			take_health(10)
-	if area.name == "InfiniteLand":
+	if area.name == "land_area":
 		get_tree().queue_delete(area.get_parent())
 		$/root/Master._add_coin()
 		
@@ -111,3 +115,4 @@ func highJump():
 
 func isHealthMax():
 	return health < 100
+

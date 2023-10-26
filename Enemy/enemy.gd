@@ -11,9 +11,15 @@ var direction = Vector2.ZERO
 @onready var sprite : Sprite2D = $Sprite2D
 @export var health = 5
 @export var knockbackAmount : Vector2
+var JUMP_VELOCITY = -300
+var canJump = true
+@onready var jumpTimer = $JumpTimer
 
 func  _ready():
 	animationTree.active = true
+
+func jump():
+	velocity.y = JUMP_VELOCITY
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -28,6 +34,11 @@ func _physics_process(delta):
 	if STATE_MACHINE.checkCanMove():
 		direction = (global_position - PLAYER.global_position).normalized()
 		velocity.x = direction.x*SPEED
+		var yDiff = PLAYER.global_position.y - global_position.y
+		if (yDiff < -1 or yDiff > 1) and is_on_floor() and canJump:
+			jump()
+			jumpTimer.start()
+			canJump = false
 	else:
 		velocity.x = 0
 		
@@ -45,3 +56,7 @@ func _on_area_2d_body_entered(body):
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
 		body.take_damage(10, knockbackAmount)
 
+
+
+func _on_jump_timer_timeout():
+	canJump = true
