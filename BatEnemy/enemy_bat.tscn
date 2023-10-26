@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=3 uid="uid://ccmuarpbgct5g"]
+
+[ext_resource type="Texture2D" uid="uid://bfcrjr1vu64fo" path="res://Cave Tileset/Bat.png" id="1_ra3uw"]
+[ext_resource type="Script" path="res://BatEnemy/enemy_bat.gd" id="1_uog3p"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_mm5mq"]
+[ext_resource type="Script" path="res://Enemy/States/Follow.gd" id="4_68kas"]
+[ext_resource type="Script" path="res://Enemy/States/StandbyState.gd" id="5_gmpj5"]
+[ext_resource type="Script" path="res://StateMachine/StateDebugLabel.gd" id="6_nrius"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrbnd"]
+atlas = ExtResource("1_ra3uw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc3ya"]
+atlas = ExtResource("1_ra3uw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rsqu"]
+atlas = ExtResource("1_ra3uw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qa85"]
+atlas = ExtResource("1_ra3uw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8b7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrbnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc3ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rsqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qa85")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmo0k"]
+size = Vector2(20.5, 11.3358)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1rao"]
+radius = 7.5
+height = 38.0
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jj0he"]
+states/Start/position = Vector2(197.5, 66.25)
+
+[node name="enemyBat" type="CharacterBody2D"]
+script = ExtResource("1_uog3p")
+knockbackAmount = Vector2(2000, 2.08165e-12)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(2.375, 1.9375)
+sprite_frames = SubResource("SpriteFrames_y8b7a")
+autoplay = "default"
+frame = 1
+frame_progress = 0.601747
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(1, 0.816)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.08165e-12, -0.612745)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_jmo0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_d1rao")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "currentState", "animation_tree")]
+script = ExtResource("3_mm5mq")
+character = NodePath("..")
+currentState = NodePath("StandbyState")
+animation_tree = NodePath("../AnimationTree")
+
+[node name="FollowState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
+script = ExtResource("4_68kas")
+STANDBY_STATE = NodePath("../StandbyState")
+FOLLOW_DISTANCE = 2.08165e-12
+
+[node name="StandbyState" type="Node" parent="StateMachine" node_paths=PackedStringArray("FOLLOW_STATE")]
+script = ExtResource("5_gmpj5")
+FOLLOW_STATE = NodePath("../FollowState")
+canMove = false
+canAttack = false
+
+[node name="StateDebugLabel" type="Label" parent="StateMachine" node_paths=PackedStringArray("stateMachine")]
+offset_left = -54.0
+offset_top = -40.0
+offset_right = 56.0
+offset_bottom = -14.0
+text = "STATE:"
+horizontal_alignment = 1
+script = ExtResource("6_nrius")
+stateMachine = NodePath("..")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_jj0he")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

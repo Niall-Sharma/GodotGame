@@ -5,7 +5,6 @@ class_name State
 var character : CharacterBody2D
 @export var canMove : bool = true
 @export var isVulnerable : bool = true
-@export var canAttack : bool = true
 @export var animationTree : AnimationTree
 
 var nextState : State = null
