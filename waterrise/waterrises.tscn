@@ -83,7 +83,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(2.08165e-12, -475)]
+"values": [Vector2(0, 0), Vector2(2.08165e-12, 730)]
 }
 
 [sub_resource type="Animation" id="Animation_1j3a7"]
@@ -117,7 +117,7 @@ position = Vector2(4.5, 229.625)
 scale = Vector2(1.59375, 21.15)
 sprite_frames = SubResource("SpriteFrames_xlvrk")
 autoplay = "default"
-frame_progress = 0.555698
+frame_progress = 0.432099
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(4, 235.716)

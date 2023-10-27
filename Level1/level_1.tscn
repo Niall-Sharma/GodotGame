@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://027a3lx24ol7"]
+[gd_scene load_steps=15 format=3 uid="uid://027a3lx24ol7"]
 
 [ext_resource type="Texture2D" uid="uid://clxm7kxgap4rf" path="res://Pixel_Platformer_Tileset_Pack/Background/single_background.png" id="1_hbrf7"]
 [ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="3_a3nat"]
@@ -899,6 +899,9 @@ pattern_0 = SubResource("TileMapPattern_70j8p")
 pattern_1 = SubResource("TileMapPattern_w4jgm")
 pattern_2 = SubResource("TileMapPattern_58cjy")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs03q"]
+size = Vector2(95, 19)
+
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="CanvasLayer" parent="."]
@@ -955,7 +958,7 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
-[node name="Coin" parent="." instance=ExtResource("5_rpn03")]
+[node name="Coins" parent="." instance=ExtResource("5_rpn03")]
 position = Vector2(804, -204)
 
 [node name="Coin2" parent="." instance=ExtResource("5_rpn03")]
@@ -981,3 +984,10 @@ position = Vector2(344, -84)
 position = Vector2(873, -76)
 
 [node name="FinishLine" parent="." instance=ExtResource("8_6eofq")]
+
+[node name="DeathObject" parent="." instance=ExtResource("6_52k7o")]
+position = Vector2(3237, -593)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathObject"]
+position = Vector2(-10.5, -13.5)
+shape = SubResource("RectangleShape2D_xs03q")
