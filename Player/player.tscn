@@ -421,13 +421,11 @@ animation_tree = NodePath("../AnimationTree")
 [node name="Air" type="Node" parent="StateMachine" node_paths=PackedStringArray("landSoundEffect", "animationTree")]
 script = ExtResource("8_57qd7")
 landSoundEffect = NodePath("../../FallSound")
-canAttack = null
 animationTree = NodePath("../../AnimationTree")
 
 [node name="Ground" type="Node" parent="StateMachine" node_paths=PackedStringArray("jumpSoundEffect", "animationTree")]
 script = ExtResource("8_use2a")
 jumpSoundEffect = NodePath("../../JumpSound")
-canAttack = null
 animationTree = NodePath("../../AnimationTree")
 
 [node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("hurtSound", "playerSprite", "animationTree")]
@@ -448,7 +446,6 @@ knockback_amount = Vector2(1, -500)
 playerSprite = NodePath("../../Sprite2D")
 attackHitbox = NodePath("../../AttackArea")
 canMove = false
-canAttack = null
 
 [node name="AttackTimer" type="Timer" parent="StateMachine/Attack"]
 wait_time = 0.3
