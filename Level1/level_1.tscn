@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://027a3lx24ol7"]
+[gd_scene load_steps=14 format=3 uid="uid://027a3lx24ol7"]
 
 [ext_resource type="Texture2D" uid="uid://clxm7kxgap4rf" path="res://Pixel_Platformer_Tileset_Pack/Background/single_background.png" id="1_hbrf7"]
 [ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="3_a3nat"]
@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="4_soht5"]
 [ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://Coin/coin.tscn" id="5_rpn03"]
 [ext_resource type="PackedScene" uid="uid://bjg80mtxasonb" path="res://DeathObject/DeathObject.tscn" id="6_52k7o"]
-[ext_resource type="Texture2D" uid="uid://q5kyq7hvqmrx" path="res://Screenshot 2023-10-11 at 10.09.56 AM.png" id="6_hi7nv"]
 [ext_resource type="PackedScene" uid="uid://bswubndaw32m0" path="res://Heart/Heart.tscn" id="7_taqkw"]
+[ext_resource type="PackedScene" uid="uid://dacr5icl64w6g" path="res://FinishLine/finish_line.tscn" id="8_6eofq"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_70j8p"]
 tile_data = PackedInt32Array(0, 393216, 17, 4, 786432, 17, 8, 1114112, 17)
@@ -899,9 +899,6 @@ pattern_0 = SubResource("TileMapPattern_70j8p")
 pattern_1 = SubResource("TileMapPattern_w4jgm")
 pattern_2 = SubResource("TileMapPattern_58cjy")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0e0n"]
-size = Vector2(1691, 565)
-
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="CanvasLayer" parent="."]
@@ -974,24 +971,13 @@ position = Vector2(-109, 166)
 scale = Vector2(44.3427, 2.87564)
 
 [node name="DeathObject2" parent="DeathAreas" instance=ExtResource("6_52k7o")]
-position = Vector2(1591, 30)
+position = Vector2(1595, 27)
 scale = Vector2(121.377, 1.48038)
-
-[node name="finishlevel" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="finishlevel"]
-position = Vector2(5517.5, 280.5)
-shape = SubResource("RectangleShape2D_b0e0n")
-
-[node name="TextureRect" type="TextureRect" parent="finishlevel"]
-offset_left = 4681.0
-offset_top = -3.0
-offset_right = 6367.0
-offset_bottom = 563.0
-texture = ExtResource("6_hi7nv")
 
 [node name="Heart" parent="." instance=ExtResource("7_taqkw")]
 position = Vector2(344, -84)
 
 [node name="Heart2" parent="." instance=ExtResource("7_taqkw")]
 position = Vector2(873, -76)
+
+[node name="FinishLine" parent="." instance=ExtResource("8_6eofq")]
