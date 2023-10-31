@@ -88,8 +88,16 @@ theme_override_font_sizes/font_size = 40
 text = "MENU
 "
 
+[node name="Shop Button" type="Button" parent="GUI"]
+offset_left = 69.0
+offset_top = 1.0
+offset_right = 260.0
+offset_bottom = 32.0
+text = "Shop"
+
 [connection signal="pressed" from="GUI/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/Restart Button" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/BackButton2" to="." method="_on_back_button_pressed"]
 [connection signal="value_changed" from="GUI/Pause Menu/Volume Sliders/Master Volume" to="." method="_on_master_volume_value_changed"]
 [connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/Menu button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="GUI/Shop Button" to="." method="_on_shop_button_pressed"]

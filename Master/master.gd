@@ -68,3 +68,12 @@ func _get_coin_counter():
 
 func _set_counter(set_to):
 	coinCounter = set_to
+
+
+func _on_button_pressed():
+	pass # Replace with function body.
+
+
+func _on_shop_button_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Shop/shop_scene.tscn")
