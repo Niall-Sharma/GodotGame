@@ -8,6 +8,7 @@ class_name PlayerAttackState
 @export var playerSprite : Sprite2D
 @export var attackHitbox : Area2D
 var bodiesInAttack
+var attackDmg = 1
 
 func onEnter():
 	animationState.travel("Attack")
@@ -16,7 +17,7 @@ func onEnter():
 	bodiesInAttack = attackHitbox.get_overlapping_bodies()
 	for body in bodiesInAttack:
 		if "enemy" in body.name:
-			body.takeDamage(1)
+			body.takeDamage(attackDmg)
 
 func onExit():
 	attackTimer.stop()
@@ -25,3 +26,6 @@ func onExit():
 
 func _on_attack_timer_timeout():
 	nextState = get_parent().states[1]
+
+func _add_Dmg():
+	attackDmg += 1
