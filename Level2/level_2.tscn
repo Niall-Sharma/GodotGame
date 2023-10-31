@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bekkvv0mmdluk"]
+[gd_scene load_steps=32 format=3 uid="uid://bekkvv0mmdluk"]
 
 [ext_resource type="Texture2D" uid="uid://bt2emm7bs7pva" path="res://Cave Tileset/Background.png" id="1_5uvgm"]
 [ext_resource type="Texture2D" uid="uid://cevnig7x6bg2e" path="res://Cave Tileset/Coin.png" id="3_nxyxi"]
