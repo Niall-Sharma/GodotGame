@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpd2ci6xu7d5g"]
+
+[ext_resource type="Texture2D" uid="uid://b6vkyfnu75t50" path="res://Cave Tileset/Screenshot 2023-10-26 at 11.21.30 AM.png" id="1_xpgcr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8spb"]
+size = Vector2(120, 62)
+
+[sub_resource type="Animation" id="Animation_3qi6i"]
+resource_name = "rah"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.08165e-12, -500)]
+}
+
+[sub_resource type="Animation" id="Animation_cf8aq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6afqy"]
+_data = {
+"RESET": SubResource("Animation_cf8aq"),
+"rah": SubResource("Animation_3qi6i")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Movinguptiles" type="AnimatableBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Movinguptiles"]
+scale = Vector2(0.21509, 0.223566)
+texture = ExtResource("1_xpgcr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Movinguptiles"]
+shape = SubResource("RectangleShape2D_b8spb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Movinguptiles"]
+autoplay = "rah"
+libraries = {
+"": SubResource("AnimationLibrary_6afqy")
+}
