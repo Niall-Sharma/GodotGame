@@ -518,7 +518,7 @@ position = Vector2(1227, 137)
 position = Vector2(4293, 511)
 
 [node name="enemyBat3" parent="." instance=ExtResource("10_ux1fs")]
-position = Vector2(4839, 511)
+position = Vector2(4899, 512)
 
 [node name="Movingblocks!" parent="." instance=ExtResource("11_4phqc")]
 position = Vector2(1958, 232)
