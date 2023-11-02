@@ -8,3 +8,5 @@ func _on_body_entered(body):
 		body.die()
 	if body.name == "enemy":
 		body.die()
+	if body.name == "enemy2":
+		body.die()
