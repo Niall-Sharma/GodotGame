@@ -79,8 +79,8 @@ func _on_button_pressed():
 func _on_shop_button_pressed():
 	get_tree().paused = true
 	$"GUI/Shop".show()
-	$GUI/PauseButton.hide()
-	$GUI/PauseMenuBackground.show()
+	$GUI/ShopBackground.show()
+	
 
 
 func _DmgBst():
@@ -89,7 +89,7 @@ func _DmgBst():
 
 func _on_dmg_button_pressed():
 	print("DMG1")
-	if($/root/Master._get_coin_counter() >= 3):
+	if($/root/Master._get_coin_counter() >= 1):
 		print("DMG2")
 		$/root/Master._set_coin_counter($/root/Master._get_coin_counter() - 3)
 		_DmgBst()
