@@ -14,6 +14,8 @@ func _change_level(x):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"GUI/Pause Menu".hide()
+	$GUI/Shop.hide()
+	$GUI/ShopBackground.hide()
 	$"GUI/PauseMenuBackground".hide()
 	$MainTheme.play()
 	$"GUI/Pause Menu/Volume Sliders/Master Volume".value = 0
@@ -75,5 +77,19 @@ func _on_button_pressed():
 
 
 func _on_shop_button_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Shop/shop_scene.tscn")
+	get_tree().paused = true
+	$"GUI/Shop".show()
+	$GUI/PauseButton.hide()
+	$GUI/PauseMenuBackground.show()
+
+
+func _DmgBst():
+	$/root/Player/StateMachine/Attack._add_Dmg()
+
+
+func _on_dmg_button_pressed():
+	print("DMG1")
+	if($/root/Master._get_coin_counter() >= 3):
+		print("DMG2")
+		$/root/Master._set_coin_counter($/root/Master._get_coin_counter() - 3)
+		_DmgBst()
