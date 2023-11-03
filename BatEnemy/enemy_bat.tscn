@@ -94,7 +94,6 @@ FOLLOW_DISTANCE = 2.08165e-12
 script = ExtResource("5_gmpj5")
 FOLLOW_STATE = NodePath("../FollowState")
 canMove = false
-canAttack = false
 
 [node name="StateDebugLabel" type="Label" parent="StateMachine" node_paths=PackedStringArray("stateMachine")]
 offset_left = -54.0
