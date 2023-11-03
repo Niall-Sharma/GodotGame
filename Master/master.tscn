@@ -97,40 +97,59 @@ offset_right = 260.0
 offset_bottom = 32.0
 text = "Shop"
 
-[node name="Shop" type="VBoxContainer" parent="GUI"]
+[node name="ShopStuff" type="Control" parent="GUI"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ShopBackground" type="TextureRect" parent="GUI/ShopStuff"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_gvcls")
+
+[node name="Shop" type="VBoxContainer" parent="GUI/ShopStuff"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 100.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 alignment = 1
 
-[node name="ShopButtons" type="HBoxContainer" parent="GUI/Shop"]
+[node name="ShopButtons" type="HBoxContainer" parent="GUI/ShopStuff/Shop"]
+z_index = 1
 layout_mode = 2
+size_flags_horizontal = 4
 alignment = 1
 
-[node name="DmgButton" type="TextureButton" parent="GUI/Shop/ShopButtons"]
+[node name="DmgButton" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
+z_index = 1
 layout_mode = 2
 texture_normal = ExtResource("6_lc4w1")
 texture_pressed = ExtResource("6_lc4w1")
 texture_hover = ExtResource("6_lc4w1")
-texture_disabled = ExtResource("6_lc4w1")
 texture_focused = ExtResource("6_lc4w1")
 
-[node name="OtherButton" type="TextureButton" parent="GUI/Shop/ShopButtons"]
+[node name="OtherButton" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
+z_index = 1
 layout_mode = 2
 
-[node name="TextureButton2" type="TextureButton" parent="GUI/Shop/ShopButtons"]
+[node name="TextureButton2" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
 layout_mode = 2
 
-[node name="TextureButton3" type="TextureButton" parent="GUI/Shop/ShopButtons"]
+[node name="TextureButton3" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
 layout_mode = 2
-
-[node name="ShopBackground" type="TextureRect" parent="GUI/Shop"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("5_gvcls")
 
 [connection signal="pressed" from="GUI/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/Restart Button" to="." method="_on_restart_button_pressed"]
@@ -138,4 +157,4 @@ texture = ExtResource("5_gvcls")
 [connection signal="value_changed" from="GUI/Pause Menu/Volume Sliders/Master Volume" to="." method="_on_master_volume_value_changed"]
 [connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/Menu button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="GUI/Shop Button" to="." method="_on_shop_button_pressed"]
-[connection signal="pressed" from="GUI/Shop/ShopButtons/DmgButton" to="." method="_on_dmg_button_pressed"]
+[connection signal="pressed" from="GUI/ShopStuff/Shop/ShopButtons/DmgButton" to="." method="_on_dmg_button_pressed"]

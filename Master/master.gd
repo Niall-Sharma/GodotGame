@@ -14,7 +14,7 @@ func _change_level(x):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"GUI/Pause Menu".hide()
-	$GUI/Shop.hide()
+	$GUI/ShopStuff.hide()
 	$"GUI/PauseMenuBackground".hide()
 	$MainTheme.play()
 	$"GUI/Pause Menu/Volume Sliders/Master Volume".value = 0
@@ -75,7 +75,7 @@ func _set_counter(set_to):
 
 func _on_shop_button_pressed():
 	get_tree().paused = true
-	$"GUI/Shop".show()
+	$"GUI/ShopStuff".show()
 	
 
 
@@ -87,5 +87,5 @@ func _on_dmg_button_pressed():
 	print("DMG1")
 	if($/root/Master._get_coin_counter() >= 1):
 		print("DMG2")
-		$/root/Master._set_coin_counter($/root/Master._get_coin_counter() - 3)
+		$/root/Master._set_coin_counter($/root/Master._get_coin_counter() - 1)
 		_DmgBst()
