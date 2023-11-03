@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://do3fhm161ket3"]
+[gd_scene load_steps=21 format=3 uid="uid://do3fhm161ket3"]
 
 [ext_resource type="Script" path="res://Coin/coin.gd" id="1_6lmnv"]
 [ext_resource type="Texture2D" uid="uid://0in2viadasyx" path="res://Coin/coin1_16x16.png" id="2_221ku"]
-[ext_resource type="AudioStream" uid="uid://d4wq7hwh2aiv" path="res://Player/PickupSound.wav" id="3_7ewtk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtim6"]
 size = Vector2(6.31579, 6.31579)
@@ -144,10 +143,5 @@ frame_progress = 0.731633
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_scypd")
 disabled = true
-
-[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_7ewtk")
-volume_db = 1.0
-bus = &"Sound Effects"
 
 [connection signal="body_entered" from="coin_area" to="." method="_on_coin_area_body_entered"]

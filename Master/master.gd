@@ -62,6 +62,7 @@ func _on_restart_button_pressed():
 
 func _add_coin():
 	coinCounter += 1
+	$PickupSound.play()
 	
 func _get_coin_counter():
 	return coinCounter
