@@ -15,7 +15,6 @@ func _change_level(x):
 func _ready():
 	$"GUI/Pause Menu".hide()
 	$GUI/Shop.hide()
-	$GUI/ShopBackground.hide()
 	$"GUI/PauseMenuBackground".hide()
 	$MainTheme.play()
 	$"GUI/Pause Menu/Volume Sliders/Master Volume".value = 0
@@ -72,14 +71,11 @@ func _set_counter(set_to):
 	coinCounter = set_to
 
 
-func _on_button_pressed():
-	pass # Replace with function body.
 
 
 func _on_shop_button_pressed():
 	get_tree().paused = true
 	$"GUI/Shop".show()
-	$GUI/ShopBackground.show()
 	
 
 
