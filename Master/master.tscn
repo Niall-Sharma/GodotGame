@@ -151,6 +151,10 @@ layout_mode = 2
 [node name="TextureButton3" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
 layout_mode = 2
 
+[node name="Shop Back Button" type="Button" parent="GUI/ShopStuff/Shop"]
+layout_mode = 2
+text = "Back"
+
 [connection signal="pressed" from="GUI/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/Restart Button" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/BackButton2" to="." method="_on_back_button_pressed"]
@@ -158,3 +162,4 @@ layout_mode = 2
 [connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/Menu button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="GUI/Shop Button" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="GUI/ShopStuff/Shop/ShopButtons/DmgButton" to="." method="_on_dmg_button_pressed"]
+[connection signal="pressed" from="GUI/ShopStuff/Shop/Shop Back Button" to="." method="_on_shop_back_button_pressed"]
