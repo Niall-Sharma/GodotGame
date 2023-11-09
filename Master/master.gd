@@ -75,6 +75,7 @@ func _set_counter(set_to):
 
 func _on_shop_button_pressed():
 	get_tree().paused = true
+	$"GUI/Shop Button".hide()
 	$"GUI/ShopStuff".show()
 	
 
@@ -92,5 +93,7 @@ func _on_dmg_button_pressed():
 
 
 func _on_shop_back_button_pressed():
-	$"GUI/ShopStuff".hide()
 	get_tree().paused = false
+	$"GUI/Shop Button".show()
+	$"GUI/ShopStuff".hide()
+	

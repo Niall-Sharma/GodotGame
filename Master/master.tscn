@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnhlvlxgmww3t"]
+[gd_scene load_steps=8 format=3 uid="uid://cnhlvlxgmww3t"]
 
 [ext_resource type="Script" path="res://Master/master.gd" id="1_ajh2t"]
+[ext_resource type="Script" path="res://Master/ShopStuff.gd" id="5_3dlv4"]
 [ext_resource type="Texture2D" uid="uid://bympt7flaf342" path="res://Tiles/Tiles/Assets/Shop_Background.png" id="5_gvcls"]
 [ext_resource type="AudioStream" uid="uid://bpwxo6lax4q1j" path="res://Master/Gymnopedie_No_1.mp3" id="5_n2n4l"]
 [ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="6_fmloo"]
@@ -104,6 +105,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_3dlv4")
 
 [node name="ShopBackground" type="TextureRect" parent="GUI/ShopStuff"]
 layout_mode = 1
@@ -113,6 +115,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("5_gvcls")
 
 [node name="Shop" type="VBoxContainer" parent="GUI/ShopStuff"]
@@ -128,13 +131,11 @@ scale = Vector2(0.7, 0.7)
 alignment = 1
 
 [node name="ShopButtons" type="HBoxContainer" parent="GUI/ShopStuff/Shop"]
-z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
 [node name="DmgButton" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
-z_index = 1
 layout_mode = 2
 texture_normal = ExtResource("6_lc4w1")
 texture_pressed = ExtResource("6_lc4w1")
@@ -142,7 +143,6 @@ texture_hover = ExtResource("6_lc4w1")
 texture_focused = ExtResource("6_lc4w1")
 
 [node name="OtherButton" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
-z_index = 1
 layout_mode = 2
 
 [node name="TextureButton2" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
