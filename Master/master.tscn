@@ -98,8 +98,7 @@ offset_right = 260.0
 offset_bottom = 32.0
 text = "Shop"
 
-[node name="ShopStuff" type="Control" parent="GUI"]
-layout_mode = 3
+[node name="ShopStuff" type="Container" parent="GUI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -108,26 +107,13 @@ grow_vertical = 2
 script = ExtResource("5_3dlv4")
 
 [node name="ShopBackground" type="TextureRect" parent="GUI/ShopStuff"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 texture = ExtResource("5_gvcls")
 
 [node name="Shop" type="VBoxContainer" parent="GUI/ShopStuff"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 100.0
-offset_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.7, 0.7)
+layout_mode = 2
 alignment = 1
 
 [node name="ShopButtons" type="HBoxContainer" parent="GUI/ShopStuff/Shop"]
@@ -141,15 +127,6 @@ texture_normal = ExtResource("6_lc4w1")
 texture_pressed = ExtResource("6_lc4w1")
 texture_hover = ExtResource("6_lc4w1")
 texture_focused = ExtResource("6_lc4w1")
-
-[node name="OtherButton" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
-layout_mode = 2
-
-[node name="TextureButton2" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
-layout_mode = 2
-
-[node name="TextureButton3" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
-layout_mode = 2
 
 [node name="Shop Back Button" type="Button" parent="GUI/ShopStuff/Shop"]
 layout_mode = 2
