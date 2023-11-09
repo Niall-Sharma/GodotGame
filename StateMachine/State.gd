@@ -6,7 +6,7 @@ var character : CharacterBody2D
 @export var canMove : bool = true
 @export var isVulnerable : bool = true
 @export var animationTree : AnimationTree
-
+var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 var nextState : State = null
 var animationState : AnimationNodeStateMachinePlayback
 
