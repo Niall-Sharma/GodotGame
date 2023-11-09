@@ -333,6 +333,16 @@ shape = SubResource("RectangleShape2D_gqchy")
 
 [node name="JumpTimer" type="Timer" parent="."]
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(13, 9)
+target_position = Vector2(0, 5)
+collide_with_areas = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(-13, 9)
+target_position = Vector2(0, 5)
+collide_with_areas = true
+
 [connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/AttackTimer" to="StateMachine/Attack" method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
