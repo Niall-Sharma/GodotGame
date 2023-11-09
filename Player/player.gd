@@ -20,8 +20,8 @@ func _ready():
 	
 func _physics_process(_delta):
 	#Add Gravity
-	if(!is_on_floor()):
-		velocity.y += GRAVITY * _delta
+	#if(!is_on_floor() and $StateMachine/Ground/CoyoteTimer.is_stopped()):
+		#velocity.y += GRAVITY * _delta
 
 	
 	# Get the input direction and handle the movement/deceleration.
