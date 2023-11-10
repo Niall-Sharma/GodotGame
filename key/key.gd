@@ -15,6 +15,7 @@ func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		get_tree().queue_delete(self)
 		if body.position.x > 1150 and body.position.y > 800:
-			level.open_door(1) # Replace with function body.
-			"make the second key clear tilemap 4"
-	print("GOT")
+			level.open_door(1) 
+		if body.position.x <-1175 and body.position.x > -1250 and body.position.y < 55:
+			level.open_door(2)
+
