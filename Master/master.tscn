@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnhlvlxgmww3t"]
+[gd_scene load_steps=7 format=3 uid="uid://cnhlvlxgmww3t"]
 
 [ext_resource type="Script" path="res://Master/master.gd" id="1_ajh2t"]
-[ext_resource type="Script" path="res://Master/ShopStuff.gd" id="5_3dlv4"]
 [ext_resource type="Texture2D" uid="uid://bympt7flaf342" path="res://Tiles/Tiles/Assets/Shop_Background.png" id="5_gvcls"]
 [ext_resource type="AudioStream" uid="uid://bpwxo6lax4q1j" path="res://Master/Gymnopedie_No_1.mp3" id="5_n2n4l"]
 [ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="6_fmloo"]
@@ -36,61 +35,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.341176)
 
-[node name="Pause Menu" type="VBoxContainer" parent="GUI"]
-process_mode = 2
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -87.0
-offset_top = -105.5
-offset_right = 87.0
-offset_bottom = 105.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 30
-
-[node name="Volume Sliders" type="VBoxContainer" parent="GUI/Pause Menu"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 20
-
-[node name="Restart Button" type="Button" parent="GUI/Pause Menu/Volume Sliders"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_xpwen")
-theme_override_font_sizes/font_size = 40
-text = "RESTART
-"
-
-[node name="BackButton2" type="Button" parent="GUI/Pause Menu/Volume Sliders"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_xpwen")
-theme_override_font_sizes/font_size = 40
-text = "BACK"
-
-[node name="MasterVolumeLabel" type="Label" parent="GUI/Pause Menu/Volume Sliders"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_xpwen")
-theme_override_font_sizes/font_size = 20
-text = "MASTER VOLUME"
-horizontal_alignment = 1
-
-[node name="Master Volume" type="HSlider" parent="GUI/Pause Menu/Volume Sliders"]
-layout_mode = 2
-min_value = -20.0
-max_value = 10.0
-step = 0.1
-value = 5.0
-
-[node name="Menu button" type="Button" parent="GUI/Pause Menu/Volume Sliders"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_xpwen")
-theme_override_font_sizes/font_size = 40
-text = "MENU
-"
-
 [node name="Shop Button" type="Button" parent="GUI"]
 offset_left = 69.0
 offset_top = 1.0
@@ -98,45 +42,91 @@ offset_right = 260.0
 offset_bottom = 32.0
 text = "Shop"
 
-[node name="ShopStuff" type="Container" parent="GUI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_3dlv4")
-
-[node name="ShopBackground" type="TextureRect" parent="GUI/ShopStuff"]
-layout_mode = 2
+[node name="ShopBackground" type="TextureRect" parent="GUI"]
+offset_right = 893.0
+offset_bottom = 496.0
 size_flags_horizontal = 4
 mouse_filter = 2
 texture = ExtResource("5_gvcls")
 
-[node name="Shop" type="VBoxContainer" parent="GUI/ShopStuff"]
+[node name="Container" type="Container" parent="GUI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pause Menu" type="VBoxContainer" parent="GUI/Container"]
+process_mode = 2
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="Volume Sliders" type="VBoxContainer" parent="GUI/Container/Pause Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Restart Button" type="Button" parent="GUI/Container/Pause Menu/Volume Sliders"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_xpwen")
+theme_override_font_sizes/font_size = 40
+text = "RESTART
+"
+
+[node name="BackButton2" type="Button" parent="GUI/Container/Pause Menu/Volume Sliders"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_xpwen")
+theme_override_font_sizes/font_size = 40
+text = "BACK"
+
+[node name="MasterVolumeLabel" type="Label" parent="GUI/Container/Pause Menu/Volume Sliders"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_xpwen")
+theme_override_font_sizes/font_size = 20
+text = "MASTER VOLUME"
+horizontal_alignment = 1
+
+[node name="Master Volume" type="HSlider" parent="GUI/Container/Pause Menu/Volume Sliders"]
+layout_mode = 2
+min_value = -20.0
+max_value = 10.0
+step = 0.1
+value = 5.0
+
+[node name="Menu button" type="Button" parent="GUI/Container/Pause Menu/Volume Sliders"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_xpwen")
+theme_override_font_sizes/font_size = 40
+text = "MENU
+"
+
+[node name="Container2" type="Container" parent="GUI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Shop" type="VBoxContainer" parent="GUI/Container2"]
 layout_mode = 2
 alignment = 1
 
-[node name="ShopButtons" type="HBoxContainer" parent="GUI/ShopStuff/Shop"]
+[node name="ShopButtons" type="HBoxContainer" parent="GUI/Container2/Shop"]
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="DmgButton" type="TextureButton" parent="GUI/ShopStuff/Shop/ShopButtons"]
+[node name="DmgButton" type="TextureButton" parent="GUI/Container2/Shop/ShopButtons"]
 layout_mode = 2
 texture_normal = ExtResource("6_lc4w1")
 texture_pressed = ExtResource("6_lc4w1")
 texture_hover = ExtResource("6_lc4w1")
 texture_focused = ExtResource("6_lc4w1")
 
-[node name="Shop Back Button" type="Button" parent="GUI/ShopStuff/Shop"]
+[node name="Shop Back Button" type="Button" parent="GUI/Container2/Shop"]
 layout_mode = 2
 text = "Back"
 
 [connection signal="pressed" from="GUI/PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/Restart Button" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/BackButton2" to="." method="_on_back_button_pressed"]
-[connection signal="value_changed" from="GUI/Pause Menu/Volume Sliders/Master Volume" to="." method="_on_master_volume_value_changed"]
-[connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/Menu button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="GUI/Shop Button" to="." method="_on_shop_button_pressed"]
-[connection signal="pressed" from="GUI/ShopStuff/Shop/ShopButtons/DmgButton" to="." method="_on_dmg_button_pressed"]
-[connection signal="pressed" from="GUI/ShopStuff/Shop/Shop Back Button" to="." method="_on_shop_back_button_pressed"]
+[connection signal="pressed" from="GUI/Container/Pause Menu/Volume Sliders/Restart Button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GUI/Container/Pause Menu/Volume Sliders/BackButton2" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="GUI/Container/Pause Menu/Volume Sliders/Master Volume" to="." method="_on_master_volume_value_changed"]
+[connection signal="pressed" from="GUI/Container/Pause Menu/Volume Sliders/Menu button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="GUI/Container2/Shop/ShopButtons/DmgButton" to="." method="_on_dmg_button_pressed"]
+[connection signal="pressed" from="GUI/Container2/Shop/Shop Back Button" to="." method="_on_shop_back_button_pressed"]

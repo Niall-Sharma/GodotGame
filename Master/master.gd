@@ -13,13 +13,12 @@ func _change_level(x):
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"GUI/Pause Menu".hide()
-	$GUI/ShopStuff.hide()
-	$"GUI/ShopStuff/ShopBackground".hide()
-	$"GUI/ShopStuff/Shop".hide()
+	$"GUI/Container/Pause Menu".hide()
+	$"GUI/ShopBackground".hide()
+	$"GUI/Container2/Shop".hide()
 	$"GUI/PauseMenuBackground".hide()
 	$MainTheme.play()
-	$"GUI/Pause Menu/Volume Sliders/Master Volume".value = 0
+	$"GUI/Container/Pause Menu/Volume Sliders/Master Volume".value = 0
 	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
 	AudioServer.set_bus_volume_db(0,-20)
 	_change_level(Globalvars.getLevel())
@@ -27,7 +26,7 @@ func _ready():
 
 func _on_pause_button_pressed():
 	get_tree().paused = true
-	$"GUI/Pause Menu".show()
+	$"GUI/Container/Pause Menu".show()
 	$GUI/PauseButton.hide()
 	$GUI/PauseMenuBackground.show()
 
@@ -48,7 +47,7 @@ func _on_master_volume_value_changed(value):
 func _on_back_button_pressed():
 	get_tree().paused = false
 	$GUI/PauseButton.show()
-	$"GUI/Pause Menu".hide()
+	$"GUI/Container/Pause Menu".hide()
 	$GUI/PauseMenuBackground.hide()
 
 
@@ -78,9 +77,8 @@ func _set_counter(set_to):
 func _on_shop_button_pressed():
 	get_tree().paused = true
 	$"GUI/Shop Button".hide()
-	$GUI/ShopStuff.show()
-	$"GUI/ShopStuff/ShopBackground".show()
-	$"GUI/ShopStuff/Shop".show()
+	$"GUI/ShopBackground".show()
+	$"GUI/Container2/Shop".show()
 	
 
 
@@ -99,6 +97,5 @@ func _on_dmg_button_pressed():
 func _on_shop_back_button_pressed():
 	get_tree().paused = false
 	$"GUI/Shop Button".show()
-	$"GUI/ShopStuff".hide()
-	$"GUI/ShopStuff/ShopBackground".hide()
-	$"GUI/ShopStuff/Shop".hide()
+	$"GUI/ShopBackground".hide()
+	$"GUI/Container2/Shop".hide()
