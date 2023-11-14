@@ -47,7 +47,7 @@ animations = [{
 size = Vector2(20.5, 11.3358)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1rao"]
-radius = 7.5
+radius = 8.5
 height = 38.0
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jj0he"]

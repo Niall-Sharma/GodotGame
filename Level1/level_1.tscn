@@ -899,8 +899,8 @@ pattern_0 = SubResource("TileMapPattern_70j8p")
 pattern_1 = SubResource("TileMapPattern_w4jgm")
 pattern_2 = SubResource("TileMapPattern_58cjy")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0e0n"]
-size = Vector2(1691, 565)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs03q"]
+size = Vector2(95, 19)
 
 [node name="Level1" type="Node2D"]
 
@@ -915,6 +915,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_hbrf7")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-331, 8)
@@ -958,7 +959,7 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
-[node name="Coin" parent="." instance=ExtResource("5_rpn03")]
+[node name="Coins" parent="." instance=ExtResource("5_rpn03")]
 position = Vector2(804, -204)
 
 [node name="Coin2" parent="." instance=ExtResource("5_rpn03")]
@@ -995,3 +996,12 @@ position = Vector2(344, -84)
 
 [node name="Heart2" parent="." instance=ExtResource("7_taqkw")]
 position = Vector2(873, -76)
+
+[node name="FinishLine" parent="." instance=ExtResource("8_6eofq")]
+
+[node name="DeathObject" parent="." instance=ExtResource("6_52k7o")]
+position = Vector2(3237, -593)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathObject"]
+position = Vector2(-10.5, -13.5)
+shape = SubResource("RectangleShape2D_xs03q")

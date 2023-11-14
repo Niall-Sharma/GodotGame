@@ -14,6 +14,10 @@ var direction = Vector2.ZERO
 var JUMP_VELOCITY = -300
 var canJump = true
 @onready var jumpTimer = $JumpTimer
+var coin_scene = preload("res://Coin/coin.tscn")
+
+
+
 
 func  _ready():
 	animationTree.active = true
@@ -48,7 +52,10 @@ func takeDamage(damage):
 	health -= damage
 	STATE_MACHINE.changeNextState(HURT_STATE)
 	if health<=0:
+
 		get_tree().queue_delete(self)
+		
+		
 
 
 func _on_area_2d_body_entered(body):
@@ -60,3 +67,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_jump_timer_timeout():
 	canJump = true
+func die():
+	get_tree().queue_delete(self)
+	
+	
