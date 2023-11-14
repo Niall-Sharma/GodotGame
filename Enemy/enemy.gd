@@ -47,14 +47,14 @@ func _physics_process(delta):
 	
 	# Check if both raycasts are not hitting the tilemap
 	if not left_ray_hit and not right_ray_hit:
-		position = last_valid_position
+		is_locked = true
 	else:
-		last_valid_position = position
+		is_locked = false
 
 
 	#Update 
-	var input_vector = Vector2(1, 0)  # Replace with your input handling
-	move_and_slide()
+#	var input_vector = Vector2(1, 0)  # Replace with your input handling
+#	move_and_slide()
 
 	if not is_locked:
 	# Add the gravity.
@@ -80,17 +80,6 @@ func _physics_process(delta):
 		
 		move_and_slide()
 
-		
-#	if raycast2.is_colliding():
-#		var collision_point = raycast2.get_collision_point()
-#		var collider = raycast2.get_collider()
-#
-#		print("Ray2 is colliding with: ", collider)
-#		print("Collision2 point: ", collision_point)
-#
-#	else:
-#		print("rah2")
-##		locked = true
 
 func takeDamage(damage):
 	health -= damage
