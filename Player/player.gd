@@ -46,10 +46,13 @@ func _physics_process(_delta):
 		$AttackArea.position.x-=50
 
 #Player loses health when called
-func take_damage(damage : float, knockbackAmount : Vector2):
+func take_damage(damage : float, knockbackAmount : Vector2, direction : bool):
 	if PlayerStateMachine.checkIsVulnerable():
 		health -= damage
-		$StateMachine/Hurt.knockbackAmount = knockbackAmount
+		if(!direction):
+			$StateMachine/Hurt.knockbackAmount = knockbackAmount
+		else:
+			$StateMachine/Hurt.knockbackAmount = Vector2(-knockbackAmount.x, knockbackAmount.y)
 		PlayerStateMachine.changeNextState(PlayerStateMachine.states[2])
 		#Set healthbar value to health and change healthbar color depending on how much health is left
 		heatlhBar.value = health
