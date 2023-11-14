@@ -17,6 +17,10 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	heatlhBar.modulate=Color(0,2,0)
 	animationTree.active = true
+
+
+
+
 	
 func _physics_process(_delta):
 	#Add Gravity

@@ -15,43 +15,48 @@ var JUMP_VELOCITY = -300
 var canJump = true
 @onready var jumpTimer = $JumpTimer
 var coin_scene = preload("res://Coin/coin.tscn")
-var raycast
-var raycast2
-var locked = false
+var raycast_right
+var raycast_left
+var is_locked : bool = false
+var last_valid_position : Vector2
 var falling = false
+
 
 
 func  _ready():
 	animationTree.active = true
-	raycast = $RayCast2D
-	raycast.enabled = true
-	raycast2 = $RayCast2D2
-	raycast2.enabled = true
+	raycast_right = $RayCast2D
+	raycast_right.enabled = true
+	raycast_left = $RayCast2D2
+	raycast_left.enabled = true
+	last_valid_position = position
+
+
+	
 
 
 func jump():
 	velocity.y = JUMP_VELOCITY
 
-func _physics_process(delta):
-	var collision_point = raycast.get_collision_point()
-	var collider = raycast.get_collider()
-	var collision_point2 = raycast2.get_collision_point()
-	var collider2 = raycast2.get_collider()
-	
-	
-	if collider is TileMap :
-		
-		print("Ray is colliding with: ", collider)
-		print("Collision point: ", collision_point)
-		locked = false
-	elif collider is Area2D:
-		print("rah")
-		locked = false
-	else:
-		locked = true
-	
 
-	if locked == false:
+
+func _physics_process(delta):
+	
+	var left_ray_hit = raycast_left.is_colliding()
+	var right_ray_hit = raycast_right.is_colliding()
+	
+	# Check if both raycasts are not hitting the tilemap
+	if not left_ray_hit and not right_ray_hit:
+		position = last_valid_position
+	else:
+		last_valid_position = position
+
+
+	#Update 
+	var input_vector = Vector2(1, 0)  # Replace with your input handling
+	move_and_slide()
+
+	if not is_locked:
 	# Add the gravity.
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -74,7 +79,6 @@ func _physics_process(delta):
 			velocity.x = 0
 		
 		move_and_slide()
-	
 
 		
 #	if raycast2.is_colliding():
@@ -109,4 +113,4 @@ func _on_jump_timer_timeout():
 func die():
 	get_tree().queue_delete(self)
 	
-	
+
