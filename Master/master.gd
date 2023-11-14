@@ -4,6 +4,7 @@ var levels = [preload("res://Level1/level_1.tscn"),preload("res://Level2/level_2
 var infiniteLevel = preload("res://Infinite/ran.tscn")
 var coinCounter
 
+
 func _change_level(x):
 	var level = levels[x].instantiate()
 	add_child(level)
@@ -13,6 +14,8 @@ func _change_level(x):
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	connect("pressed", _on_dmg_button_pressed)
+	connect("pressed", _on_shop_back_button_pressed)
 	$"GUI/Container/Pause Menu".hide()
 	$"GUI/ShopBackground".hide()
 	$"GUI/Container2/Shop".hide()
@@ -75,7 +78,7 @@ func _set_counter(set_to):
 
 
 func _on_shop_button_pressed():
-	get_tree().paused = true
+	#get_tree().paused = true
 	$"GUI/Shop Button".hide()
 	$"GUI/ShopBackground".show()
 	$"GUI/Container2/Shop".show()
@@ -90,12 +93,12 @@ func _on_dmg_button_pressed():
 	print("DMG1")
 	if($/root/Master._get_coin_counter() >= 1):
 		print("DMG2")
-		$/root/Master._set_coin_counter($/root/Master._get_coin_counter() - 1)
+		$/root/Master._set_counter($/root/Master._get_coin_counter() - 1)
 		_DmgBst()
 
 
 func _on_shop_back_button_pressed():
-	get_tree().paused = false
+	#get_tree().paused = false
 	$"GUI/Shop Button".show()
 	$"GUI/ShopBackground".hide()
 	$"GUI/Container2/Shop".hide()
