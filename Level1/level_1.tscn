@@ -944,13 +944,13 @@ layer_2/tile_data = PackedInt32Array()
 position = Vector2(314, -76)
 
 [node name="Player" parent="." instance=ExtResource("4_soht5")]
-position = Vector2(95, -84)
+position = Vector2(92, -76)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(95, -84)
+position = Vector2(92, -76)
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true

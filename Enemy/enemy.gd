@@ -20,6 +20,10 @@ var raycast_left
 var is_locked : bool = false
 var last_valid_position : Vector2
 var falling = false
+var player
+var checkright : bool = false
+var checkleft : bool = false
+var quickcheck : bool = false
 
 
 
@@ -29,8 +33,9 @@ func  _ready():
 	raycast_right.enabled = true
 	raycast_left = $RayCast2D2
 	raycast_left.enabled = true
+	
 	last_valid_position = position
-
+	player = get_node("res://Player/player.tscn")
 
 	
 
@@ -41,23 +46,48 @@ func jump():
 
 
 func _physics_process(delta):
-	
+	# setting variables
+	checkleft = false
+	checkright = false
 	var left_ray_hit = raycast_left.is_colliding()
 	var right_ray_hit = raycast_right.is_colliding()
+	var direction_to_player = (PLAYER.global_position - global_position).normalized()
+	var enemy_forward_direction = -transform.x
 	
 	# Check if both raycasts are not hitting the tilemap
-	if not left_ray_hit and not right_ray_hit:
+	if not right_ray_hit:
 		is_locked = true
+		quickcheck = true
 	else:
 		is_locked = false
+#
+#	if not left_ray_hit:
+#		is_locked = true
+#		print("left is locking randomly")
+#	else:
+#		is_locked = false
 
 
-	#Update 
-#	var input_vector = Vector2(1, 0)  # Replace with your input handling
-#	move_and_slide()
+	#Going back to following player once is gets locked
+	if direction_to_player.dot(enemy_forward_direction) < 0 and quickcheck == true:
+		print("Player is to the right of me!")
+		checkright = true
+	else:
+		print("Player is to the left of me!")
+		checkleft = true
 
+	direction = (global_position - PLAYER.global_position).normalized()
+	
+	if checkleft == true:
+		is_locked = false
+	
+	#Flipping sprite
+	if direction.x > 0:
+			sprite.flip_h = true
+	else:
+			sprite.flip_h = false
 	if not is_locked:
-	# Add the gravity.
+		# Add the gravity.
 		if not is_on_floor():
 			velocity.y += gravity * delta
 			falling == true
@@ -68,19 +98,18 @@ func _physics_process(delta):
 			sprite.flip_h = false
 		#Only move if state boolean canMove returns true	
 		if STATE_MACHINE.checkCanMove():
-			direction = (global_position - PLAYER.global_position).normalized()
 			velocity.x = direction.x*SPEED
-#			var yDiff = PLAYER.global_position.y - global_position.y
-#			if (yDiff < -1 or yDiff > 1) and is_on_floor() and canJump:
-#				jump()
-#				jumpTimer.start()
-#				canJump = false
+	#			var yDiff = PLAYER.global_position.y - global_position.y
+	#			if (yDiff < -1 or yDiff > 1) and is_on_floor() and canJump:
+	#				jump()
+	#				jumpTimer.start()
+	#				canJump = false
 		else:
 			velocity.x = 0
 		
 		move_and_slide()
 
-
+#Taking damage function
 func takeDamage(damage):
 	health -= damage
 	STATE_MACHINE.changeNextState(HURT_STATE)
@@ -89,7 +118,7 @@ func takeDamage(damage):
 		
 		
 
-
+#Checking if its getting hit by the player
 func _on_area_2d_body_entered(body):
 	if(body.name == "Player"):
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
