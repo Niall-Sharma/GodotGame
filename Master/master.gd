@@ -86,7 +86,7 @@ func _on_shop_button_pressed():
 
 
 func _DmgBst():
-	$/root/Player/StateMachine/Attack._add_Dmg()
+	$/root/player/StateMachine/Attack._add_Dmg()
 
 
 func _on_dmg_button_pressed():
