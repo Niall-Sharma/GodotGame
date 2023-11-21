@@ -13,3 +13,5 @@ func _process(_delta):
 	string_version = str($/root/Master._get_coin_counter())
 	if(text != string_version):
 		text = string_version
+		
+		

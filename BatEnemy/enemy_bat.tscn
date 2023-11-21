@@ -55,7 +55,6 @@ states/Start/position = Vector2(197.5, 66.25)
 
 [node name="enemyBat" type="CharacterBody2D"]
 script = ExtResource("1_uog3p")
-knockbackAmount = Vector2(2000, 2.08165e-12)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
