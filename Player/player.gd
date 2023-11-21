@@ -5,7 +5,7 @@ const SPEED = 300.0
 var health = 100
 var level1complete : bool = false
 var highJumpVelocity = 750
-
+var isOnLadder : bool = false
 @onready var animationTree = $AnimationTree
 @onready var heatlhBar = $PlayerGUI/HealthBar
 @onready var PlayerStateMachine : StateMachine = $StateMachine
@@ -17,6 +17,10 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	heatlhBar.modulate=Color(0,2,0)
 	animationTree.active = true
+
+
+
+
 	
 func _physics_process(_delta):
 	#Add Gravity
@@ -44,12 +48,27 @@ func _physics_process(_delta):
 		$AttackArea.position.x+=50
 	if direction<0 and $AttackArea.position.x > $PlayerShape.position.x:
 		$AttackArea.position.x-=50
+		
+		
+	if isOnLadder:
+		var movement = Vector2(0, 0)
+
+		if Input.is_action_pressed("climb_up"):
+			movement.y -= 1
+		elif Input.is_action_pressed("climb_down"):
+			movement.y += 1
+
+		# Apply movement
+		move_and_slide()
 
 #Player loses health when called
-func take_damage(damage : float, knockbackAmount : Vector2):
+func take_damage(damage : float, knockbackAmount : Vector2, direction : bool):
 	if PlayerStateMachine.checkIsVulnerable():
 		health -= damage
-		$StateMachine/Hurt.knockbackAmount = knockbackAmount
+		if(!direction):
+			$StateMachine/Hurt.knockbackAmount = knockbackAmount
+		else:
+			$StateMachine/Hurt.knockbackAmount = Vector2(-knockbackAmount.x, knockbackAmount.y)
 		PlayerStateMachine.changeNextState(PlayerStateMachine.states[2])
 		#Set healthbar value to health and change healthbar color depending on how much health is left
 		heatlhBar.value = health

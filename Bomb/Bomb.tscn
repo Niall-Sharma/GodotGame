@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccedyu47nalcv"]
+
+[ext_resource type="Script" path="res://Bomb/Bomb.gd" id="1_5wwcj"]
+[ext_resource type="Texture2D" uid="uid://coiqec6mo0oj0" path="res://Level5/download.png" id="2_dhqh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7t6ok"]
+size = Vector2(30.25, 29.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi8ar"]
+size = Vector2(32, 28.5)
+
+[node name="Bomb" type="CharacterBody2D"]
+script = ExtResource("1_5wwcj")
+knockbackAmount = Vector2(200, 200)
+metadata/_edit_horizontal_guides_ = [-72.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1000
+position = Vector2(4.00001, -5)
+scale = Vector2(0.0986394, 0.153484)
+texture = ExtResource("2_dhqh5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4.875, -4.0625)
+shape = SubResource("RectangleShape2D_7t6ok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -4)
+shape = SubResource("RectangleShape2D_oi8ar")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
