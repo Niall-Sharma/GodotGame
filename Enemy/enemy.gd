@@ -57,6 +57,7 @@ func takeDamage(damage):
 
 func _on_area_2d_body_entered(body):
 	if(body.name == "Player"):
+		
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
 		body.take_damage(10, knockbackAmount)
 

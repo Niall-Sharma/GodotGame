@@ -915,6 +915,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_hbrf7")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-331, 8)
@@ -959,7 +960,7 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="Coins" parent="." instance=ExtResource("5_rpn03")]
-position = Vector2(804, -204)
+position = Vector2(801, -204)
 
 [node name="Coin2" parent="." instance=ExtResource("5_rpn03")]
 position = Vector2(1860, -435)
