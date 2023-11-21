@@ -317,7 +317,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyfx2"]
-size = Vector2(173.125, 19)
+size = Vector2(139.062, 30.5)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hxat1")
@@ -426,6 +426,7 @@ animationTree = NodePath("../../AnimationTree")
 [node name="Ground" type="Node" parent="StateMachine" node_paths=PackedStringArray("jumpSoundEffect", "animationTree")]
 script = ExtResource("8_use2a")
 jumpSoundEffect = NodePath("../../JumpSound")
+airTimeBuffer = 0.1
 animationTree = NodePath("../../AnimationTree")
 
 [node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("hurtSound", "playerSprite", "animationTree")]
@@ -464,6 +465,7 @@ stateMachine = NodePath("../StateMachine")
 position = Vector2(25, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-6.81254, -5.75)
 scale = Vector2(0.400001, 1)
 shape = SubResource("RectangleShape2D_uyfx2")
 

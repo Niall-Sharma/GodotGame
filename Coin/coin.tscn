@@ -125,7 +125,7 @@ animations = [{
 script = ExtResource("1_6lmnv")
 
 [node name="coin_area" type="Area2D" parent="."]
-position = Vector2(2.25, 2.25)
+position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(10, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coin_area"]
@@ -134,7 +134,7 @@ scale = Vector2(0.19, 0.19)
 shape = SubResource("RectangleShape2D_mtim6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, 2)
+position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.875, 0.875)
 sprite_frames = SubResource("SpriteFrames_fv4w6")
 autoplay = "default"

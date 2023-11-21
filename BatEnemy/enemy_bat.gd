@@ -9,7 +9,7 @@ var direction = Vector2.ZERO
 @export var health = 5
 @export var knockbackAmount : Vector2
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	#Flip sprite depending on which way the enemy is moving
 	if direction.x > 0:
 		sprite.flip_h = false

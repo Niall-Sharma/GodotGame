@@ -5,7 +5,7 @@ const SPEED = 300.0
 var health = 100
 var level1complete : bool = false
 var highJumpVelocity = 750
-
+var isOnLadder : bool = false
 @onready var animationTree = $AnimationTree
 @onready var heatlhBar = $PlayerGUI/HealthBar
 @onready var PlayerStateMachine : StateMachine = $StateMachine
@@ -17,14 +17,15 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	heatlhBar.modulate=Color(0,2,0)
 	animationTree.active = true
-	
+
+
 
 
 	
 func _physics_process(_delta):
 	#Add Gravity
-	if(!is_on_floor()):
-		velocity.y += GRAVITY * _delta
+	#if(!is_on_floor() and $StateMachine/Ground/CoyoteTimer.is_stopped()):
+		#velocity.y += GRAVITY * _delta
 
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -47,6 +48,18 @@ func _physics_process(_delta):
 		$AttackArea.position.x+=50
 	if direction<0 and $AttackArea.position.x > $PlayerShape.position.x:
 		$AttackArea.position.x-=50
+		
+		
+	if isOnLadder:
+		var movement = Vector2(0, 0)
+
+		if Input.is_action_pressed("climb_up"):
+			movement.y -= 1
+		elif Input.is_action_pressed("climb_down"):
+			movement.y += 1
+
+		# Apply movement
+		move_and_slide()
 
 #Player loses health when called
 func take_damage(damage : float, knockbackAmount : Vector2):
@@ -74,41 +87,6 @@ func take_health(damage):
 func die():
 	get_tree().change_scene_to_file("res://DeathScene/Death.tscn") 
 
-
-#Called when body enters Player's area2d
-func _on_area_2d_body_entered(body):
-	#If spikes enters area2d then call die function
-	if body.name=="spikes":
-		die()
-	#If finish flag enters area2d then go back to level select, set level to ocmplete, 
-	if body.name=="finishlevel":
-		get_tree().change_scene_to_file("res://levelselect/level_select.tscn")
-		Globalvars.addlevel(1)
-		
-	
-	#If trampoline enters area2d call highJump function
-	if body.name=="Trampoline":
-		highJump()
-	
-		
-		
-#Called when an area2d enters player's area2d
-func _on_area_2d_area_entered(area):
-	#If coin_area enters area2d call _leave() function from coin_area parent, play coin pickup sound, run function add_coin() from master
-	if area.name == "coin_area":
-		get_tree().queue_delete(area.get_parent())
-		$PickupSound.play()
-		$/root/Master._add_coin()
-	#If heart_area enters area2d call _leave() function from coin_area
-	if area.name == "heart-area":
-		get_tree().queue_delete(area.get_parent())
-		$PickupSound.play()
-		if(health<100):
-			take_health(10)
-	if area.name == "land_area":
-		get_tree().queue_delete(area.get_parent())
-		$/root/Master._add_coin()
-		
 #When player encounters trampoline this function is called. Launches the player up in the air when called
 func highJump():
 	velocity.y = -highJumpVelocity
