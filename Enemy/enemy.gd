@@ -36,7 +36,6 @@ func  _ready():
 	raycast_left.enabled = true
 	
 	last_valid_position = position
-	player = get_node("res://Player/player.tscn")
 
 	
 
