@@ -1,7 +1,9 @@
 extends Node2D
 
 var lvl_num
+
 var lc = [true,true,false,true,false,false,false,false,false,false,true] 
+
 	
 
 

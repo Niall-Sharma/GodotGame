@@ -6,7 +6,9 @@ class_name AirState
 func stateProcess(_delta):
 	if(character.is_on_floor()):
 		nextState = get_parent().states[1]
-		
+	else:
+		character.velocity.y += GRAVITY * _delta
+	
 func onEnter():
 	animationTree.set("parameters/conditions/inAir", true)
 

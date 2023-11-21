@@ -1,10 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmfm7dawmtous"]
+[gd_scene load_steps=4 format=3 uid="uid://cmfm7dawmtous"]
 
 [ext_resource type="Script" path="res://Infinite/ran.gd" id="1_o2epb"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="1_yea3v"]
+[ext_resource type="Texture2D" uid="uid://doh81ln1281d0" path="res://Infinite/backg.jpg" id="2_qkryc"]
 
 [node name="ran" type="Node2D"]
 script = ExtResource("1_o2epb")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qkryc")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_yea3v")]
 position = Vector2(234, -85)
