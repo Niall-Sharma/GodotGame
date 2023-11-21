@@ -426,7 +426,7 @@ animationTree = NodePath("../../AnimationTree")
 [node name="Ground" type="Node" parent="StateMachine" node_paths=PackedStringArray("jumpSoundEffect", "animationTree")]
 script = ExtResource("8_use2a")
 jumpSoundEffect = NodePath("../../JumpSound")
-airTimeBuffer = 0.1
+airTimeBuffer = 0.2
 animationTree = NodePath("../../AnimationTree")
 
 [node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("hurtSound", "playerSprite", "animationTree")]

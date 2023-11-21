@@ -1,45 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://byage0vif20wq"]
+[gd_scene load_steps=5 format=3 uid="uid://byage0vif20wq"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_qqa1l"]
 [ext_resource type="Texture2D" uid="uid://cc4gxad1du50g" path="res://levelselect/arcade-game-world-pixel-scene_24640-45908.jpg" id="2_hnaw5"]
 [ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="2_nxljn"]
 [ext_resource type="AudioStream" uid="uid://0lr8ayvuh8cv" path="res://Master/red-flowers-kidcut-main-version-02-14-12093.mp3" id="3_xc3je"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6lqkn"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ioi4c"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kmx3s"]
-
 [node name="MenuNode" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 script = ExtResource("1_qqa1l")
 
-[node name="ColorRect" type="ColorRect" parent="MainMenu"]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.505882, 0.839216, 0.843137, 1)
-
-[node name="BackgroundForMainMenu" type="TextureRect" parent="MainMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -215.0
-offset_right = 901.0
-offset_bottom = 437.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.715, 0.658349)
 texture = ExtResource("2_hnaw5")
-expand_mode = 2
+stretch_mode = 6
+
+[node name="MenuTheme" type="AudioStreamPlayer2D" parent="MainMenu"]
+stream = ExtResource("3_xc3je")
 
 [node name="Main" type="VBoxContainer" parent="MainMenu"]
 anchors_preset = 8
@@ -47,9 +31,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -133.0
+offset_left = -101.5
 offset_top = -138.0
-offset_right = 133.0
+offset_right = 101.5
 offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -61,7 +45,7 @@ size_flags_vertical = 2
 theme = ExtResource("2_nxljn")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 50
 text = "START"
 
 [node name="OptionsButton" type="Button" parent="MainMenu/Main"]
@@ -127,55 +111,6 @@ layout_mode = 2
 theme = ExtResource("2_nxljn")
 theme_override_font_sizes/font_size = 45
 text = "BACK "
-
-[node name="MenuTheme" type="AudioStreamPlayer2D" parent="MainMenu"]
-stream = ExtResource("3_xc3je")
-
-[node name="Node2D" type="Node2D" parent="MainMenu"]
-visible = false
-
-[node name="Cloud" type="Sprite2D" parent="MainMenu/Node2D"]
-position = Vector2(230, 108)
-texture = SubResource("CompressedTexture2D_6lqkn")
-
-[node name="Cloud2" type="Sprite2D" parent="MainMenu/Node2D"]
-position = Vector2(1058, 101)
-texture = SubResource("CompressedTexture2D_6lqkn")
-
-[node name="Tree" type="Sprite2D" parent="MainMenu/Node2D"]
-position = Vector2(144, 426)
-texture = SubResource("CompressedTexture2D_ioi4c")
-
-[node name="Tree2" type="Sprite2D" parent="MainMenu/Node2D"]
-position = Vector2(1104, 425)
-texture = SubResource("CompressedTexture2D_ioi4c")
-
-[node name="Sprite2D2" type="Sprite2D" parent="MainMenu/Node2D"]
-position = Vector2(111, 658)
-texture = SubResource("CompressedTexture2D_kmx3s")
-
-[node name="Sprite2D4" type="Sprite2D" parent="MainMenu/Node2D"]
-position = Vector2(766, 658)
-texture = SubResource("CompressedTexture2D_kmx3s")
-
-[node name="Sprite2D5" type="Sprite2D" parent="MainMenu/Node2D"]
-position = Vector2(983, 658)
-texture = SubResource("CompressedTexture2D_kmx3s")
-
-[node name="Sprite2D6" type="Sprite2D" parent="MainMenu/Node2D"]
-position = Vector2(1187, 658)
-scale = Vector2(0.860731, 1)
-texture = SubResource("CompressedTexture2D_kmx3s")
-
-[node name="Sprite2D" type="Sprite2D" parent="MainMenu/Node2D"]
-position = Vector2(329, 658)
-texture = SubResource("CompressedTexture2D_kmx3s")
-
-[node name="Sprite2D3" type="Sprite2D" parent="MainMenu/Node2D"]
-position = Vector2(548, 658)
-texture = SubResource("CompressedTexture2D_kmx3s")
-
-[node name="Camera2D" type="Camera2D" parent="MainMenu"]
 
 [connection signal="pressed" from="MainMenu/Main/StartButton" to="MainMenu" method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/Main/OptionsButton" to="MainMenu" method="_on_options_button_pressed"]

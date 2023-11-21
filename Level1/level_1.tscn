@@ -915,7 +915,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_hbrf7")
 expand_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-331, 8)
