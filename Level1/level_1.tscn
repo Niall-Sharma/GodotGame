@@ -984,6 +984,7 @@ position = Vector2(344, -84)
 position = Vector2(873, -76)
 
 [node name="FinishLine" parent="." instance=ExtResource("8_6eofq")]
+position = Vector2(16, 0)
 
 [node name="DeathObject" parent="." instance=ExtResource("6_52k7o")]
 position = Vector2(3237, -593)
