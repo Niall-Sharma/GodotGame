@@ -11,11 +11,9 @@ func onEnter():
 	$HurtTimer.wait_time = stateDuration
 	$HurtTimer.start()
 	animationState.travel("Hurt")
-	if playerSprite.flip_h == true:
-		character.velocity+= knockbackAmount
-	else:
-		character.velocity.x += -knockbackAmount.x
-		character.velocity.y += knockbackAmount.y
+
+	character.velocity+= knockbackAmount
+
 	character.move_and_slide()
 	
 	
