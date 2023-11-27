@@ -571,6 +571,7 @@ shape = SubResource("RectangleShape2D_hmrjo")
 
 [node name="enemyBat" parent="." instance=ExtResource("10_ux1fs")]
 position = Vector2(1224, 148)
+knockbackAmount = Vector2(2000, 2.08165e-12)
 
 [node name="enemyBat2" parent="." instance=ExtResource("10_ux1fs")]
 position = Vector2(4518, 522)
