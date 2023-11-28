@@ -66,12 +66,23 @@ func _add_coin():
 	coinCounter += 1
 	$PickupSound.play()
 	
-func _set_coins(x):
-	coinCounter = x
-	$PickupSound.play() 
 	
 func _get_coin_counter():
 	return coinCounter
 
 func _set_counter(set_to):
 	coinCounter = set_to
+
+
+func _on_shop_button_pressed():
+	$ShopGUI/ShopMenuBackground.show()
+	$"ShopGIU/Shop Menu".show()
+
+
+func _on_shop_back_button_pressed():
+	$ShopGUI/ShopMenuBackground.hide()
+	$"ShopGUI/Shop Menu".hide()
+
+
+func _on_test_button_pressed():
+	pass # Replace with function body.
