@@ -66,6 +66,10 @@ func _add_coin():
 	coinCounter += 1
 	$PickupSound.play()
 	
+func _set_coins(x):
+	coinCounter = x
+	$PickupSound.play() 
+	
 func _get_coin_counter():
 	return coinCounter
 
