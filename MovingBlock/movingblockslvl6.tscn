@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://oxlpm8aduxk6"]
+
+[ext_resource type="Texture2D" uid="uid://cqvuie0v42sc8" path="res://Level6/Screenshot 2023-11-28 at 8.33.42 AM.png" id="1_d8chi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0ipu"]
+size = Vector2(119.482, 133.846)
+
+[sub_resource type="Animation" id="Animation_dsjtj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_yfxem"]
+resource_name = "animateblock"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(150, 2.08165e-12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yln58"]
+_data = {
+"RESET": SubResource("Animation_dsjtj"),
+"animateblock": SubResource("Animation_yfxem")
+}
+
+[node name="Movingplatform" type="Node2D"]
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+position = Vector2(-9.53674e-07, 9.53674e-07)
+scale = Vector2(0.117852, 0.104272)
+texture = ExtResource("1_d8chi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(-1.90735e-06, -1)
+scale = Vector2(0.366903, 0.29138)
+shape = SubResource("RectangleShape2D_b0ipu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+autoplay = "animateblock"
+libraries = {
+"": SubResource("AnimationLibrary_yln58")
+}
