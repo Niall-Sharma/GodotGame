@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://70w8r5g0i0x8" path="res://snowball/snowball.png" id="2_txmsh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2erdl"]
-size = Vector2(14, 14)
+size = Vector2(10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6cjr"]
 
