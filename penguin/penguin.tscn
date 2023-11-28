@@ -73,6 +73,3 @@ shape = SubResource("RectangleShape2D_37bu6")
 position = Vector2(-9, 2)
 shape = SubResource("RectangleShape2D_sylfr")
 disabled = true
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
