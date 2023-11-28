@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bekkvv0mmdluk"]
+[gd_scene load_steps=46 format=3 uid="uid://bekkvv0mmdluk"]
 
 [ext_resource type="Texture2D" uid="uid://bt2emm7bs7pva" path="res://Cave Tileset/Background.png" id="1_5uvgm"]
 [ext_resource type="Texture2D" uid="uid://cevnig7x6bg2e" path="res://Cave Tileset/Coin.png" id="3_nxyxi"]
@@ -293,6 +293,9 @@ size = Vector2(118.25, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfj74"]
 size = Vector2(662, 72.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cybev"]
+size = Vector2(370, 21.125)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3la5c"]
 size = Vector2(47.25, 21)
 
@@ -500,6 +503,13 @@ position = Vector2(961, -28)
 position = Vector2(253, 24)
 shape = SubResource("RectangleShape2D_gfj74")
 
+[node name="Waterdeath 4" parent="DeathAreas" instance=ExtResource("10_co16r")]
+position = Vector2(961, -28)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathAreas/Waterdeath 4"]
+position = Vector2(815, -290.438)
+shape = SubResource("RectangleShape2D_cybev")
+
 [node name="Spikes 1" parent="DeathAreas" instance=ExtResource("10_co16r")]
 position = Vector2(588, 48)
 
@@ -571,6 +581,7 @@ shape = SubResource("RectangleShape2D_hmrjo")
 
 [node name="enemyBat" parent="." instance=ExtResource("10_ux1fs")]
 position = Vector2(1224, 148)
+knockbackAmount = Vector2(2000, 2.08165e-12)
 
 [node name="enemyBat2" parent="." instance=ExtResource("10_ux1fs")]
 position = Vector2(4518, 522)
