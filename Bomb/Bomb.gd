@@ -27,6 +27,6 @@ func takeDamage(damage):
 
 func _on_area_2d_body_entered(body):
 	if(body.name == "Player"):
-		body.take_damage(30, knockbackAmount)
+		body.take_damage(30, knockbackAmount, true)
 		get_tree().queue_delete(self)
 		
