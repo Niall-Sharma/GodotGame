@@ -17,6 +17,8 @@ func _change_level(x):
 func _ready():
 	$"GUI/Pause Menu".hide()
 	$"GUI/PauseMenuBackground".hide()
+	$ShopGUI/ShopMenuBackground.hide()
+	$"ShopGUI/Shop Menu".hide()
 	$MainTheme.play()
 	$"GUI/Pause Menu/Volume Sliders/Master Volume".value = 0
 	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
