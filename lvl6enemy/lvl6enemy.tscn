@@ -1,14 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://cdi7gwixtl51f"]
+[gd_scene load_steps=24 format=3 uid="uid://cdi7gwixtl51f"]
 
 [ext_resource type="Texture2D" uid="uid://pm8cmak566an" path="res://lvl6enemy/Assets/Undead executioner puppet/png/idle.png" id="1_gk015"]
 [ext_resource type="Script" path="res://lvl6enemy/lvl6enemy.gd" id="1_qgbdy"]
 [ext_resource type="Texture2D" uid="uid://bcrb22g1176bb" path="res://lvl6enemy/Assets/Undead executioner puppet/png/attacking.png" id="2_6fwrs"]
 [ext_resource type="Texture2D" uid="uid://b24slxjwf7ggb" path="res://lvl6enemy/Assets/Undead executioner puppet/png/death.png" id="3_t4gd8"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="4_k7s5d"]
-[ext_resource type="Script" path="res://Enemy/States/StandbyState.gd" id="5_bfcqy"]
-[ext_resource type="Script" path="res://Enemy/States/Follow.gd" id="6_0k8vr"]
-[ext_resource type="Script" path="res://Enemy/States/Attack.gd" id="7_weoer"]
+[ext_resource type="Script" path="res://lvl6enemy/States/AttackState.gd" id="7_jfffv"]
+[ext_resource type="Script" path="res://lvl6enemy/States/IdleState.gd" id="8_m7l14"]
 [ext_resource type="Script" path="res://lvl6enemy/States/DeathState.gd" id="8_vyjoh"]
+[ext_resource type="Script" path="res://lvl6enemy/States/FollowState.gd" id="9_fq53n"]
 
 [sub_resource type="Animation" id="Animation_3bb0t"]
 resource_name = "Attack"
@@ -124,10 +124,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 1,
-"values": [0]
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_dbk76"]
@@ -219,6 +219,10 @@ states/Idle/position = Vector2(318.5, 99.25)
 states/death/node = SubResource("AnimationNodeAnimation_y3w50")
 states/death/position = Vector2(489, 137.5)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_xjmo6"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_bdttd"), "Idle", "death", SubResource("AnimationNodeStateMachineTransition_5yitq"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_vq5bb")]
+graph_offset = Vector2(51.66, -20.8425)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdkxn"]
+size = Vector2(38, 64)
 
 [node name="lvl6enemy" type="CharacterBody2D"]
 script = ExtResource("1_qgbdy")
@@ -242,21 +246,24 @@ script = ExtResource("4_k7s5d")
 character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="StandbyState" type="Node" parent="StateMachine" node_paths=PackedStringArray("FOLLOW_STATE")]
-script = ExtResource("5_bfcqy")
-FOLLOW_STATE = NodePath("../FollowState")
-canMove = false
-
-[node name="FollowState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
-script = ExtResource("6_0k8vr")
-STANDBY_STATE = NodePath("../StandbyState")
-FOLLOW_DISTANCE = 500.0
-
-[node name="EnemyAttackState" type="Node" parent="StateMachine"]
-script = ExtResource("7_weoer")
-
-[node name="AttackTimer" type="Timer" parent="StateMachine/EnemyAttackState"]
-
 [node name="DeathState" type="Node" parent="StateMachine" node_paths=PackedStringArray("animationTree")]
 script = ExtResource("8_vyjoh")
 animationTree = NodePath("../../AnimationTree")
+
+[node name="AttackState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
+script = ExtResource("7_jfffv")
+STANDBY_STATE = NodePath("../IdleState")
+
+[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("FOLLOW_STATE")]
+script = ExtResource("8_m7l14")
+FOLLOW_STATE = NodePath("../FollowState")
+canMove = false
+isVulnerable = false
+
+[node name="FollowState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
+script = ExtResource("9_fq53n")
+STANDBY_STATE = NodePath("../IdleState")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 1)
+shape = SubResource("RectangleShape2D_xdkxn")
