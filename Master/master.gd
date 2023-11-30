@@ -78,7 +78,7 @@ func _set_counter(set_to):
 
 func _on_shop_button_pressed():
 	$ShopGUI/ShopMenuBackground.show()
-	$"ShopGIU/Shop Menu".show()
+	$"ShopGUI/Shop Menu".show()
 
 
 func _on_shop_back_button_pressed():
