@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cdi7gwixtl51f"]
+[gd_scene load_steps=25 format=3 uid="uid://cdi7gwixtl51f"]
 
 [ext_resource type="Texture2D" uid="uid://pm8cmak566an" path="res://lvl6enemy/Assets/Undead executioner puppet/png/idle.png" id="1_gk015"]
 [ext_resource type="Script" path="res://lvl6enemy/lvl6enemy.gd" id="1_qgbdy"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://lvl6enemy/States/IdleState.gd" id="8_m7l14"]
 [ext_resource type="Script" path="res://lvl6enemy/States/DeathState.gd" id="8_vyjoh"]
 [ext_resource type="Script" path="res://lvl6enemy/States/FollowState.gd" id="9_fq53n"]
+[ext_resource type="Script" path="res://lvl6enemy/States/HurtState.gd" id="10_26hx2"]
 
 [sub_resource type="Animation" id="Animation_3bb0t"]
 resource_name = "Attack"
@@ -254,6 +255,8 @@ animationTree = NodePath("../../AnimationTree")
 script = ExtResource("7_jfffv")
 STANDBY_STATE = NodePath("../IdleState")
 
+[node name="AttackTimer" type="Timer" parent="StateMachine/AttackState"]
+
 [node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("FOLLOW_STATE")]
 script = ExtResource("8_m7l14")
 FOLLOW_STATE = NodePath("../FollowState")
@@ -263,6 +266,14 @@ isVulnerable = false
 [node name="FollowState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
 script = ExtResource("9_fq53n")
 STANDBY_STATE = NodePath("../IdleState")
+
+[node name="HurtState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
+script = ExtResource("10_26hx2")
+STANDBY_STATE = NodePath("../IdleState")
+canMove = false
+isVulnerable = false
+
+[node name="HurtTimer" type="Timer" parent="StateMachine/HurtState"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 1)
