@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtsf8fwongh21"
-path="res://.godot/imported/summonDeath.png-35785b976919ed02b966353ca2322b15.ctex"
+uid="uid://hbhnujgwxnw0"
+path="res://.godot/imported/skill1.png-8682aa68cc9773f910b41e86491870ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lvl6enemy/Undead executioner puppet/png/summonDeath.png"
-dest_files=["res://.godot/imported/summonDeath.png-35785b976919ed02b966353ca2322b15.ctex"]
+source_file="res://lvl6enemy/Assets/Undead executioner puppet/png/skill1.png"
+dest_files=["res://.godot/imported/skill1.png-8682aa68cc9773f910b41e86491870ad.ctex"]
 
 [params]
 

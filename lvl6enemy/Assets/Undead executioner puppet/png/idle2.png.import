@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6dvcesdygc8i"
-path="res://.godot/imported/summonIdle.png-b222725ef8f8a3f5ca661b707e459cf8.ctex"
+uid="uid://sedqhpggkq3e"
+path="res://.godot/imported/idle2.png-18aacc7f01e6255ace0be6691742ef40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lvl6enemy/Undead executioner puppet/png/summonIdle.png"
-dest_files=["res://.godot/imported/summonIdle.png-b222725ef8f8a3f5ca661b707e459cf8.ctex"]
+source_file="res://lvl6enemy/Assets/Undead executioner puppet/png/idle2.png"
+dest_files=["res://.godot/imported/idle2.png-18aacc7f01e6255ace0be6691742ef40.ctex"]
 
 [params]
 
