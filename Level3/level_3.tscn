@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhjl4jjo6qd7m"]
+[gd_scene load_steps=12 format=3 uid="uid://dhjl4jjo6qd7m"]
 
 [ext_resource type="Script" path="res://Level3/level_3.gd" id="1_03m0r"]
 [ext_resource type="Texture2D" uid="uid://ce16obpcs4tyw" path="res://Pixel_Platformer_Tileset_Pack/Asset_02/pixel_platform_02_tileset_final.png" id="1_oikax"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cad8xy6lilo0m" path="res://key/key.tscn" id="6_e5v0d"]
 [ext_resource type="Texture2D" uid="uid://vbe8a5fpsymm" path="res://Level3/pixil-frame-0.png" id="7_vl138"]
 [ext_resource type="PackedScene" uid="uid://cpxpy7wxssi5a" path="res://penguin/penguin.tscn" id="8_bo8t3"]
+[ext_resource type="PackedScene" uid="uid://iqdqd8qhxeot" path="res://snowball/snowball.tscn" id="8_vdiei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xhqot"]
 texture = ExtResource("1_oikax")
@@ -925,11 +926,23 @@ position = Vector2(1217, 865)
 [node name="key2" parent="." instance=ExtResource("6_e5v0d")]
 position = Vector2(-1216, 32)
 
+[node name="snowball3" parent="." instance=ExtResource("8_vdiei")]
+position = Vector2(-1953, 471)
+
+[node name="snowball" parent="." instance=ExtResource("8_vdiei")]
+position = Vector2(-1952, 294)
+
+[node name="snowball2" parent="." instance=ExtResource("8_vdiei")]
+position = Vector2(-1952, 119)
+
 [node name="Node2D3" parent="." instance=ExtResource("8_bo8t3")]
+visible = false
 position = Vector2(-1943, 116)
 
 [node name="Node2D2" parent="." instance=ExtResource("8_bo8t3")]
+visible = false
 position = Vector2(-1943, 468)
 
 [node name="Node2D" parent="." instance=ExtResource("8_bo8t3")]
+visible = false
 position = Vector2(-1942, 292)
