@@ -77,6 +77,7 @@ func _set_counter(set_to):
 
 
 func _on_shop_button_pressed():
+	get_tree().paused = true
 	$ShopGUI/ShopMenuBackground.show()
 	$"ShopGUI/Shop Menu".show()
 
@@ -84,7 +85,10 @@ func _on_shop_button_pressed():
 func _on_shop_back_button_pressed():
 	$ShopGUI/ShopMenuBackground.hide()
 	$"ShopGUI/Shop Menu".hide()
+	get_tree().paused = false
+	
 
 
 func _on_test_button_pressed():
-	pass # Replace with function body.
+	print("gloop")
+	
