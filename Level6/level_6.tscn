@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvcu8tcblxxee"]
+[gd_scene load_steps=15 format=3 uid="uid://bvcu8tcblxxee"]
 
 [ext_resource type="Texture2D" uid="uid://6f6brg6bxe60" path="res://Level6/Dungeon Tile Set/Dungeon Tile Set.png" id="1_20ttc"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="2_3aqgs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bjg80mtxasonb" path="res://DeathObject/DeathObject.tscn" id="5_nbmb6"]
 [ext_resource type="PackedScene" uid="uid://oxlpm8aduxk6" path="res://MovingBlock/movingblockslvl6.tscn" id="6_rhfj8"]
 [ext_resource type="PackedScene" uid="uid://coel86b1slaqt" path="res://upwardmovingtiles/lvl6uptiles.tscn" id="7_7j0ws"]
+[ext_resource type="PackedScene" uid="uid://cdi7gwixtl51f" path="res://lvl6enemy/lvl6enemy.tscn" id="8_uaaf8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnmud"]
 texture = ExtResource("1_20ttc")
@@ -561,3 +562,8 @@ position = Vector2(2600, 40)
 
 [node name="Movingupplatform" parent="." instance=ExtResource("7_7j0ws")]
 position = Vector2(3536, 62)
+
+[node name="lvl6enemy" parent="." instance=ExtResource("8_uaaf8")]
+position = Vector2(633, -21)
+SPEED = -100
+health = 20

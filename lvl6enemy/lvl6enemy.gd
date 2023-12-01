@@ -2,8 +2,9 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var STATE_MACHINE : StateMachine = $StateMachine
-@onready var HURT_STATE : State = $StateMachine/Hurt
-@onready var ATTTACK_STATE : State = $StateMachine/Attack
+@onready var HURT_STATE : State = $StateMachine/HurtState
+@onready var ATTTACK_STATE : State = $StateMachine/AttackState
+@onready var DEATH_STATE : State = $StateMachine/DeathState
 @export var SPEED = -100
 var direction = Vector2.ZERO
 @onready var PLAYER : CharacterBody2D = $"../Player"
@@ -11,9 +12,9 @@ var direction = Vector2.ZERO
 @onready var sprite : Sprite2D = $Sprite2D
 @export var health = 5
 @export var knockbackAmount : Vector2
+
 var JUMP_VELOCITY = -300
 var canJump = true
-@onready var jumpTimer = $JumpTimer
 var coin_scene = preload("res://Coin/coin.tscn")
 var last_valid_position : Vector2
 var falling = false
@@ -55,7 +56,7 @@ func takeDamage(damage):
 	health -= damage
 	STATE_MACHINE.changeNextState(HURT_STATE)
 	if health<=0:
-		get_tree().queue_delete(self)
+		STATE_MACHINE.changeNextState(DEATH_STATE)
 		
 		
 
@@ -73,4 +74,6 @@ func _on_jump_timer_timeout():
 func die():
 	get_tree().queue_delete(self)
 	
+
+
 

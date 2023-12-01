@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cdi7gwixtl51f"]
+[gd_scene load_steps=28 format=3 uid="uid://cdi7gwixtl51f"]
 
 [ext_resource type="Texture2D" uid="uid://pm8cmak566an" path="res://lvl6enemy/Assets/Undead executioner puppet/png/idle.png" id="1_gk015"]
 [ext_resource type="Script" path="res://lvl6enemy/lvl6enemy.gd" id="1_qgbdy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://lvl6enemy/States/DeathState.gd" id="8_vyjoh"]
 [ext_resource type="Script" path="res://lvl6enemy/States/FollowState.gd" id="9_fq53n"]
 [ext_resource type="Script" path="res://lvl6enemy/States/HurtState.gd" id="10_26hx2"]
+[ext_resource type="Script" path="res://StateMachine/StateDebugLabel.gd" id="11_skos7"]
 
 [sub_resource type="Animation" id="Animation_3bb0t"]
 resource_name = "Attack"
@@ -125,10 +126,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": []
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_dbk76"]
@@ -204,13 +205,10 @@ animation = &"death"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bdttd"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5yitq"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vq5bb"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ekccy"]
 states/Attack/node = SubResource("AnimationNodeAnimation_njeeo")
@@ -223,7 +221,12 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(51.66, -20.8425)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdkxn"]
-size = Vector2(38, 64)
+size = Vector2(54, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02hhs"]
+size = Vector2(68.5, 66)
+
+[sub_resource type="Theme" id="Theme_8u8pb"]
 
 [node name="lvl6enemy" type="CharacterBody2D"]
 script = ExtResource("1_qgbdy")
@@ -242,24 +245,14 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_ekccy")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "currentState", "animation_tree")]
 script = ExtResource("4_k7s5d")
 character = NodePath("..")
+currentState = NodePath("IdleState")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="DeathState" type="Node" parent="StateMachine" node_paths=PackedStringArray("animationTree")]
+[node name="DeathState" type="Node" parent="StateMachine"]
 script = ExtResource("8_vyjoh")
-animationTree = NodePath("../../AnimationTree")
-
-[node name="AttackState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
-script = ExtResource("7_jfffv")
-STANDBY_STATE = NodePath("../IdleState")
-
-[node name="AttackTimer" type="Timer" parent="StateMachine/AttackState"]
-
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("FOLLOW_STATE")]
-script = ExtResource("8_m7l14")
-FOLLOW_STATE = NodePath("../FollowState")
 canMove = false
 isVulnerable = false
 
@@ -267,14 +260,68 @@ isVulnerable = false
 script = ExtResource("9_fq53n")
 STANDBY_STATE = NodePath("../IdleState")
 
-[node name="HurtState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
+[node name="HurtState" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemySprite")]
 script = ExtResource("10_26hx2")
-STANDBY_STATE = NodePath("../IdleState")
+enemySprite = NodePath("../../Sprite2D")
 canMove = false
 isVulnerable = false
 
 [node name="HurtTimer" type="Timer" parent="StateMachine/HurtState"]
+wait_time = 0.5
+
+[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("FOLLOW_STATE")]
+script = ExtResource("8_m7l14")
+FOLLOW_STATE = NodePath("../FollowState")
+canMove = false
+
+[node name="AttackState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
+script = ExtResource("7_jfffv")
+STANDBY_STATE = NodePath("../IdleState")
+canMove = false
+
+[node name="AttackTimer" type="Timer" parent="StateMachine/AttackState"]
+wait_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 1)
+position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_xdkxn")
+
+[node name="StatemachineLabel" type="Label" parent="." node_paths=PackedStringArray("stateMachine")]
+offset_left = -73.0
+offset_top = -54.0
+offset_right = 66.0
+offset_bottom = -28.0
+text = "STATE"
+horizontal_alignment = 1
+script = ExtResource("11_skos7")
+stateMachine = NodePath("../StateMachine")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9.75, 2)
+shape = SubResource("RectangleShape2D_02hhs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+layout_direction = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1888.0
+offset_top = -1137.0
+offset_right = 25.0
+offset_bottom = -1110.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_8u8pb")
+value = 100.0
+fill_mode = 1
+
+[connection signal="timeout" from="StateMachine/HurtState/HurtTimer" to="StateMachine/HurtState" method="_on_hurt_timer_timeout"]
+[connection signal="timeout" from="StateMachine/AttackState/AttackTimer" to="StateMachine/AttackState" method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
