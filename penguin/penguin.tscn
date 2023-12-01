@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpxpy7wxssi5a"]
+[gd_scene load_steps=13 format=3 uid="uid://cpxpy7wxssi5a"]
 
 [ext_resource type="Texture2D" uid="uid://dbi8mki7ng43r" path="res://penguin/cute_penguin_idle.png" id="1_kkcvx"]
 [ext_resource type="Script" path="res://penguin/penguin.gd" id="1_ym6f5"]
@@ -57,6 +57,8 @@ size = Vector2(21, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sylfr"]
 
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_eeaeg"]
+
 [node name="Node2D" type="CharacterBody2D"]
 script = ExtResource("1_ym6f5")
 
@@ -73,3 +75,9 @@ shape = SubResource("RectangleShape2D_37bu6")
 position = Vector2(-9, 2)
 shape = SubResource("RectangleShape2D_sylfr")
 disabled = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_eeaeg")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
