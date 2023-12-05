@@ -113,7 +113,7 @@ func jump():
 #		move_and_slide()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var left_ray_hit = raycast_left.is_colliding()
 	var right_ray_hit = raycast_right.is_colliding()
 	var direction_to_player = (PLAYER.global_position - global_position).normalized()

@@ -14,7 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	if abs(PLAYER.position.x - self.position.x) < 500:
 			await get_tree().create_timer(3).timeout
@@ -23,7 +23,7 @@ func _process(delta):
 			# look_at(target)
 			if position.distance_to(target) > 10:
 				move_and_slide()
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 
 
