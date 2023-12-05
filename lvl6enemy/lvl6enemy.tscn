@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cdi7gwixtl51f"]
+[gd_scene load_steps=27 format=3 uid="uid://cdi7gwixtl51f"]
 
 [ext_resource type="Texture2D" uid="uid://pm8cmak566an" path="res://lvl6enemy/Assets/Undead executioner puppet/png/idle.png" id="1_gk015"]
 [ext_resource type="Script" path="res://lvl6enemy/lvl6enemy.gd" id="1_qgbdy"]
@@ -226,11 +226,12 @@ size = Vector2(54, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02hhs"]
 size = Vector2(68.5, 66)
 
-[sub_resource type="Theme" id="Theme_8u8pb"]
-
 [node name="lvl6enemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_qgbdy")
 SPEED = -50
+health = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gk015")
@@ -259,6 +260,7 @@ isVulnerable = false
 [node name="FollowState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
 script = ExtResource("9_fq53n")
 STANDBY_STATE = NodePath("../IdleState")
+FOLLOW_DISTANCE = 10000.0
 
 [node name="HurtState" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemySprite")]
 script = ExtResource("10_26hx2")
@@ -298,29 +300,21 @@ stateMachine = NodePath("../StateMachine")
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(9.75, 2)
 shape = SubResource("RectangleShape2D_02hhs")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
-layout_direction = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1888.0
-offset_top = -1137.0
-offset_right = 25.0
-offset_bottom = -1110.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 1
-theme = SubResource("Theme_8u8pb")
-value = 100.0
-fill_mode = 1
+[node name="Enemybar" type="ProgressBar" parent="."]
+offset_left = -27.0
+offset_top = -39.0
+offset_right = 26.0
+offset_bottom = -32.0
+max_value = 10.0
+step = 1.0
+show_percentage = false
 
 [connection signal="timeout" from="StateMachine/HurtState/HurtTimer" to="StateMachine/HurtState" method="_on_hurt_timer_timeout"]
 [connection signal="timeout" from="StateMachine/AttackState/AttackTimer" to="StateMachine/AttackState" method="_on_attack_timer_timeout"]

@@ -75,7 +75,11 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_render/layer_1="player_group"
-2d_physics/layer_1="player_group"
+2d_physics/layer_1="Tiles"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Lvl6killer"
+2d_physics/layer_5="Death"
 
 [rendering]
 

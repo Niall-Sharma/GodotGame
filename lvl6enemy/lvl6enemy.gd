@@ -12,6 +12,8 @@ var direction = Vector2.ZERO
 @onready var sprite : Sprite2D = $Sprite2D
 @export var health = 5
 @export var knockbackAmount : Vector2
+var MAXHEALTH = 10
+
 
 var JUMP_VELOCITY = -300
 var canJump = true
@@ -25,9 +27,14 @@ var player
 func  _ready():
 	animationTree.active = true
 	last_valid_position = position
+	$Enemybar.modulate=Color(0,2,0)
+	$Enemybar.max_value = MAXHEALTH
+	sethealthbar()
 
+func sethealthbar():
+	$Enemybar.value = health
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 
 	# Set the direction for the enemy based on the player's position
@@ -54,10 +61,21 @@ func _physics_process(delta):
 #Taking damage function
 func takeDamage(damage):
 	health -= damage
+	
+	sethealthbar()
+#	enemybar.value = health
+#	if health<=60:
+#		enemybar.modulate = Color(1, 1, 0)
+#	if health<=30:
+#		enemybar.modulate = Color("ff4500")
+#	if health <=10:
+#		enemybar.modulate = Color(1, 0, 0)
+	
 	STATE_MACHINE.changeNextState(HURT_STATE)
 	if health<=0:
 		STATE_MACHINE.changeNextState(DEATH_STATE)
-		
+	
+	
 		
 
 #Checking if its getting hit by the player
@@ -65,12 +83,15 @@ func _on_area_2d_body_entered(body):
 	if(body.name == "Player"):
 		
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
-		body.take_damage(10, knockbackAmount, sprite.flip_h)
+		body.take_damage(25, knockbackAmount, sprite.flip_h)
 
 
 
-func _on_jump_timer_timeout():
-	canJump = true
+#Add player health and change healthbar value to health when called		
+func take_health(damage):
+	health += damage
+#	enemybar.value = health
+
 func die():
 	get_tree().queue_delete(self)
 	

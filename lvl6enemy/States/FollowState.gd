@@ -3,7 +3,7 @@ extends State
 
 
 @export var STANDBY_STATE : State
-@export var FOLLOW_DISTANCE : float = 200
+@export var FOLLOW_DISTANCE : float
 @onready var Player : CharacterBody2D = $"../../../Player"
 
 func onEnter():

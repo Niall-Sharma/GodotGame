@@ -566,4 +566,3 @@ position = Vector2(3536, 62)
 [node name="lvl6enemy" parent="." instance=ExtResource("8_uaaf8")]
 position = Vector2(633, -21)
 SPEED = -100
-health = 20
