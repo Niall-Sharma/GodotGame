@@ -118,9 +118,7 @@ func _physics_process(_delta):
 	var right_ray_hit = raycast_right.is_colliding()
 	var direction_to_player = (PLAYER.global_position - global_position).normalized()
 	var enemy_forward_direction = -transform.x
-	# Debug prints for troubleshooting
-	print("Left Ray Hit:", left_ray_hit)
-	print("Right Ray Hit:", right_ray_hit)
+
 
 	if left_ray_hit and right_ray_hit:
 		is_locked = false
@@ -129,10 +127,10 @@ func _physics_process(_delta):
 
 
 	if direction_to_player.dot(enemy_forward_direction) > 0 and not right_ray_hit:
-			print("Player is to the left of me!")
+
 			is_locked = false
 	if direction_to_player.dot(enemy_forward_direction) < 0 and not left_ray_hit:
-			print("Player is to the left of me!")
+
 			is_locked = false
 	# Check if both raycasts are hitting the tilemap
 	if is_locked == false:
