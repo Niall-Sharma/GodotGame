@@ -97,3 +97,5 @@ func highJump():
 func isHealthMax():
 	return health < 100
 
+func dmgTrigger():
+	notify_property_list_changed()
