@@ -66,7 +66,7 @@ func takeDamage(damage):
 	$Enemybar.value = health
 	if health<=7:
 		$Enemybar.modulate = Color(1, 1, 0)
-	if health<=3:
+	if health<=3 :
 		$Enemybar.modulate = Color("ff4500")
 	if health <=2:
 		$Enemybar.modulate = Color(1, 0, 0)

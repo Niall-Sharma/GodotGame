@@ -227,6 +227,8 @@ size = Vector2(54, 64)
 size = Vector2(74, 66)
 
 [node name="lvl6enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_qgbdy")
 SPEED = -50
 health = 10
