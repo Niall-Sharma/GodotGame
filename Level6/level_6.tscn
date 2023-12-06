@@ -551,6 +551,14 @@ position = Vector2(3514, -168)
 position = Vector2(23.5, -1)
 shape = SubResource("RectangleShape2D_tovic")
 
+[node name="DeathObject4" parent="." instance=ExtResource("5_nbmb6")]
+position = Vector2(3508, 186)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathObject4"]
+position = Vector2(23.5, -1)
+shape = SubResource("RectangleShape2D_tovic")
+
 [node name="Movingplatform" parent="." instance=ExtResource("6_rhfj8")]
 position = Vector2(1927, 40)
 

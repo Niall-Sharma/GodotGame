@@ -224,7 +224,7 @@ graph_offset = Vector2(51.66, -20.8425)
 size = Vector2(54, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02hhs"]
-size = Vector2(68.5, 66)
+size = Vector2(74, 66)
 
 [node name="lvl6enemy" type="CharacterBody2D"]
 script = ExtResource("1_qgbdy")
@@ -260,8 +260,9 @@ script = ExtResource("9_fq53n")
 STANDBY_STATE = NodePath("../IdleState")
 FOLLOW_DISTANCE = 10000.0
 
-[node name="HurtState" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemySprite")]
+[node name="HurtState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE", "enemySprite")]
 script = ExtResource("10_26hx2")
+STANDBY_STATE = NodePath("../IdleState")
 enemySprite = NodePath("../../Sprite2D")
 canMove = false
 isVulnerable = false
@@ -300,7 +301,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(9.75, 2)
+position = Vector2(3, 2)
 shape = SubResource("RectangleShape2D_02hhs")
 
 [node name="Enemybar" type="ProgressBar" parent="."]

@@ -63,13 +63,13 @@ func takeDamage(damage):
 	health -= damage
 	
 	sethealthbar()
-#	enemybar.value = health
-#	if health<=60:
-#		enemybar.modulate = Color(1, 1, 0)
-#	if health<=30:
-#		enemybar.modulate = Color("ff4500")
-#	if health <=10:
-#		enemybar.modulate = Color(1, 0, 0)
+	$Enemybar.value = health
+	if health<=7:
+		$Enemybar.modulate = Color(1, 1, 0)
+	if health<=3:
+		$Enemybar.modulate = Color("ff4500")
+	if health <=2:
+		$Enemybar.modulate = Color(1, 0, 0)
 	
 	STATE_MACHINE.changeNextState(HURT_STATE)
 	if health<=0:
