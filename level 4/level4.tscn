@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ba68fv0am7tox"]
+[gd_scene load_steps=30 format=3 uid="uid://ba68fv0am7tox"]
 
 [ext_resource type="Texture2D" uid="uid://op5gcnklnvpr" path="res://level 4/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Chest Animation.png" id="1_0al1n"]
 [ext_resource type="Texture2D" uid="uid://bi5i3qglivneh" path="res://level 4/Pixel Art Platformer - Village Props v2.3.0/Texture/TX FX Flame.png" id="2_6syg5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="6_a734k"]
 [ext_resource type="PackedScene" uid="uid://bjg80mtxasonb" path="res://DeathObject/DeathObject.tscn" id="7_g556n"]
 [ext_resource type="PackedScene" uid="uid://dacr5icl64w6g" path="res://FinishLine/finish_line.tscn" id="8_qsmj6"]
+[ext_resource type="PackedScene" uid="uid://caen3ip3a431x" path="res://Skelibob/skelibob.tscn" id="9_n7d2y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ugq4"]
 texture = ExtResource("1_0al1n")
@@ -7659,7 +7660,7 @@ size = Vector2(32, 27.25)
 size = Vector2(125, 27.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5ivn"]
-size = Vector2(19, 27.25)
+size = Vector2(17, 27.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ofpp"]
 size = Vector2(32, 27.25)
@@ -7763,35 +7764,31 @@ position = Vector2(-0.5, -6)
 shape = SubResource("RectangleShape2D_67efb")
 
 [node name="DeathObject22" parent="." instance=ExtResource("7_g556n")]
-position = Vector2(1220, 1945)
-metadata/_edit_group_ = true
+position = Vector2(1208, 1956)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathObject22"]
-position = Vector2(-12.5, -6)
+position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_m5ivn")
 
 [node name="DeathObject23" parent="." instance=ExtResource("7_g556n")]
-position = Vector2(1075, 1944)
-metadata/_edit_group_ = true
+position = Vector2(1064, 1953)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathObject23"]
-position = Vector2(-12.5, -6)
+position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_m5ivn")
 
 [node name="DeathObject24" parent="." instance=ExtResource("7_g556n")]
-position = Vector2(1011, 1945)
-metadata/_edit_group_ = true
+position = Vector2(1000, 1955)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathObject24"]
-position = Vector2(-12.5, -6)
+position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_m5ivn")
 
 [node name="DeathObject25" parent="." instance=ExtResource("7_g556n")]
-position = Vector2(884, 1943)
-metadata/_edit_group_ = true
+position = Vector2(872, 1957)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathObject25"]
-position = Vector2(-12.5, -6)
+position = Vector2(0.5, -18)
 shape = SubResource("RectangleShape2D_m5ivn")
 
 [node name="DeathObject26" parent="." instance=ExtResource("7_g556n")]
@@ -8112,3 +8109,9 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine2/Area2D2"]
 position = Vector2(4.5, -6)
 shape = SubResource("RectangleShape2D_h47jj")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("9_n7d2y")]
+position = Vector2(469, 319)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("9_n7d2y")]
+position = Vector2(272, 1340)
