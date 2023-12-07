@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhjl4jjo6qd7m"]
+[gd_scene load_steps=9 format=3 uid="uid://dhjl4jjo6qd7m"]
 
 [ext_resource type="Texture2D" uid="uid://ce16obpcs4tyw" path="res://Pixel_Platformer_Tileset_Pack/Asset_02/pixel_platform_02_tileset_final.png" id="1_oikax"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="2_4in8m"]
 [ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://Coin/coin.tscn" id="4_vymkl"]
+[ext_resource type="PackedScene" uid="uid://cad8xy6lilo0m" path="res://key/key.tscn" id="6_e5v0d"]
+[ext_resource type="PackedScene" uid="uid://cpxpy7wxssi5a" path="res://penguin/penguin.tscn" id="8_bo8t3"]
+[ext_resource type="PackedScene" uid="uid://iqdqd8qhxeot" path="res://snowball/snowball.tscn" id="8_vdiei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xhqot"]
 texture = ExtResource("1_oikax")
@@ -865,3 +868,27 @@ position = Vector2(23, 928)
 
 [node name="Coin5" parent="." instance=ExtResource("4_vymkl")]
 position = Vector2(-344, 700)
+
+[node name="key" parent="." instance=ExtResource("6_e5v0d")]
+position = Vector2(-1215, 21)
+
+[node name="key2" parent="." instance=ExtResource("6_e5v0d")]
+position = Vector2(1236, 870)
+
+[node name="snowball" parent="." instance=ExtResource("8_vdiei")]
+position = Vector2(-1951, 119)
+
+[node name="snowball3" parent="." instance=ExtResource("8_vdiei")]
+position = Vector2(-1952, 295)
+
+[node name="snowball2" parent="." instance=ExtResource("8_vdiei")]
+position = Vector2(-1951, 471)
+
+[node name="Node2D3" parent="." instance=ExtResource("8_bo8t3")]
+position = Vector2(-1942, 116)
+
+[node name="Node2D2" parent="." instance=ExtResource("8_bo8t3")]
+position = Vector2(-1943, 292)
+
+[node name="Node2D" parent="." instance=ExtResource("8_bo8t3")]
+position = Vector2(-1942, 468)
