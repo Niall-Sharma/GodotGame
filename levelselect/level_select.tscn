@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmwp3u2hg1jgv"]
+[gd_scene load_steps=4 format=3 uid="uid://cmwp3u2hg1jgv"]
 
 [ext_resource type="Script" path="res://levelselect/level_select.gd" id="1_52d12"]
 [ext_resource type="Texture2D" uid="uid://bxr08e2hcsoew" path="res://levelselect/backgrounf for level select.png" id="2_561ig"]
+[ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="3_uk1t6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -34,4 +35,12 @@ theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 15
 columns = 2
 
+[node name="BackButton" type="Button" parent="LevelSelect/Grid"]
+layout_mode = 2
+theme = ExtResource("3_uk1t6")
+theme_override_font_sizes/font_size = 40
+text = "BACK"
+
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="LevelSelect/Grid/BackButton" to="LevelSelect" method="_on_back_button_pressed"]

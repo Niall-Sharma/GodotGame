@@ -22,7 +22,7 @@ func dupe():
 	$"..".add_child(snoa)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	if abs(PLAYER.position.x - self.position.x) < 500:
 		if (moving == false):
@@ -32,12 +32,16 @@ func _process(delta):
 		velocity = position.direction_to(target) * speed
 		dupe()
 			# look_at(target)
+
 		if position.distance_to(target) > 10:
 			move_and_slide()
 			
 				
 func _physics_process(delta):
-	pass
+
+			if position.distance_to(target) > 10:
+				move_and_slide()
+
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
