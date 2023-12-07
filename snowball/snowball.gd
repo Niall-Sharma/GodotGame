@@ -6,9 +6,9 @@ extends CharacterBody2D
 @onready var x = self.position.x
 @onready var y = self.position.y
 @onready var vec = Vector2(py-y,px-x)
-@onready var speed = 230
+@onready var speed = 170
 @onready var moving = false
-@onready var target
+@onready var target = PLAYER.position
 @onready var snoa = self.duplicate()
 
 # Called when the node enters the scene tree for the first time.
@@ -19,14 +19,16 @@ func dupe():
 	
 	snoa.position.x = x
 	snoa.position.y = y
+	snoa.get_child(0).hide()
 	$"..".add_child(snoa)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
-	if abs(PLAYER.position.x - self.position.x) < 500:
+	if abs(PLAYER.position.x - self.position.x) < 500 and abs(PLAYER.position.y - self.position.y) < 200:
 		if (moving == false):
 			await get_tree().create_timer(2).timeout
+			$Sprite2D.show()
 			moving = true
 		target = PLAYER.position
 		velocity = position.direction_to(target) * speed

@@ -14,6 +14,8 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		
+	
 
 	"if PLAYER.position.x > self.position.x:
 		sprite.flip_h = false
