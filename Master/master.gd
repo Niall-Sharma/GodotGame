@@ -5,12 +5,14 @@ var levels = [preload("res://Level1/level_1.tscn"),preload("res://Level2/level_2
 
 var infiniteLevel = preload("res://Infinite/ran.tscn")
 var coinCounter
+var infoExchangeLevelNum #holds onto the level num when it's changed so that other funcs can use it
 
 func _change_level(x):
 	var level = levels[x].instantiate()
 	add_child(level)
 	level.position.x = 0
 	level.position.y = 0
+	infoExchangeLevelNum = x
 
 	
 # Called when the node enters the scene tree for the first time.
@@ -91,6 +93,9 @@ func _on_shop_back_button_pressed():
 
 func _on_test_button_pressed():
 	print("gloop")
-	$"res://Level1/level_1.tscn/Player"._dmgTrigger()
+	var currentLevel = levels[infoExchangeLevelNum].instantiate()
+	var playerInLevel = currentLevel.get_node("Player")
+	playerInLevel.dmgTrigger()
+	print("beans")
 	coinCounter -= 5
 	
