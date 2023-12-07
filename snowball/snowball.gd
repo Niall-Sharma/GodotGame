@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var x = self.position.x
 @onready var y = self.position.y
 @onready var vec = Vector2(py-y,px-x)
-@onready var speed = 170
+@onready var speed = 130
 @onready var moving = false
 @onready var target = PLAYER.position
 @onready var snoa = self.duplicate()
