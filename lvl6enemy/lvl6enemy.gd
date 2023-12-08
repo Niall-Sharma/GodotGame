@@ -11,8 +11,10 @@ var direction = Vector2.ZERO
 @onready var animationTree : AnimationTree = $AnimationTree
 @onready var sprite : Sprite2D = $Sprite2D
 @export var health = 5
-@export var knockbackAmount : Vector2
-var MAXHEALTH = 10
+@export var knockbackAmount : Vector2 = Vector2(0, 0)
+
+
+var MAXHEALTH = 5
 
 
 var JUMP_VELOCITY = -300
@@ -24,21 +26,33 @@ var player
 
 
 
+
+
+
+
 func  _ready():
 	animationTree.active = true
 	last_valid_position = position
 	$Enemybar.modulate=Color(0,2,0)
 	$Enemybar.max_value = MAXHEALTH
 	sethealthbar()
+	print(PLAYER.position.y)
+
+
+
 
 func sethealthbar():
 	$Enemybar.value = health
 
 func _physics_process(_delta):
 
-
+	
+	
 	# Set the direction for the enemy based on the player's position
 	direction = (global_position - PLAYER.global_position).normalized()
+
+
+#	global_position.y = PLAYER.global_position.y - 10
 
 	# Flipping sprite
 	if direction.x > 0:
@@ -61,29 +75,32 @@ func _physics_process(_delta):
 #Taking damage function
 func takeDamage(damage):
 	health -= damage
-	
+
+
 	sethealthbar()
 	$Enemybar.value = health
-	if health<=7:
+	if health<=4:
 		$Enemybar.modulate = Color(1, 1, 0)
-	if health<=3 :
+	if health<=2 :
 		$Enemybar.modulate = Color("ff4500")
-	if health <=2:
+	if health <=1:
 		$Enemybar.modulate = Color(1, 0, 0)
-	
+
 	STATE_MACHINE.changeNextState(HURT_STATE)
 	if health<=0:
 		STATE_MACHINE.changeNextState(DEATH_STATE)
 	
-	
-		
+
+
+
+
 
 #Checking if its getting hit by the player
 func _on_area_2d_body_entered(body):
 	if(body.name == "Player"):
 		
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
-		body.take_damage(25, knockbackAmount, sprite.flip_h)
+		body.take_damage(20, knockbackAmount, sprite.flip_h)
 
 
 
