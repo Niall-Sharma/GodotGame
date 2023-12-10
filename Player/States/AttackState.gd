@@ -18,6 +18,7 @@ func onEnter():
 		if "enemy" in body.name:
 			body.takeDamage(1)
 
+
 func onExit():
 	attackTimer.stop()
 	animationState.travel("Start")

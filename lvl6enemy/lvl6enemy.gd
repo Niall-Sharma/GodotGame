@@ -74,9 +74,8 @@ func _physics_process(_delta):
 
 #Taking damage function
 func takeDamage(damage):
+
 	health -= damage
-
-
 	sethealthbar()
 	$Enemybar.value = health
 	if health<=4:

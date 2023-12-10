@@ -227,10 +227,9 @@ graph_offset = Vector2(51.66, -20.8425)
 size = Vector2(69, 78)
 
 [node name="lvl6enemy" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 5
 script = ExtResource("1_qgbdy")
 SPEED = -50
+knockbackAmount = Vector2(1500, 10)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gk015")
@@ -299,9 +298,9 @@ script = ExtResource("11_skos7")
 stateMachine = NodePath("../StateMachine")
 metadata/_edit_use_anchors_ = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("RectangleShape2D_02hhs")
 
 [node name="Enemybar" type="ProgressBar" parent="."]
@@ -315,4 +314,4 @@ show_percentage = false
 
 [connection signal="timeout" from="StateMachine/HurtState/HurtTimer" to="StateMachine/HurtState" method="_on_hurt_timer_timeout"]
 [connection signal="timeout" from="StateMachine/AttackState/AttackTimer" to="StateMachine/AttackState" method="_on_attack_timer_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_area_2d_body_entered"]

@@ -320,7 +320,6 @@ _data = {
 size = Vector2(139.062, 30.5)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 7
 script = ExtResource("1_hxat1")
 
 [node name="PlayerShape" type="CollisionShape2D" parent="."]
