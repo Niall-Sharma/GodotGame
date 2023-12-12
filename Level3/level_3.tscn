@@ -877,13 +877,13 @@ position = Vector2(-1215, 21)
 position = Vector2(1236, 870)
 
 [node name="snowball" parent="." instance=ExtResource("8_vdiei")]
-position = Vector2(-1951, 119)
+position = Vector2(-1936, 119)
 
 [node name="snowball3" parent="." instance=ExtResource("8_vdiei")]
-position = Vector2(-1952, 295)
+position = Vector2(-1936, 295)
 
 [node name="snowball2" parent="." instance=ExtResource("8_vdiei")]
-position = Vector2(-1951, 471)
+position = Vector2(-1936, 471)
 
 [node name="Node2D3" parent="." instance=ExtResource("8_bo8t3")]
 position = Vector2(-1942, 116)
