@@ -93,9 +93,16 @@ func _on_shop_back_button_pressed():
 
 func _on_test_button_pressed():
 	print("gloop")
-	var currentLevel = levels[infoExchangeLevelNum].instantiate()
-	var playerInLevel = currentLevel.get_node("Player")
-	playerInLevel.dmgTrigger()
-	print("beans")
-	coinCounter -= 5
-	
+	if(coinCounter>= 5):
+		var currentLevel = levels[infoExchangeLevelNum].instantiate()
+		var playerInLevel = currentLevel.get_node("Player")
+		playerInLevel.dmgTrigger()
+		print("beans")
+		coinCounter -= 5
+	else:
+		print("poop")
+		var currentLevel = levels[infoExchangeLevelNum].instantiate()
+		var playerInLevel = currentLevel.get_node("Player")
+		playerInLevel.dmgTrigger()
+		print("beans")
+
