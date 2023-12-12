@@ -12,9 +12,6 @@ func _process(_delta):
 	pass
 
 func open_door(num):
-	$Sprite2D.hide()
-	print(tilemap3)
-	print("right?")
 	if num == 1: 
 		tilemap3.clear()
 		'''
