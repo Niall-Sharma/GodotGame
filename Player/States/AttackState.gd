@@ -36,3 +36,4 @@ func _add_damage(dmg):
 func _on_player_property_list_changed():
 	_add_damage(5)
 	print("IT SHOULD DO MORE DMG NOWWWW")
+	print(playerDamageDealing)
