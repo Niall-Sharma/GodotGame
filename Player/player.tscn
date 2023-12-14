@@ -469,5 +469,6 @@ position = Vector2(-6.81254, -5.75)
 scale = Vector2(0.400001, 1)
 shape = SubResource("RectangleShape2D_uyfx2")
 
+[connection signal="property_list_changed" from="." to="StateMachine/Attack" method="_on_player_property_list_changed"]
 [connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/AttackTimer" to="StateMachine/Attack" method="_on_attack_timer_timeout"]
