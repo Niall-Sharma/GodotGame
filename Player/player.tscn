@@ -442,11 +442,13 @@ wait_time = 0.5
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attackTimer", "playerSprite", "attackHitbox")]
 script = ExtResource("12_deh06")
+attackTime = null
 attackTimer = NodePath("AttackTimer")
 knockback_amount = Vector2(1, -500)
 playerSprite = NodePath("../../Sprite2D")
 attackHitbox = NodePath("../../AttackArea")
 canMove = false
+isVulnerable = null
 
 [node name="AttackTimer" type="Timer" parent="StateMachine/Attack"]
 wait_time = 0.3
