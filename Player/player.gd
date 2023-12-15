@@ -98,5 +98,4 @@ func isHealthMax():
 	return health < 100
 
 func dmgTrigger():
-	print("Player_Dmg_Up_Activated")
-	notify_property_list_changed()
+	$"res://levelselect/globalvars.gd".addPlayerDamage()
