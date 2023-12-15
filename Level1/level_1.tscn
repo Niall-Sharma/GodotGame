@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://72wdxuxbsb4w" path="res://Enemy/enemy.tscn" id="3_a3nat"]
 [ext_resource type="Texture2D" uid="uid://qrb7lw00b84t" path="res://Pixel_Platformer_Tileset_Pack/Asset_01/pixel_platform_01_tileset_final.png" id="3_ele6s"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="4_soht5"]
-[ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://BatEnemy/coin.tscn" id="5_rpn03"]
+[ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://Coin/coin.tscn" id="5_rpn03"]
 [ext_resource type="PackedScene" uid="uid://bjg80mtxasonb" path="res://DeathObject/DeathObject.tscn" id="6_52k7o"]
 [ext_resource type="PackedScene" uid="uid://bswubndaw32m0" path="res://Heart/Heart.tscn" id="7_taqkw"]
 [ext_resource type="PackedScene" uid="uid://dacr5icl64w6g" path="res://FinishLine/finish_line.tscn" id="8_6eofq"]
