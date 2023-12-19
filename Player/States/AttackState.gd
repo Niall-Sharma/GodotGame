@@ -8,8 +8,7 @@ class_name PlayerAttackState
 @export var playerSprite : Sprite2D
 @export var attackHitbox : Area2D
 var bodiesInAttack
-var globalThingy = preload("res://levelselect/globalvars.gd")
-var playerDamageDealing = globalThingy.getPlayerDamage()
+var playerDamageDealing = $"/levelselect/globalvars".getPlayerDamage()
 
 func onEnter():
 	animationState.travel("Attack")
