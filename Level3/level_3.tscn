@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhjl4jjo6qd7m"]
+[gd_scene load_steps=16 format=3 uid="uid://dhjl4jjo6qd7m"]
 
 [ext_resource type="Script" path="res://Level3/level_3.gd" id="1_j1g08"]
 [ext_resource type="Texture2D" uid="uid://ce16obpcs4tyw" path="res://Pixel_Platformer_Tileset_Pack/Asset_02/pixel_platform_02_tileset_final.png" id="1_oikax"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://4iuyeu6y2m1w" path="res://Level3/pixil-frame-0 (3).png" id="2_lv7dd"]
 [ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://Coin/coin.tscn" id="4_vymkl"]
 [ext_resource type="PackedScene" uid="uid://cad8xy6lilo0m" path="res://key/key.tscn" id="6_e5v0d"]
-[ext_resource type="PackedScene" uid="uid://ccmuarpbgct5g" path="res://BatEnemy/enemy_bat.tscn" id="7_t15v3"]
 [ext_resource type="PackedScene" uid="uid://bswubndaw32m0" path="res://Heart/Heart.tscn" id="8_2fndk"]
 [ext_resource type="PackedScene" uid="uid://cpxpy7wxssi5a" path="res://penguin/penguin.tscn" id="8_bo8t3"]
 [ext_resource type="PackedScene" uid="uid://iqdqd8qhxeot" path="res://snowball/snowball.tscn" id="8_vdiei"]
@@ -956,9 +955,6 @@ position = Vector2(-1943, 292)
 
 [node name="Node2D" parent="." instance=ExtResource("8_bo8t3")]
 position = Vector2(-1942, 468)
-
-[node name="enemyBat" parent="." instance=ExtResource("7_t15v3")]
-position = Vector2(-1227, 1132)
 
 [node name="Heart" parent="." instance=ExtResource("8_2fndk")]
 position = Vector2(-1497, 290)
