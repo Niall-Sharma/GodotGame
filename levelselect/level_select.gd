@@ -22,3 +22,7 @@ func _ready():
 	infi.lvl_num = 11
 	for buttonvar in buttonvars:
 		buttonvar.enabled = Globalvars.getlc(buttonvar.lvl_num)
+
+
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://MainMenu/MainMenu.tscn")

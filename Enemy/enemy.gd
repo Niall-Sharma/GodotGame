@@ -118,8 +118,7 @@ func _physics_process(_delta):
 	var right_ray_hit = raycast_right.is_colliding()
 	var direction_to_player = (PLAYER.global_position - global_position).normalized()
 	var enemy_forward_direction = -transform.x
-	# Debug prints for troubleshooting
-	
+
 
 	if left_ray_hit and right_ray_hit:
 		is_locked = false

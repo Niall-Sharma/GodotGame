@@ -1,7 +1,7 @@
 extends Node2D
 var testvar =  preload("res://Level1/level_1.tscn")
 
-var levels = [preload("res://Level1/level_1.tscn"),preload("res://Level2/level_2.tscn"),preload("res://Level3/level_3.tscn"),preload("res://level 4/level4.tscn"),null,preload("res://Level6/level_6.tscn"),null,null,null,null,null,preload("res://Infinite/ran.tscn")]
+var levels = [preload("res://Level1/level_1.tscn"),preload("res://Level2/level_2.tscn"),preload("res://Level3/level_3.tscn"),preload("res://level 4/level4.tscn"),preload("res://Level5/level_5.tscn"),preload("res://Level6/level_6.tscn"),null,null,null,null,null,preload("res://Infinite/ran.tscn")]
 
 var infiniteLevel = preload("res://Infinite/ran.tscn")
 var coinCounter
