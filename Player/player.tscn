@@ -357,7 +357,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LeftArrow" type="TouchScreenButton" parent="PlayerGUI/Control"]
-position = Vector2(44.9999, 567)
+position = Vector2(4, 482)
 scale = Vector2(67.35, 67.35)
 texture_normal = SubResource("PlaceholderTexture2D_afgnh")
 texture_pressed = SubResource("PlaceholderTexture2D_l8642")
@@ -365,7 +365,7 @@ shape = SubResource("CircleShape2D_gkw1l")
 action = "left"
 
 [node name="RightArrow" type="TouchScreenButton" parent="PlayerGUI/Control"]
-position = Vector2(362, 564)
+position = Vector2(143, 486)
 scale = Vector2(67.35, 67.35)
 texture_normal = SubResource("PlaceholderTexture2D_5j53f")
 texture_pressed = SubResource("PlaceholderTexture2D_i8qua")
@@ -373,7 +373,7 @@ shape = SubResource("CircleShape2D_6d2br")
 action = "right"
 
 [node name="Jump" type="TouchScreenButton" parent="PlayerGUI/Control"]
-position = Vector2(1052, 560)
+position = Vector2(328, 485)
 scale = Vector2(67.35, 67.35)
 texture_normal = SubResource("PlaceholderTexture2D_oea2d")
 texture_pressed = SubResource("PlaceholderTexture2D_dh13b")

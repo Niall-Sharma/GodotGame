@@ -24,6 +24,7 @@ func dupe():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+
 	
 	if abs(PLAYER.position.x - self.position.x) < 500 and abs(PLAYER.position.y - self.position.y) < 200:
 		if (moving == false):
@@ -43,6 +44,7 @@ func _physics_process(delta):
 
 			if position.distance_to(target) > 10:
 				move_and_slide()
+
 
 
 func _on_area_2d_body_entered(body):

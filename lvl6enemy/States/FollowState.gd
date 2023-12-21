@@ -1,11 +1,14 @@
-extends FollowState
+extends State
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+@export var STANDBY_STATE : State
+@export var FOLLOW_DISTANCE : float
+@onready var Player : CharacterBody2D = $"../../../Player"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func onEnter():
+	animationState.travel("Idle")
+
+func stateProcess(_delta):
+	if(abs(character.global_position.x- Player.global_position.x) > FOLLOW_DISTANCE):
+		nextState = STANDBY_STATE
