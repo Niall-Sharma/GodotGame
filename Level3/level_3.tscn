@@ -906,6 +906,9 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
+[node name="Coin9" parent="." instance=ExtResource("4_vymkl")]
+position = Vector2(613, -327)
+
 [node name="Coin" parent="." instance=ExtResource("4_vymkl")]
 position = Vector2(455, 665)
 
@@ -920,6 +923,12 @@ position = Vector2(23, 928)
 
 [node name="Coin5" parent="." instance=ExtResource("4_vymkl")]
 position = Vector2(-344, 700)
+
+[node name="Coin8" parent="." instance=ExtResource("4_vymkl")]
+position = Vector2(1, 278)
+
+[node name="Coin7" parent="." instance=ExtResource("4_vymkl")]
+position = Vector2(1186, 278)
 
 [node name="Coin6" parent="." instance=ExtResource("4_vymkl")]
 position = Vector2(-3327, 82)
