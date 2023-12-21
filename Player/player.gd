@@ -98,4 +98,10 @@ func isHealthMax():
 	return health < 100
 
 func dmgTrigger():
-	$"res://levelselect/globalvars.gd".addPlayerDamage()
+	$StateMachine/Attack._add_damage(10)
+	#var thingToPrint = $StateMachine/Attack._get_damage()
+	print("The dmgTrigger function goes")
+	print("the current dmg is ")
+	property_list_changed
+	#print(thingToPrint)
+	#$"res://levelselect/globalvars.gd".addPlayerDamage()

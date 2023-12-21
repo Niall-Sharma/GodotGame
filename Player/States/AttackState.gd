@@ -8,7 +8,10 @@ class_name PlayerAttackState
 @export var playerSprite : Sprite2D
 @export var attackHitbox : Area2D
 var bodiesInAttack
-var playerDamageDealing = $"/levelselect/globalvars".getPlayerDamage()
+var playerDamageDealing = 1#get_parent()._get_penis_blast()
+
+#func ready():
+#	playerDamageDealing = 1
 
 func onEnter():
 	animationState.travel("Attack")
@@ -30,7 +33,8 @@ func _on_attack_timer_timeout():
 func _add_damage(dmg):
 	playerDamageDealing += dmg
 
-
+func _get_damage():
+	return playerDamageDealing
 
 
 func _on_player_property_list_changed():

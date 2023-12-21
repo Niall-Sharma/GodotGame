@@ -103,6 +103,8 @@ func _on_test_button_pressed():
 		print("poop")
 		var currentLevel = levels[infoExchangeLevelNum].instantiate()
 		var playerInLevel = currentLevel.get_node("Player")
+		get_tree().paused = false
 		playerInLevel.dmgTrigger()
+		get_tree().paused = true
 		print("beans")
 

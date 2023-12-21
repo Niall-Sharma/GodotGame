@@ -51,3 +51,6 @@ func changeNextState(state : State):
 #Passes an input to the currentState's state_input() function.
 func _input(event : InputEvent):
 	currentState.state_input(event)
+
+func _get_penis_blast():
+	return 2
