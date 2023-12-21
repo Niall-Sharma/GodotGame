@@ -229,6 +229,7 @@ size = Vector2(69, 78)
 [node name="lvl6enemy" type="CharacterBody2D"]
 script = ExtResource("1_qgbdy")
 SPEED = -50
+health = 10
 knockbackAmount = Vector2(1500, 10)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -267,6 +268,7 @@ FOLLOW_DISTANCE = 10000.0
 [node name="HurtState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE", "enemySprite")]
 script = ExtResource("10_26hx2")
 STANDBY_STATE = NodePath("../IdleState")
+knockback_amount = Vector2(2500, 2.08165e-12)
 enemySprite = NodePath("../../Sprite2D")
 canMove = false
 isVulnerable = false

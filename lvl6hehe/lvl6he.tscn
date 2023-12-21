@@ -7,14 +7,23 @@ size = Vector2(25.034, 299.552)
 
 [node name="Node2D" type="StaticBody2D"]
 position = Vector2(48, -63)
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-49.75, 10)
 scale = Vector2(0.134783, 0.146245)
 texture = ExtResource("1_xjdbm")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(443, 10)
+scale = Vector2(0.134783, 0.146245)
+texture = ExtResource("1_xjdbm")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-50, 10)
+position = Vector2(-49, 11)
+scale = Vector2(0.63913, 0.494071)
+shape = SubResource("RectangleShape2D_nldi6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(443, 10)
 scale = Vector2(0.63913, 0.494071)
 shape = SubResource("RectangleShape2D_nldi6")
