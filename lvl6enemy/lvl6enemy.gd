@@ -14,7 +14,7 @@ var direction = Vector2.ZERO
 @export var knockbackAmount : Vector2 = Vector2(0, 0)
 
 
-var MAXHEALTH = 5
+var MAXHEALTH = 10
 
 
 var JUMP_VELOCITY = -300
@@ -78,11 +78,11 @@ func takeDamage(damage):
 	health -= damage
 	sethealthbar()
 	$Enemybar.value = health
-	if health<=4:
+	if health<=7:
 		$Enemybar.modulate = Color(1, 1, 0)
-	if health<=2 :
+	if health<=4 :
 		$Enemybar.modulate = Color("ff4500")
-	if health <=1:
+	if health <=2:
 		$Enemybar.modulate = Color(1, 0, 0)
 
 	STATE_MACHINE.changeNextState(HURT_STATE)
@@ -99,7 +99,7 @@ func _on_area_2d_body_entered(body):
 	if(body.name == "Player"):
 		
 		STATE_MACHINE.changeNextState(ATTTACK_STATE)
-		body.take_damage(20, knockbackAmount, sprite.flip_h)
+		body.take_damage(33.335, knockbackAmount, sprite.flip_h)
 
 
 
