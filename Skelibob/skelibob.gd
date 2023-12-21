@@ -13,7 +13,6 @@ var direction = Vector2.ZERO
 @export var knockbackAmount : Vector2
 var JUMP_VELOCITY = -300
 var canJump = true
-@onready var jumpTimer = $JumpTimer
 var coin_scene = preload("res://Coin/coin.tscn")
 
 func  _ready():

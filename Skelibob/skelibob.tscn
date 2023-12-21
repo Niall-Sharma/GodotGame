@@ -239,11 +239,11 @@ _data = {
 "wark": SubResource("Animation_c5qsk")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iwskb"]
-animation = &"Death"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjcr6"]
 animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iwskb"]
+animation = &"Death"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jgw46"]
 animation = &"idle"
@@ -272,15 +272,15 @@ animation = &"wark"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dkni8"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6wfqs"]
+states/Attack/node = SubResource("AnimationNodeAnimation_pjcr6")
+states/Attack/position = Vector2(394, 36)
 states/Death/node = SubResource("AnimationNodeAnimation_iwskb")
 states/Death/position = Vector2(508, 160)
-states/attack/node = SubResource("AnimationNodeAnimation_pjcr6")
-states/attack/position = Vector2(394, 36)
-states/idle/node = SubResource("AnimationNodeAnimation_jgw46")
-states/idle/position = Vector2(522, 36)
-states/wark/node = SubResource("AnimationNodeAnimation_8rtyh")
-states/wark/position = Vector2(394, 125)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_m5ntl"), "idle", "wark", SubResource("AnimationNodeStateMachineTransition_06n3j"), "wark", "idle", SubResource("AnimationNodeStateMachineTransition_gmspv"), "attack", "wark", SubResource("AnimationNodeStateMachineTransition_ok8w3"), "wark", "attack", SubResource("AnimationNodeStateMachineTransition_0sp7d"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_lu5kn"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_37f8o"), "attack", "Death", SubResource("AnimationNodeStateMachineTransition_ff4jd"), "idle", "Death", SubResource("AnimationNodeStateMachineTransition_xbxoj"), "wark", "Death", SubResource("AnimationNodeStateMachineTransition_dkni8")]
+states/Idle/node = SubResource("AnimationNodeAnimation_jgw46")
+states/Idle/position = Vector2(522, 36)
+states/Run/node = SubResource("AnimationNodeAnimation_8rtyh")
+states/Run/position = Vector2(394, 125)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_m5ntl"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_06n3j"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_gmspv"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_ok8w3"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_0sp7d"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_lu5kn"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_37f8o"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_ff4jd"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_xbxoj"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_dkni8")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fm4i8"]
 size = Vector2(23, 35)
@@ -330,7 +330,7 @@ wait_time = 0.2
 [node name="Standby" type="Node" parent="StateMachine" node_paths=PackedStringArray("FOLLOW_STATE")]
 script = ExtResource("5_8mrf4")
 FOLLOW_STATE = NodePath("../Follow")
-FOLLOW_DISTANCE = 100.0
+FOLLOW_DISTANCE = 50.0
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
 script = ExtResource("6_hytqe")

@@ -6,7 +6,7 @@ extends State
 @onready var Player : CharacterBody2D = $"../../../Player"
 
 func onEnter():
-	animationState.travel("Idle")
+	animationState.travel("Run")
 
 func stateProcess(_delta):
 	if(abs(character.global_position.x- Player.global_position.x) > FOLLOW_DISTANCE):
