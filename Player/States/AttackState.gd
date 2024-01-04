@@ -8,19 +8,29 @@ class_name PlayerAttackState
 @export var playerSprite : Sprite2D
 @export var attackHitbox : Area2D
 var bodiesInAttack
-var playerDamageDealing = 1#get_parent()._get_penis_blast()
+var variable_damage : float
+ 
 
-#func ready():
-#	playerDamageDealing = 1
+func _ready():
+	pass
+	
+func _add_var_damage(ammount):
+	variable_damage = variable_damage + ammount
+	
+func _get_var_damage():
+	return variable_damage
 
 func onEnter():
 	animationState.travel("Attack")
 	attackTimer.wait_time = attackTime
 	attackTimer.start()
+	var idgaf = get_parent().get_parent()
 	bodiesInAttack = attackHitbox.get_overlapping_bodies()
 	for body in bodiesInAttack:
 		if "enemy" in body.name:
-			body.takeDamage(playerDamageDealing)
+			body.takeDamage(idgaf._get_damage())
+			#body.takeDamage(variable_damage)
+			#print(variable_damage)
 
 func onExit():
 	attackTimer.stop()
@@ -30,14 +40,8 @@ func onExit():
 func _on_attack_timer_timeout():
 	nextState = get_parent().states[1]
 
-func _add_damage(dmg):
-	playerDamageDealing += dmg
 
-func _get_damage():
-	return playerDamageDealing
 
 
 func _on_player_property_list_changed():
-	_add_damage(5)
 	print("IT SHOULD DO MORE DMG NOWWWW")
-	print(playerDamageDealing)

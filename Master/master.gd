@@ -7,6 +7,9 @@ var infiniteLevel = preload("res://Infinite/ran.tscn")
 var coinCounter
 var infoExchangeLevelNum #holds onto the level num when it's changed so that other funcs can use it
 
+var currentLevel 
+var playerInLevel 
+
 func _change_level(x):
 	var level = levels[x].instantiate()
 	add_child(level)
@@ -27,6 +30,8 @@ func _ready():
 	AudioServer.set_bus_volume_db(0,-20)
 	_change_level(Globalvars.getLevel())
 	coinCounter = 0
+	currentLevel = levels[infoExchangeLevelNum].instantiate()
+	playerInLevel = currentLevel.get_node("Player")
 
 func _on_pause_button_pressed():
 	get_tree().paused = true
@@ -91,19 +96,22 @@ func _on_shop_back_button_pressed():
 	
 
 
+
+
 func _on_test_button_pressed():
 	print("gloop")
 	if(coinCounter>= 5):
-		var currentLevel = levels[infoExchangeLevelNum].instantiate()
-		var playerInLevel = currentLevel.get_node("Player")
+	#	var currentLevel = levels[infoExchangeLevelNum].instantiate()
+	#	var playerInLevel = currentLevel.get_node("Player")
 		playerInLevel.dmgTrigger()
 		print("beans")
 		coinCounter -= 5
 	else:
 		print("poop")
-		var currentLevel = levels[infoExchangeLevelNum].instantiate()
-		var playerInLevel = currentLevel.get_node("Player")
+	#	var currentLevel = levels[infoExchangeLevelNum].instantiate()
+	#	var playerInLevel = currentLevel.get_node("Player")
 		get_tree().paused = false
+		playerInLevel._ready()
 		playerInLevel.dmgTrigger()
 		get_tree().paused = true
 		print("beans")

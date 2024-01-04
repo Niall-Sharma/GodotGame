@@ -10,13 +10,21 @@ var isOnLadder : bool = false
 @onready var heatlhBar = $PlayerGUI/HealthBar
 @onready var PlayerStateMachine : StateMachine = $StateMachine
 
-
+var playerDamageDealing = 1
 
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
+var machine
+var attack
 
 func _ready():
 	heatlhBar.modulate=Color(0,2,0)
 	animationTree.active = true
+	machine = get_node("StateMachine")
+	attack = get_node("StateMachine/Attack")
+	attack._ready()
+
+
+
 
 
 
@@ -97,11 +105,22 @@ func highJump():
 func isHealthMax():
 	return health < 100
 
+
+
+func _add_damage(dmg):
+	print(playerDamageDealing)
+	playerDamageDealing += dmg
+
+func _get_damage():
+	return playerDamageDealing
+
 func dmgTrigger():
-	$StateMachine/Attack._add_damage(10)
-	#var thingToPrint = $StateMachine/Attack._get_damage()
+	_add_damage(1)
 	print("The dmgTrigger function goes")
 	print("the current dmg is ")
-	property_list_changed
-	#print(thingToPrint)
+	notify_property_list_changed()
+	attack._add_var_damage(_get_damage())
+	print(attack._get_var_damage())
+	var thingToPrint = _get_damage()
+	print(thingToPrint)
 	#$"res://levelselect/globalvars.gd".addPlayerDamage()
