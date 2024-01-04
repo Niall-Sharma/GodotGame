@@ -22,7 +22,7 @@ func dupe():
 	snoa.get_child(0).hide()
 	$"..".add_child(snoa)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# if player is within range, find and fly
 func _process(_delta):
 	
 	if abs(PLAYER.position.x - self.position.x) < 500 and abs(PLAYER.position.y - self.position.y) < 200:
