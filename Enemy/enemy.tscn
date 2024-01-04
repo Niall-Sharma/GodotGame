@@ -279,6 +279,7 @@ libraries = {
 }
 
 [node name="StatemachineLabel" type="Label" parent="." node_paths=PackedStringArray("stateMachine")]
+visible = false
 offset_left = -70.0
 offset_top = -37.0
 offset_right = 69.0
