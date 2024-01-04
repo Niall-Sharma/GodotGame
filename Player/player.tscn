@@ -452,6 +452,7 @@ canMove = false
 wait_time = 0.3
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("stateMachine")]
+visible = false
 offset_left = -53.0
 offset_top = -37.0
 offset_right = 64.0
