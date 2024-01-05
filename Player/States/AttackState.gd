@@ -29,10 +29,10 @@ func onEnter():
 	bodiesInAttack = attackHitbox.get_overlapping_bodies()
 	for body in bodiesInAttack:
 		if "enemy" in body.name:
-			print(idgaf._get_damage())
-			body.takeDamage(idgaf._get_damage())
-			#body.takeDamage(_get_var_damage())
-			#print(_get_var_damage())
+			#print(idgaf._get_damage())
+			#body.takeDamage(idgaf._get_damage())
+			body.takeDamage(_get_var_damage())
+			print(_get_var_damage())
 
 func onExit():
 	attackTimer.stop()
