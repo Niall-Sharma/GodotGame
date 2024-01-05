@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Level3/level_3.gd" id="1_j1g08"]
 [ext_resource type="Texture2D" uid="uid://ce16obpcs4tyw" path="res://Pixel_Platformer_Tileset_Pack/Asset_02/pixel_platform_02_tileset_final.png" id="1_oikax"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="2_4in8m"]
-[ext_resource type="Texture2D" uid="uid://4iuyeu6y2m1w" path="res://Level3/pixil-frame-0 (3).png" id="2_lv7dd"]
+[ext_resource type="Texture2D" uid="uid://d31v4nhcri0dj" path="res://snowball/a85a1b11f9a8b2fba55671eadde15bec.jpg" id="2_61s6s"]
 [ext_resource type="PackedScene" uid="uid://do3fhm161ket3" path="res://Coin/coin.tscn" id="4_vymkl"]
 [ext_resource type="PackedScene" uid="uid://cad8xy6lilo0m" path="res://key/key.tscn" id="6_e5v0d"]
 [ext_resource type="PackedScene" uid="uid://bswubndaw32m0" path="res://Heart/Heart.tscn" id="8_2fndk"]
@@ -860,15 +860,10 @@ sources/0 = SubResource("TileSetAtlasSource_dqm7h")
 script = ExtResource("1_j1g08")
 metadata/_edit_horizontal_guides_ = []
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-90, -183)
-scale = Vector2(21.5, 21.5)
-texture = ExtResource("2_lv7dd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-90, -269)
-scale = Vector2(21.5, 21.5)
-texture = ExtResource("2_lv7dd")
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-1016, 256)
+scale = Vector2(25.0711, 13.2311)
+texture = ExtResource("2_61s6s")
 
 [node name="TileMap5" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_exegy")
@@ -999,8 +994,12 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-982981, 131072, 0, -982980, 131072, 0, -982979, 131072, 0, -982978, 131072, 0, -982977, 131072, 0, -982976, 131072, 0, -982975, 131072, 0, -982974, 131072, 0, -982973, 131072, 0, -982972, 131072, 0, -982971, 131072, 0, -982970, 131072, 0, -982969, 131072, 0, -982968, 131072, 0, -982967, 131072, 0, -982966, 131072, 0, -982965, 131072, 0, -982964, 131072, 0, -982952, 131072, 0, -982953, 131072, 0, -982954, 131072, 0, -982955, 131072, 0, -982956, 131072, 0, -982957, 131072, 0, -982958, 131072, 0, -982960, 131072, 0, -982961, 131072, 0, -982962, 131072, 0, -982963, 131072, 0, -982959, 131072, 0, -4259969, 131072, 0, -4259968, 131072, 0, -4259967, 131072, 0, -4259966, 131072, 0, -4259965, 131072, 0, -4259964, 131072, 0, -4259963, 131072, 0, -4259962, 131072, 0, -4259961, 131072, 0, -4259960, 131072, 0, -4259959, 131072, 0, -4259958, 131072, 0, -4259957, 131072, 0, -4259956, 131072, 0, -4259955, 131072, 0, -4259954, 131072, 0, -3997809, 131072, 0, -3997808, 131072, 0, -3997807, 131072, 0, -3997806, 131072, 0, -3735661, 131072, 0, -3735660, 131072, 0, -3735659, 131072, 0, -3735658, 131072, 0, -3735657, 131072, 0, -3735656, 131072, 0, -3735655, 131072, 0, -3735654, 131072, 0, -3473509, 131072, 0, -3473508, 131072, 0, -3473507, 131072, 0, -3473506, 131072, 0, -3473505, 131072, 0, -3473504, 131072, 0, -3473503, 131072, 0, -3473502, 131072, 0, -3211357, 131072, 0, -3211356, 131072, 0, -3211355, 131072, 0, -3211354, 131072, 0, -2949209, 131072, 0, -2949208, 131072, 0, -2949207, 131072, 0, -2949206, 131072, 0, -2949205, 131072, 0, -2949204, 131072, 0, -2949203, 131072, 0, -2949202, 131072, 0)
 
 [node name="FinishLine" parent="." instance=ExtResource("12_a8mqm")]
-position = Vector2(-11645, -291)
-scale = Vector2(2.4, 1.7)
+position = Vector2(-11643, -308)
+scale = Vector2(2.4, 1)
+
+[node name="FinishLine2" parent="." instance=ExtResource("12_a8mqm")]
+position = Vector2(-11643, -221)
+scale = Vector2(2.4, 1)
 
 [node name="Node2D4" parent="." instance=ExtResource("12_jw8tk")]
 position = Vector2(-1360, -200)
