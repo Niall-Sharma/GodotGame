@@ -8,11 +8,12 @@ class_name PlayerAttackState
 @export var playerSprite : Sprite2D
 @export var attackHitbox : Area2D
 var bodiesInAttack
-var variable_damage : float
+var variable_damage =1
  
 
 func _ready():
 	pass
+	#variable_damage =1
 	
 func _add_var_damage(ammount):
 	variable_damage = variable_damage + ammount
@@ -30,8 +31,8 @@ func onEnter():
 		if "enemy" in body.name:
 			print(idgaf._get_damage())
 			body.takeDamage(idgaf._get_damage())
-			#body.takeDamage(variable_damage)
-			#print(variable_damage)
+			#body.takeDamage(_get_var_damage())
+			#print(_get_var_damage())
 
 func onExit():
 	attackTimer.stop()
@@ -45,4 +46,6 @@ func _on_attack_timer_timeout():
 
 
 func _on_player_property_list_changed():
+	_add_var_damage(1)
 	print("IT SHOULD DO MORE DMG NOWWWW")
+	print(variable_damage)
