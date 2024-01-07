@@ -95,6 +95,7 @@ FOLLOW_STATE = NodePath("../FollowState")
 canMove = false
 
 [node name="StateDebugLabel" type="Label" parent="StateMachine" node_paths=PackedStringArray("stateMachine")]
+visible = false
 offset_left = -54.0
 offset_top = -40.0
 offset_right = 56.0

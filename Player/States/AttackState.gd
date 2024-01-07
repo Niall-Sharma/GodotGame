@@ -35,6 +35,7 @@ func onEnter():
 			#body.takeDamage(variable_damage) 
 			#print(variable_damage)
 
+
 func onExit():
 	attackTimer.stop()
 	animationState.travel("Start")

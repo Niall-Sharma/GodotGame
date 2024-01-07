@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dacr5icl64w6g"]
+[gd_scene load_steps=4 format=3 uid="uid://dacr5icl64w6g"]
 
 [ext_resource type="Script" path="res://FinishLine/finish_line.gd" id="1_hluod"]
+[ext_resource type="Texture2D" uid="uid://4iuyeu6y2m1w" path="res://Level3/pixil-frame-0 (3).png" id="2_tgol3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7bbn"]
 size = Vector2(286.25, 110.25)
@@ -14,5 +15,10 @@ position = Vector2(4721, 2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(92.875, 35.875)
 shape = SubResource("RectangleShape2D_h7bbn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(93.0001, 35)
+scale = Vector2(8.9375, 21.6)
+texture = ExtResource("2_tgol3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

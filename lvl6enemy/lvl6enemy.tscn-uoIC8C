@@ -229,7 +229,6 @@ size = Vector2(69, 78)
 [node name="lvl6enemy" type="CharacterBody2D"]
 script = ExtResource("1_qgbdy")
 SPEED = -50
-health = 10
 knockbackAmount = Vector2(1500, 10)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -247,74 +246,4 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_ekccy")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "currentState", "animation_tree")]
-script = ExtResource("4_k7s5d")
-character = NodePath("..")
-currentState = NodePath("IdleState")
-animation_tree = NodePath("../AnimationTree")
-
-[node name="DeathState" type="Node" parent="StateMachine"]
-script = ExtResource("8_vyjoh")
-canMove = false
-isVulnerable = false
-
-[node name="FollowState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
-script = ExtResource("9_fq53n")
-STANDBY_STATE = NodePath("../IdleState")
-FOLLOW_DISTANCE = 10000.0
-
-[node name="HurtState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE", "enemySprite")]
-script = ExtResource("10_26hx2")
-STANDBY_STATE = NodePath("../IdleState")
-knockback_amount = Vector2(2500, 2.08165e-12)
-enemySprite = NodePath("../../Sprite2D")
-canMove = false
-isVulnerable = false
-
-[node name="HurtTimer" type="Timer" parent="StateMachine/HurtState"]
-wait_time = 0.5
-
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("FOLLOW_STATE")]
-script = ExtResource("8_m7l14")
-FOLLOW_STATE = NodePath("../FollowState")
-canMove = false
-
-[node name="AttackState" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
-script = ExtResource("7_jfffv")
-STANDBY_STATE = NodePath("../IdleState")
-canMove = false
-
-[node name="AttackTimer" type="Timer" parent="StateMachine/AttackState"]
-wait_time = 0.5
-
-[node name="StatemachineLabel" type="Label" parent="." node_paths=PackedStringArray("stateMachine")]
-visible = false
-offset_left = -70.0
-offset_top = -61.0
-offset_right = 69.0
-offset_bottom = -35.0
-text = "STATE"
-horizontal_alignment = 1
-script = ExtResource("11_skos7")
-stateMachine = NodePath("../StateMachine")
-metadata/_edit_use_anchors_ = true
-
-[node name="AttackArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource("RectangleShape2D_02hhs")
-
-[node name="Enemybar" type="ProgressBar" parent="."]
-offset_left = -27.0
-offset_top = -39.0
-offset_right = 26.0
-offset_bottom = -32.0
-max_value = 5.0
-step = 1.0
-show_percentage = false
-
-[connection signal="timeout" from="StateMachine/HurtState/HurtTimer" to="StateMachine/HurtState" method="_on_hurt_timer_timeout"]
-[connection signal="timeout" from="StateMachine/AttackState/AttackTimer" to="StateMachine/AttackState" method="_on_attack_timer_timeout"]
-[connection signal="body_entered" from="AttackArea" to="." method="_on_area_2d_body_entered"]
+anim_player = NodePath("../AnimationPla

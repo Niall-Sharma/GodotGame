@@ -1,11 +1,17 @@
-extends EnemyAttackState
+extends State
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@export var STANDBY_STATE : State
+@onready var attackTimer : Timer = $AttackTimer
+
+func _on_attack_timer_timeout():
+	nextState = STANDBY_STATE
+
+func onEnter():
+	attackTimer.start()
+	animationState.travel("Attack")
+
+func onExit():
+	attackTimer.stop()
