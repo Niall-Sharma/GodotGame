@@ -13,15 +13,15 @@ var isOnLadder : bool = false
 var playerDamageDealing = 1
 
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
-var machine
-var attack
+#var machine
+#var attack
 
 func _ready():
 	heatlhBar.modulate=Color(0,2,0)
 	animationTree.active = true
-	machine = get_node("StateMachine")
-	attack = get_node("StateMachine/Attack")
-	attack._ready()
+#	machine = get_node("StateMachine")
+#	attack = get_node("StateMachine/Attack")
+#	attack._ready()
 
 
 
@@ -118,9 +118,9 @@ func dmgTrigger():
 	_add_damage(1)
 	print("The dmgTrigger function goes")
 	print("the current dmg is ")
-	notify_property_list_changed()
-	attack._add_var_damage(_get_damage())
-	print(attack._get_var_damage())
+	#notify_property_list_changed()
+#	attack._add_var_damage(2)
+#	print(attack._get_var_damage())
 	var thingToPrint = _get_damage()
 	print(thingToPrint)
 	#$"res://levelselect/globalvars.gd".addPlayerDamage()

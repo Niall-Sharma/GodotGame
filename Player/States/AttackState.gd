@@ -7,8 +7,9 @@ class_name PlayerAttackState
 @export var knockback_amount : Vector2
 @export var playerSprite : Sprite2D
 @export var attackHitbox : Area2D
+var variable_damage  = 2
 var bodiesInAttack
-var variable_damage =1
+
  
 
 func _ready():
@@ -25,14 +26,14 @@ func onEnter():
 	animationState.travel("Attack")
 	attackTimer.wait_time = attackTime
 	attackTimer.start()
-	var idgaf = get_parent().get_parent()
+	var shouldBePlayer = get_parent().get_parent()
 	bodiesInAttack = attackHitbox.get_overlapping_bodies()
 	for body in bodiesInAttack:
 		if "enemy" in body.name:
-			#print(idgaf._get_damage())
-			#body.takeDamage(idgaf._get_damage())
-			body.takeDamage(_get_var_damage())
-			print(_get_var_damage())
+			print($/root/Master._get_player_from_master()._get_damage())
+			body.takeDamage($/root/Master._get_player_from_master()._get_damage())
+			#body.takeDamage(variable_damage) 
+			#print(variable_damage)
 
 func onExit():
 	attackTimer.stop()

@@ -97,22 +97,26 @@ func _on_shop_back_button_pressed():
 
 
 
+func _get_player_from_master():
+	return playerInLevel
+
+
 
 func _on_test_button_pressed():
 	print("gloop")
-	if(coinCounter>= 5):
-	#	var currentLevel = levels[infoExchangeLevelNum].instantiate()
-	#	var playerInLevel = currentLevel.get_node("Player")
-		playerInLevel.dmgTrigger()
-		print("beans")
-		coinCounter -= 5
-	else:
-		print("poop")
+	if(coinCounter>= 1):
 	#	var currentLevel = levels[infoExchangeLevelNum].instantiate()
 	#	var playerInLevel = currentLevel.get_node("Player")
 		get_tree().paused = false
 		playerInLevel._ready()
 		playerInLevel.dmgTrigger()
 		get_tree().paused = true
+		print("beans")
+		coinCounter -= 1
+	else:
+		print("poop")
+	#	var currentLevel = levels[infoExchangeLevelNum].instantiate()
+	#	var playerInLevel = currentLevel.get_node("Player")
+		
 		print("beans")
 
