@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmfm7dawmtous"]
+[gd_scene load_steps=5 format=3 uid="uid://cmfm7dawmtous"]
 
 [ext_resource type="Script" path="res://Infinite/ran.gd" id="1_o2epb"]
 [ext_resource type="PackedScene" uid="uid://dk6dssf5ifs7d" path="res://Player/player.tscn" id="1_yea3v"]
 [ext_resource type="Texture2D" uid="uid://doh81ln1281d0" path="res://Infinite/backg.jpg" id="2_qkryc"]
+[ext_resource type="PackedScene" uid="uid://bjg80mtxasonb" path="res://DeathObject/DeathObject.tscn" id="4_1npky"]
 
 [node name="ran" type="Node2D"]
 script = ExtResource("1_o2epb")
+
+[node name="Player" parent="." instance=ExtResource("1_yea3v")]
+position = Vector2(236, -81)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -2
@@ -20,14 +27,8 @@ texture = ExtResource("2_qkryc")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" parent="." instance=ExtResource("1_yea3v")]
-position = Vector2(234, -85)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
-
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(234, -85)
+position = Vector2(236, -81)
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -35,3 +36,7 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
+
+[node name="DeathObject9" parent="." instance=ExtResource("4_1npky")]
+position = Vector2(128, 3662)
+scale = Vector2(1e+09, 0.61)
