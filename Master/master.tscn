@@ -149,8 +149,7 @@ text = "BACK"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_xpwen")
 theme_override_font_sizes/font_size = 40
-text = "TEST
-"
+text = "+1ATK (1 COIN)"
 
 [connection signal="pressed" from="GUI/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/Restart Button" to="." method="_on_restart_button_pressed"]
