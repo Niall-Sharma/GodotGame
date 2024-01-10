@@ -149,7 +149,13 @@ text = "BACK"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_xpwen")
 theme_override_font_sizes/font_size = 40
-text = "+1ATK (1 COIN)"
+text = "+1ATK (3 COINS)"
+
+[node name="Regen button" type="Button" parent="ShopGUI/Shop Menu/Shop Stuff"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_xpwen")
+theme_override_font_sizes/font_size = 40
+text = "+1 HP (1 COIN)"
 
 [connection signal="pressed" from="GUI/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="GUI/Pause Menu/Volume Sliders/Restart Button" to="." method="_on_restart_button_pressed"]
@@ -159,3 +165,4 @@ text = "+1ATK (1 COIN)"
 [connection signal="pressed" from="ShopGUI/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ShopGUI/Shop Menu/Shop Stuff/ShopBackButton" to="." method="_on_shop_back_button_pressed"]
 [connection signal="pressed" from="ShopGUI/Shop Menu/Shop Stuff/Test button" to="." method="_on_test_button_pressed"]
+[connection signal="pressed" from="ShopGUI/Shop Menu/Shop Stuff/Regen button" to="." method="_on_regen_button_pressed"]

@@ -102,17 +102,15 @@ func _get_player_from_master():
 
 
 
-func _on_test_button_pressed():
+func _on_test_button_pressed(): #The attack function, didn't want to rename it.
 	print("gloop")
-	if(coinCounter>= 1):
-	#	var currentLevel = levels[infoExchangeLevelNum].instantiate()
-	#	var playerInLevel = currentLevel.get_node("Player")
+	if(coinCounter>= 3):
 		get_tree().paused = false
 		playerInLevel._ready()
 		playerInLevel.dmgTrigger()
 		get_tree().paused = true
 		print("beans")
-		coinCounter -= 1
+		coinCounter -= 3
 	else:
 		print("poop")
 	#	var currentLevel = levels[infoExchangeLevelNum].instantiate()
@@ -120,3 +118,12 @@ func _on_test_button_pressed():
 		
 		print("beans")
 
+
+
+func _on_regen_button_pressed(): #A health for a coin
+	if(coinCounter>= 1):
+		get_tree().paused = false
+		playerInLevel._ready()
+		playerInLevel.take_health(1)
+		get_tree().paused = true
+		coinCounter -= 1
