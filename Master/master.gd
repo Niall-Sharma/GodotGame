@@ -103,20 +103,17 @@ func _get_player_from_master():
 
 
 func _on_test_button_pressed(): #The attack function, didn't want to rename it.
-	print("gloop")
+	print("Begin if block")
 	if(coinCounter>= 3):
 		get_tree().paused = false
 		playerInLevel._ready()
 		playerInLevel.dmgTrigger()
 		get_tree().paused = true
-		print("beans")
 		coinCounter -= 3
+		print("End of block")
 	else:
-		print("poop")
-	#	var currentLevel = levels[infoExchangeLevelNum].instantiate()
-	#	var playerInLevel = currentLevel.get_node("Player")
-		
-		print("beans")
+		print("Inadequate")
+		print("End of block")
 
 
 
