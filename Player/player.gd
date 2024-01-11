@@ -116,11 +116,7 @@ func _get_damage():
 
 func dmgTrigger():
 	_add_damage(1)
-	print("The dmgTrigger function goes")
-	print("the current dmg is ")
-	#notify_property_list_changed()
-#	attack._add_var_damage(2)
-#	print(attack._get_var_damage())
-	var thingToPrint = _get_damage()
-	print(thingToPrint)
-	#$"res://levelselect/globalvars.gd".addPlayerDamage()
+#	print("The dmgTrigger function goes")
+#	print("the current dmg is ")
+#	var thingToPrint = _get_damage()
+#	print(thingToPrint)
