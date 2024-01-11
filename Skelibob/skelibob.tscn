@@ -1,7 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://caen3ip3a431x"]
+[gd_scene load_steps=31 format=3 uid="uid://caen3ip3a431x"]
 
 [ext_resource type="Script" path="res://Skelibob/skelibob.gd" id="1_0xjg0"]
 [ext_resource type="Texture2D" uid="uid://0ps728181685" path="res://Skelibob/Skeleton enemy/Skeleton enemy/Skeleton enemy.png" id="1_54sju"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_thi12"]
+[ext_resource type="Script" path="res://Skelibob/Hurt.gd" id="4_qk6gd"]
+[ext_resource type="Script" path="res://Skelibob/Standby.gd" id="5_8mrf4"]
+[ext_resource type="Script" path="res://Skelibob/Attack.gd" id="6_hytqe"]
+[ext_resource type="Script" path="res://Skelibob/Follow.gd" id="7_8urbe"]
 
 [sub_resource type="Animation" id="Animation_2xcxk"]
 resource_name = "Death"
@@ -234,11 +239,11 @@ _data = {
 "wark": SubResource("Animation_c5qsk")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iwskb"]
-animation = &"Death"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjcr6"]
 animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iwskb"]
+animation = &"Death"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jgw46"]
 animation = &"idle"
@@ -267,18 +272,25 @@ animation = &"wark"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dkni8"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6wfqs"]
+states/Attack/node = SubResource("AnimationNodeAnimation_pjcr6")
+states/Attack/position = Vector2(394, 36)
 states/Death/node = SubResource("AnimationNodeAnimation_iwskb")
 states/Death/position = Vector2(508, 160)
-states/attack/node = SubResource("AnimationNodeAnimation_pjcr6")
-states/attack/position = Vector2(394, 36)
-states/idle/node = SubResource("AnimationNodeAnimation_jgw46")
-states/idle/position = Vector2(522, 36)
-states/wark/node = SubResource("AnimationNodeAnimation_8rtyh")
-states/wark/position = Vector2(394, 125)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_m5ntl"), "idle", "wark", SubResource("AnimationNodeStateMachineTransition_06n3j"), "wark", "idle", SubResource("AnimationNodeStateMachineTransition_gmspv"), "attack", "wark", SubResource("AnimationNodeStateMachineTransition_ok8w3"), "wark", "attack", SubResource("AnimationNodeStateMachineTransition_0sp7d"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_lu5kn"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_37f8o"), "attack", "Death", SubResource("AnimationNodeStateMachineTransition_ff4jd"), "idle", "Death", SubResource("AnimationNodeStateMachineTransition_xbxoj"), "wark", "Death", SubResource("AnimationNodeStateMachineTransition_dkni8")]
+states/Idle/node = SubResource("AnimationNodeAnimation_jgw46")
+states/Idle/position = Vector2(522, 36)
+states/Run/node = SubResource("AnimationNodeAnimation_8rtyh")
+states/Run/position = Vector2(394, 125)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_m5ntl"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_06n3j"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_gmspv"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_ok8w3"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_0sp7d"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_lu5kn"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_37f8o"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_ff4jd"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_xbxoj"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_dkni8")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fm4i8"]
+size = Vector2(23, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0f5r"]
+size = Vector2(50.5, 43)
 
 [node name="Skeleton" type="CharacterBody2D"]
 script = ExtResource("1_0xjg0")
+knockbackAmount = Vector2(15000, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_54sju")
@@ -293,3 +305,49 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_6wfqs")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_fm4i8")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "currentState", "animation_tree")]
+script = ExtResource("3_thi12")
+character = NodePath("..")
+currentState = NodePath("Standby")
+animation_tree = NodePath("../AnimationTree")
+
+[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE", "enemySprite")]
+script = ExtResource("4_qk6gd")
+STANDBY_STATE = NodePath("../Standby")
+knockback_amount = Vector2(15000, 1)
+enemySprite = NodePath("../../Sprite2D")
+canMove = false
+isVulnerable = false
+
+[node name="HurtTimer" type="Timer" parent="StateMachine/Hurt"]
+wait_time = 0.2
+
+[node name="Standby" type="Node" parent="StateMachine" node_paths=PackedStringArray("FOLLOW_STATE")]
+script = ExtResource("5_8mrf4")
+FOLLOW_STATE = NodePath("../Follow")
+FOLLOW_DISTANCE = 50.0
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
+script = ExtResource("6_hytqe")
+STANDBY_STATE = NodePath("../Standby")
+canMove = false
+
+[node name="AttackTimer" type="Timer" parent="StateMachine/Attack"]
+wait_time = 0.4
+
+[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("STANDBY_STATE")]
+script = ExtResource("7_8urbe")
+STANDBY_STATE = NodePath("../Standby")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.75, -0.5)
+shape = SubResource("RectangleShape2D_o0f5r")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
