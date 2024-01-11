@@ -150,7 +150,7 @@ text = "BACK"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_xpwen")
 theme_override_font_sizes/font_size = 40
-text = "+1ATK (3 COINS)"
+text = "+1ATK (2 COINS)"
 
 [node name="Regen button" type="Button" parent="ShopGUI/Shop Menu/Shop Stuff"]
 layout_mode = 2

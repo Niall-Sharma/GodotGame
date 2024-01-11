@@ -104,12 +104,12 @@ func _get_player_from_master():
 
 func _on_test_button_pressed(): #The attack function, didn't want to rename it.
 	print("Begin if block")
-	if(coinCounter>= 3):
+	if(coinCounter>= 2):
 		get_tree().paused = false
 		playerInLevel._ready()
 		playerInLevel.dmgTrigger()
 		get_tree().paused = true
-		coinCounter -= 3
+		coinCounter -= 2
 		print("End of block")
 	else:
 		print("Inadequate")
