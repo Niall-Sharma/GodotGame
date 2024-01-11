@@ -4,6 +4,7 @@ var lvl_num
 
 var lc = [true,true,true,true,true,true,true,true,true,true,true] 
 
+var playerDamage = 1
 	
 
 
@@ -20,3 +21,8 @@ func getLevel():
 func getlc(x):
 	return lc[x]
 	
+func getPlayerDamage():
+	return playerDamage
+	
+func addPlayerDamage():
+	playerDamage+=1
