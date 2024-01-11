@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_qqa1l"]
 [ext_resource type="Texture2D" uid="uid://cc4gxad1du50g" path="res://levelselect/arcade-game-world-pixel-scene_24640-45908.jpg" id="2_hnaw5"]
 [ext_resource type="Theme" uid="uid://b8wlumbqx6y67" path="res://GameTheme.tres" id="2_nxljn"]
-[ext_resource type="AudioStream" uid="uid://0lr8ayvuh8cv" path="res://Master/red-flowers-kidcut-main-version-02-14-12093.mp3" id="3_xc3je"]
+[ext_resource type="AudioStream" uid="uid://bx2bouiedbodi" path="res://Master/DinoTheme.wav" id="3_puc3w"]
 
 [node name="MenuNode" type="Node"]
 
@@ -23,7 +23,7 @@ texture = ExtResource("2_hnaw5")
 stretch_mode = 6
 
 [node name="MenuTheme" type="AudioStreamPlayer2D" parent="MainMenu"]
-stream = ExtResource("3_xc3je")
+stream = ExtResource("3_puc3w")
 
 [node name="Main" type="VBoxContainer" parent="MainMenu"]
 anchors_preset = 8
